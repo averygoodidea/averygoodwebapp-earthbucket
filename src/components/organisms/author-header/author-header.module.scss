@@ -1,0 +1,12 @@
+@import "../../../sass/main.scss";
+.authorHeaderButton {
+	font-size: 80%;
+	float: right;
+	margin-top: 15px;
+
+	@media (max-width: $max-mobile-width) {
+	    position: absolute;
+    	right: 10px;
+    	top: 10px;
+	}
+}

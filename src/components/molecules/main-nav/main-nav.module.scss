@@ -1,0 +1,70 @@
+@import "../../../sass/main.scss";
+.mainNav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #e3cec1;
+    width: 20%;
+    padding-top: 10px;
+    button {
+        display: block;
+        background: none;
+        color: $text-color;
+        text-decoration: none;
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+
+        i {
+            color: $content-text-color;
+            margin-left: 20px;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+        &:hover,
+        &:focus {
+            color: $text-color;
+            background: #f0ded2;
+            @include box-shadow;
+
+            i {
+                color: $content-text-color;
+            }
+        }
+    }
+
+    .tabbed {
+        background: #f0ded2;
+        @include box-shadow;
+    }
+
+    @media(max-width: $max-mobile-width) {
+        padding-top: 2px;
+        right: 0;
+        width: auto;
+
+        button {
+            width: auto;
+            margin: 10px;
+            padding: 5px 0;
+            span {
+                display: none;
+            }
+        }
+    }
+
+    @media(min-width: $min-tablet-width) {
+        position: relative;
+        width: auto;
+        padding: 0;
+        border-radius: $corner-radius;
+        left: -30px;
+        button {
+            i {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}

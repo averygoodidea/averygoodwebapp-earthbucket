@@ -1,0 +1,163 @@
+@import "../../../sass/main.scss";
+.commentSection {
+
+	/* editing pane */
+	.v[data-class=v] .vwrap {
+		border: none;
+		border-radius: 0;
+		border-top: 2px solid rgba(85, 63, 61, .12);
+		padding-bottom: 30px;
+    	margin-bottom: 0;
+
+		&:hover {
+			border-top: 2px solid rgba(85, 63, 61, .4);
+			background: $button-color;
+		}
+	}
+
+	.v[data-class=v] a {
+		color: $link-color;
+		font-size: 15px;
+
+		&:hover,
+		&:focus {
+			color: $link-hover-color;
+		}
+	}
+
+	.vheader {
+		border-bottom: none;
+	}
+
+	.v[data-class=v] .vinput {
+		font-size: 17px;
+		font-family: Helvetica, Arial, sans-serif;
+		color: $text-color;
+	}
+
+	.v[data-class=v] .txt-right {
+		display: none;
+	}
+
+	/* inputs */
+	.v[data-class=v] .vwrap .vheader .vinput {
+		border: none;
+
+		@media(max-width: $max-mobile-width) {
+			border-bottom: 3px solid rgba(85, 63, 61, .12);
+
+			&:focus {
+				border-color: $text-color;
+			}
+		}
+	}
+
+	/* inputs */
+	.v[data-class=v] #veditor.vinput {
+		color: $content-text-color;
+		height: unset !important;
+		min-height: unset;
+		max-height: 100px;
+		border: 2px dashed #c1ab9f;
+		border-radius: $corner-radius;
+		padding: 15px;
+		margin-bottom: 15px;
+	}
+
+	/* markdown icon */
+	.v[data-class=v] .vicon {
+		fill: $text-color;
+		zoom: 130%;
+	}
+
+	/* submit button */
+	.v[data-class=v] .vbtn {
+		margin-top: 10px;
+		border-radius: $corner-radius;
+		padding: 8px 10px;
+		text-transform: uppercase;
+		border: none;
+		cursor: pointer;
+		background: #b43100;
+		color: #fff;
+
+		&:hover,
+		&:focus {
+			background: $button-hover-color;
+			color: $button-hover-text-color;
+		}
+	}
+
+	.v[data-class=v] .vcount {
+		border-top: 2px solid rgba(85, 63, 61, .2);
+		font-size: 17px;
+		padding: 20px;
+	}
+
+	.v[data-class=v] .vcards .vcard {
+		border-top: 2px dashed rgba(85, 63, 61, .2);
+		padding: 20px;
+	}
+
+	.v[data-class=v] .vcards .vcard .vhead .vnick,
+	.v[data-class=v] .vcards .vcard .vh .vmeta .vat {
+		font-size: 15px;
+	}
+
+	.v[data-class=v] .vcards .vcard .vh .vtime {
+		font-size: 14px;
+		font-style: italic;
+	}
+
+	.v[data-class=v] .vsys, .v[data-class=v] .vtime {
+		color: $text-color;
+	}
+
+	.v[data-class=v] .vsys {
+		display: none;
+	}
+
+	.v[data-class=v] p {
+		color: $content-text-color;
+	}
+
+	.v[data-class=v] .vrow {
+		padding: 0 10px;
+	}
+
+	.v[data-class=v] .vempty {
+		display: none;
+		padding-bottom: 50px;
+	}
+
+	.v[data-class=v] .vcards .vcard .vcontent {
+		padding-top: 0;
+	}
+
+	.v[data-class=v] .vcards .vcard .vh {
+		border-bottom: none;
+	}
+
+	.v[data-class=v] .status-bar {
+		color: $text-color;
+		font-size: 15px;
+	}
+}
+
+.fullWidth {
+	margin: 0 -50px;
+
+	.v[data-class=v] .vwrap {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+.brighten {
+	/* editing pane */
+	.v[data-class=v] .vwrap {
+		&:hover {
+			background: #fff;
+		}
+	}
+}

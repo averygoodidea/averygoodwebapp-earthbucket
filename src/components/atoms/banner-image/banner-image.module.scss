@@ -1,0 +1,19 @@
+@import "../../../sass/main.scss";
+.bannerImage {
+	margin-bottom: 30px;
+	border-radius: $corner-radius;
+	overflow: hidden;
+	min-height: 300px;
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media(max-width: $max-mobile-width) {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

@@ -1,0 +1,125 @@
+@import "../../../sass/main.scss";
+$background-color: #e6ccbe;
+.emailForm {
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    background: $background-color;
+	border-top: 2px solid rgba(85, 63, 61, .12);
+    padding: 30px;
+    margin-left: -50px;
+    margin-right: -50px;
+
+	.message {
+		padding-right: 25px;
+
+		p {
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+	}
+
+	.form {
+		position: relative;
+		overflow: hidden;
+		margin-top: 20px;
+		width: 80%;
+
+		input[type="text"] {
+			border: 2px solid #c1ab9f;
+			width: 80%;
+			padding-bottom: 16px;
+			margin-bottom: 10px;
+		}
+
+		input[type="submit"] {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 1;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			padding: 14px 20px 15px;
+		}
+
+		.buttonBackground {
+			position: absolute;
+			height: 52px;
+			width: 50px;
+			top: 0;
+			right: 0;
+			background: $background-color;
+		}
+
+		.helpMessage {
+			margin-top: -8px;
+			p {
+				background: #ffeec7;
+		    	font-size: 15px;
+		    	padding: 10px 20px;
+		    	margin: 0;
+		    	line-height: 100%;
+			}
+		}
+	}
+
+	@media(max-width: $max-mobile-width) {
+		display: block;
+		margin-bottom: 0;
+
+		.message {
+			padding-right: 0;
+
+			p {
+				margin-bottom: 15px;
+			}
+		}
+
+		.form {
+			width: auto;
+
+			input[type="text"] {
+				padding: 15px;
+			}
+
+			input[type="submit"] {
+				position: relative;
+				border-top-left-radius: $corner-radius;
+				border-bottom-left-radius: $corner-radius;
+			}
+
+			.buttonBackground {
+				display: none;
+			}
+
+			.helpMessage {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	@media(min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+		.form {
+			width: 100%;
+		}
+	}
+}
+
+.brighten {
+	background: #efded2;
+	.form {
+		.buttonBackground {
+			background: #efded2;
+		}
+	}
+}
+
+.signature {
+	display: inline-block;
+	margin-top: 15px;
+	i {
+		font-size: 40px;
+	}
+}

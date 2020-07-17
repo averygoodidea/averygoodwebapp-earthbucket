@@ -1,0 +1,36 @@
+@import "../../../sass/main.scss";
+.activityMenu {
+	margin-top: 40px;
+	margin-left: -50px;
+    margin-right: -50px;
+	position: relative;
+	border-top: 2px solid rgba(85, 63, 61, .12);
+	padding: 30px 50px;
+
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+
+    .moreInfo p {
+    	margin-top: 0;
+    	line-height: 100%;
+    }
+
+    .tags button {
+        display: inline-block;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-size: 86%;
+        padding: 6px 15px 10px;
+        i {
+           font-size: 200%;
+           margin-right: 10px;
+           vertical-align: middle;
+        }
+     }
+
+	.shareButton {
+		margin-right: 20px;
+	}
+}

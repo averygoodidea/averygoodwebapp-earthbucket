@@ -1,0 +1,102 @@
+@import "../../../sass/main.scss";
+.header {
+	position: relative;
+	padding: 30px 0;
+	margin-bottom: 60px;
+	background: #efded2;
+	h1 {
+		margin: 10px 0 0;
+		font-weight: normal;
+		text-transform: uppercase;
+		a {
+			text-decoration: none;
+			color: $text-color;
+
+			&:hover,
+			&:focus {
+				color: $link-hover-color;
+			}
+		}
+	}
+	
+	p {
+		margin-top: 5px;
+		color: $content-text-color;
+	}
+	.listButton {
+		position: relative;
+
+		.amount {
+			position: absolute;
+			z-index: 10;
+			color: $text-color;
+			@include box-shadow;
+			background: #fff;
+			padding: 5px 10px;
+			border-radius: $corner-radius;
+			font-size: 18px;
+			top: -8px;
+    		left: -22px;
+			cursor: pointer;
+		}
+
+		button {
+			position: absolute;
+			top: 6px;
+			@include box-shadow;
+		}
+
+		button.tabbed {
+			background: $button-hover-color;
+			color: $button-hover-text-color;
+			i {
+				color: $button-hover-text-color;
+			}
+		}
+	}
+	.sectionTitle {
+		position: relative;
+
+		h1 {
+			position: absolute;
+			top: -10px;
+			color: $content-text-color;
+			font-size: 50px;
+		}
+	}
+
+	@media(max-width: $max-mobile-width) {
+		margin-bottom: -10px;
+		padding: 20px 0 30px;
+		.heroText h1 {
+			margin-top: 8px;
+			font-size: 20px;
+			margin-bottom: 10px;
+
+			a {
+				font-weight: bold;
+			}
+		}
+		p {
+			display: none;
+		}
+		
+		.listButton {
+			
+			.amount {
+				top: -2px;
+				left: -15px;
+			}
+
+			button {
+				position: relative;
+				margin-bottom: 20px;
+			}
+		}
+
+		.sectionTitle h1 {
+			position: relative;
+			word-break: break-word;
+		}
+	}
+}

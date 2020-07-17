@@ -53,6 +53,7 @@ typings/
 
 # dotenv environment variable files
 .env*
+!.env.*.example
 
 # gatsby files
 .cache/
@@ -67,3 +68,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+ngrok
+# hide the forestry settings yml because unfortunately Forestry will store keys in the repo, otherwise
+.forestry/settings.yml

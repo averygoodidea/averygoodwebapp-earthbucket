@@ -1,0 +1,87 @@
+@import "../../../sass/main.scss";
+.overlayCloseButton {
+	display: -ms-flexbox;
+   	display: -webkit-flex;
+	display: flex;
+	position: relative;
+	height: 100vh;
+}
+.content {
+    display: -ms-flexbox;
+   	display: -webkit-flex;
+   	display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+    padding: 50px;
+    max-width: $max-tablet-width;
+
+    .closeButton {
+		cursor: pointer;
+	    color: $button-color;
+	    font-size: 30px;
+	    position: absolute;
+	    top: 20px;
+	    right: 15px;
+
+	    &:hover,
+	    &:active,
+	    &:focus {
+	    	color: #fff;
+	    }
+	}
+
+	.previousButton {
+		cursor: pointer;
+		font-size: 30px;
+		color: #fff;
+		user-select: none;
+		color: $button-color;
+
+		position: fixed;
+	    top: 50%;
+	    left: 0;
+
+		&:hover,
+	    &:active,
+	    &:focus {
+	    	color: #fff;
+	    }
+	}
+
+	.nextButton {
+		cursor: pointer;
+		font-size: 30px;
+		color: rgba(255,255,255,0.7);
+		user-select: none;
+		color: $button-color;
+
+		position: fixed;
+	    top: 50%;
+	    right: 0;
+
+		&:hover,
+	    &:active,
+	    &:focus {
+	    	i {
+	    		color: #fff;
+	    	}
+	    }
+	}
+
+    img {
+    	width: 100%;
+    }
+
+    .previousButton,
+    .nextButton {
+		margin: 0 10px;
+	}
+
+	@media(min-width: $min-desktop-width) {
+		.previousButton,
+	    .nextButton {
+			margin: 0 15px;
+		}
+	}
+}

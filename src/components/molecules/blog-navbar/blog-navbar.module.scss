@@ -1,0 +1,73 @@
+@import "../../../sass/main.scss";
+.navbar {
+    margin-bottom: 20px;
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .next,
+    .previous,
+    .disabled {
+    	width: 30%;
+    	min-height: 80px;
+    }
+    .next,
+    .previous {
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    align-items: center;
+    }
+    .next {
+    	justify-content: flex-end;
+    	text-align: right;
+    	border-right: 5px solid $content-text-color;
+    	span {
+    		padding-right: 10px;
+    	}
+    	&:hover,
+    	&:focus {
+    		border-right-color: $text-color;
+    	}
+    }
+    .previous {
+    	text-align: left;
+    	border-left: 5px solid $content-text-color;
+    	span {
+    		padding-left: 10px;
+    	}
+    	&:hover,
+    	&:focus {
+    		border-left-color: $text-color;
+    	}
+    }
+    .disabled {
+    	visibility: hidden;
+    }
+
+    .blogIndexButton {
+    	margin: 0 10px;
+        width: 25%;
+    	min-height: 80px;
+    	padding-right: 10px;
+    	i {
+    		margin-right: 0;
+    		margin-bottom: 3px;
+    		display: block;
+    	}
+    }
+
+    @media (max-width: $max-mobile-width) {
+    	margin-left: 10px;
+    	margin-right: 10px;
+    	button i {
+    		display: none;
+    	}
+    }
+}

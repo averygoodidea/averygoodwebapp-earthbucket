@@ -1,0 +1,24 @@
+@import "../../../sass/main.scss";
+.label {
+    margin-bottom: 10px;
+}
+.hidden {
+    position: absolute;
+    top: -2000px;
+    left: -2000px;
+}
+.textfield {
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid rgba(85,63,61,0.16);
+    background: #fff;
+    display: inline-block;
+    width: 90%;
+
+    @media(min-width: $min-tablet-width) {
+    	display: block;
+    	margin: 0 0 25px;
+        padding: 15px 10px;
+        width: 94%;
+    }
+}

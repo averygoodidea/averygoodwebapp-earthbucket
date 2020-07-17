@@ -1,0 +1,20 @@
+@import "../../../sass/main.scss";
+.shareButton {
+	display: inline-block;
+	padding: 5px;
+	text-decoration: none;
+	font-size: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	i {
+		color: $link-color;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		i {
+			color: $text-color;
+		}
+	}
+}

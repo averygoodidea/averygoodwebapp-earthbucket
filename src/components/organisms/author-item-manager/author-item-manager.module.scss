@@ -1,0 +1,79 @@
+@import "../../../sass/main.scss";
+$min-height: 400px;
+.window {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	border-radius: 10px;
+	overflow: hidden;
+	background: $button-color;
+
+	h2 {
+		font-size: 20px;
+	}
+
+	.menu {
+    	background: #f4e7dd;
+    	width: 30%;
+    	border-right: 5px solid #efded2;
+    	overflow: scroll;
+    	
+    	h2 {
+    		padding: 10px 50px 10px 25px;
+    	}
+    }
+
+	.info {
+		margin-bottom: 30px;
+		width: 70%;
+
+		.content {
+
+			p {
+				color: $content-text-color;
+			}
+
+			form {
+				margin-top: 30px;
+
+				.topFormArea {
+					display: -ms-flexbox;
+				    display: -webkit-flex;
+				    display: flex;
+				    align-items: center;
+				    justify-content: space-between;
+
+				    h2 {
+				    	margin-top: 0;
+				    }
+				}
+
+				.bottomFormArea {
+					text-align: right;
+					padding-top: 30px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: $max-mobile-width) {
+
+	margin-left: 10px;
+	margin-right: 10px;
+
+	.window {
+		.menu {
+			padding-top: 50px;
+			h2 {
+				display: none;
+			}
+		}
+		.info {
+			margin-top: -20px;
+		}
+	}
+	.info .content form {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

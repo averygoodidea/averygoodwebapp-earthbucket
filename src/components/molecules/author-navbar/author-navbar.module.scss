@@ -1,0 +1,76 @@
+@import "../../../sass/main.scss";
+.authorNavbar {
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+	
+	button {
+
+		margin: 0;
+		font-size: 20px;
+		width: 50%;
+
+		display: block;
+		padding: 15px 0;
+		color: $link-color;
+		background: #efded2;
+		text-align: center;
+		text-decoration: none;
+
+		i {
+			color: $text-color;
+			font-size: 160%;
+			display: inline-block;
+			vertical-align: middle;
+			pointer-events: none;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		border-radius: 0;
+
+		&:first-child {
+			border-top-left-radius: $corner-radius;
+			border-bottom-left-radius: $corner-radius;
+		}
+		&:last-child {
+			border-top-right-radius: $corner-radius;
+			border-bottom-right-radius: $corner-radius;
+		}
+
+		&.tabbed {
+			background: $button-hover-color;
+			color: $button-hover-text-color;
+			i {
+				color: $button-hover-text-color;
+			}
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			border: 2px dashed #805450;
+			border-top: none;
+			border-bottom: none;
+		}
+
+		@media(max-width: $max-mobile-width) {
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		@media(min-width: $min-desktop-width) {
+			padding: 25px 0;
+			
+			i {
+				padding-right: 20px;
+				display: inline-block;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

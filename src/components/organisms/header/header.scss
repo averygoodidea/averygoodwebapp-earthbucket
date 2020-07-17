@@ -1,0 +1,9 @@
+@import "../../../sass/main.scss";
+@media(max-width: $max-mobile-width) {
+	.wrapper {
+		padding: 0;
+		.container-fluid {
+			padding: 0;
+		}
+	}
+}

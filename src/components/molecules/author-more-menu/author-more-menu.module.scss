@@ -1,0 +1,40 @@
+@import "../../../sass/main.scss";
+.authorMoreMenu {
+    position: relative;
+    margin-top: -16px;
+    ul {
+        position:absolute;
+        @include box-shadow;
+        right: 0;
+        list-style-type: none;
+        margin: 0;
+        border: 2px dashed #c7a08c;
+        padding: 10px;
+        background: #f4e7dd;
+
+        li button {
+            display: block;
+            padding: 12px 20px;
+            background: #faf3ee;
+            border-radius: 0;
+            width: 170px;
+            text-align: left;
+            border-bottom: 3px solid #efded2;
+            text-transform: unset;
+
+            &:hover,
+            &:active,
+            &:focus {
+                background: #fff;
+                color: $link-hover-color;
+                i {
+                    color: $text-color;
+                }
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+@import "../../../sass/main.scss";
+.card {
+	border-radius: $corner-radius;
+	background: $button-color;
+	padding-bottom: 20px;
+	position: relative;
+	margin-bottom: 30px;
+	width: 33%;
+	margin-bottom: 3px;
+
+	.plusButton button {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		z-index: 5;
+	}
+
+	img {
+	    width: 90%;
+	    margin: 5% auto 0;
+	    display: block;
+	    mix-blend-mode: multiply;
+	}
+
+	.title {
+		margin-bottom: 0;
+		padding: 0 10px;
+	}
+
+	.additionalInfo {
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    padding: 0 10px 0 8px;
+
+	    i {
+			color: $content-text-color;
+			font-size: 230%;
+			vertical-align: middle;
+			margin: 10px 0 0;
+			display: inline-block;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $link-hover-color;
+			}
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: #fff;
+		border-color: #fff;
+	}
+
+	.iconButton {
+		display: inline-block;
+	}
+
+	@media(max-width: $max-mobile-width) {
+		margin-bottom: 1px;
+	}
+}

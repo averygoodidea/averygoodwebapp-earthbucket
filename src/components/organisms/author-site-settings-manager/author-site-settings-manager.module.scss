@@ -1,0 +1,40 @@
+@import "../../../sass/main.scss";
+$min-height: 400px;
+.window {
+	padding: 30px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: $button-color;
+	min-height: 300px;
+
+	h2 {
+		font-size: 20px;
+	}
+
+	.info {
+		margin-bottom: 30px;
+
+		.content {
+
+			p {
+				color: $content-text-color;
+			}
+
+			button {
+				display: block;
+				padding-top: 10px;
+				i {
+					vertical-align: middle;
+				}
+			}
+			
+		}
+	}
+
+	@media (max-width: $max-mobile-width) {
+
+		margin-left: 10px;
+		margin-right: 10px;
+	
+	}
+}

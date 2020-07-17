@@ -1,0 +1,19 @@
+$max-mobile-width: 767px;
+$min-tablet-width: 768px;
+$max-tablet-width: 991px;
+$min-desktop-width: 992px;
+$text-color: #553f3d;
+$text-hover-color: #FCD42E;
+$content-text-color: #915535;
+$link-color: #b43100;
+$link-hover-color: #ff3d00;
+$button-color: #f7ede5;
+$button-hover-color: #553f3d;
+$button-hover-text-color: #f7ede5;
+$corner-radius: 10px;
+
+@mixin box-shadow {
+	-webkit-box-shadow: 0px 0px 27px -1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0px 27px -1px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 27px -1px rgba(0,0,0,0.2);
+}

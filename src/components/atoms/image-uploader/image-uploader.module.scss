@@ -1,0 +1,55 @@
+@import "../../../sass/main.scss";
+
+.label {
+    margin-bottom: 10px;
+}
+
+.dropzone {
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 2px dashed rgba(85,63,61,0.3);
+    text-align: center;
+
+    p {
+        margin: 20px;
+        font-size: 16px;
+    }
+
+    @media(min-width: $min-tablet-width) {
+        width: 100%;
+    }
+}
+
+.sortableList {
+
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid rgba(85,63,61,0.16);
+    background: #fff;
+    display: inline-block;
+    width: 90%;
+
+    .file {
+        padding: 15px 10px;
+        text-align: center;
+        img {
+            width: 96%;
+            border-radius: 10px;
+            border: 2px dashed rgba(85,63,61,0.3);
+            vertical-align: top;
+        }
+        .minusButton button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 5;
+        }
+    }
+
+    @media(min-width: $min-tablet-width) {
+        display: block;
+        margin: 10px 0 25px;
+        padding: 10px;
+        width: 94%;
+    }
+}

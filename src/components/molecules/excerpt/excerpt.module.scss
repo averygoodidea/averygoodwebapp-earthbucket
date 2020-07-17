@@ -1,0 +1,78 @@
+@import "../../../sass/main.scss";
+.window {
+	margin-bottom: 30px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: #efded2;
+
+	p {
+		color: $content-text-color;
+	}
+
+	.colA {
+		height: 250px;
+		cursor: pointer;
+		position: relative;
+		background: $button-color;
+		mix-blend-mode: multiply;
+	}
+
+	.content {
+		padding: 30px 30px 45px;
+
+		a {
+			text-decoration: none;
+		}
+
+		button {
+			margin-top: 10px;
+		}
+
+		aside {
+			margin-top: 30px;
+			font-size: 90%;
+			p {
+				margin: 0;
+				font-size: 16px;
+			}
+		}
+	}
+
+	&:hover {
+		background: $button-color;
+
+		button {
+			background: #fff;
+
+			&:hover,
+			&:focus {
+			 	background: $text-color;
+			}
+	  	}
+	}
+
+	@media(max-width: $max-mobile-width) {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	@media(min-width: $min-tablet-width) {
+		display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+
+	    .colA {
+	    	width: 45%;
+			height: auto;
+		}
+
+		.colB {
+	    	width: 55%;
+		}
+
+		.content {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+}

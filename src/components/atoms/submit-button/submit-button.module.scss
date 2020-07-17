@@ -1,0 +1,30 @@
+@import "../../../sass/main.scss";
+.button {
+	
+	display: inline-block;
+	border-radius: $corner-radius;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	border: none;
+	background: #b43100;
+	color: #fff;
+	line-height: 24px;
+	cursor: pointer;
+
+	&[disabled] {
+		background: #a97c6a;
+		pointer-events: none;
+		color: #e1cbc4;
+		opacity: 1;
+	}
+	
+	&:hover,
+	&:active,
+	&:focus {
+		background: $button-hover-color;
+		color: $button-hover-text-color;
+		i {
+			color: $button-hover-text-color;
+		}
+	}
+}

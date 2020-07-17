@@ -1,0 +1,50 @@
+@import "../../../sass/main.scss";
+.activityMenu {
+	position: relative;
+	border-top: 2px solid rgba(85, 63, 61, .12);
+	padding: 30px;
+
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+	.plusButton {
+		margin-right: 15px;
+	}
+	.shareButton {
+		margin-right: 20px;
+	}
+
+	@media(max-width: $max-mobile-width) {
+		justify-content: space-between;
+        padding-top: 2px;
+        padding-bottom: 5px;
+        right: 0;
+        width: auto;
+    }
+
+    @media(max-width: $max-tablet-width) {
+
+        justify-content: space-between;
+
+        .shopButton button {
+            @include box-shadow;
+            width: auto;
+            margin: 10px 0;
+            padding: 10px 20px;
+            i {
+                margin: 0;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+}
+.shareMenu {
+	@media(max-width: $max-mobile-width) {
+		top:-120px;
+	}
+}

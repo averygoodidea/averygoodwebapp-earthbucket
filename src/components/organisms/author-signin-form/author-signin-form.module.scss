@@ -1,0 +1,104 @@
+@import "../../../sass/main.scss";
+$min-height: 400px;
+.window {
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: $button-color;
+
+	.info {
+
+		.content {
+			padding: 30px 30px 20px;
+
+			p {
+				color: $content-text-color;
+			}
+
+			form {
+				margin-top: 30px;
+
+				.helpMessage {
+					border: 2px solid #d2c7c1;
+					margin-top: 20px;
+					p {
+						background: #ffeec7;
+				    	font-size: 15px;
+				    	padding: 10px 20px;
+				    	margin: 0;
+					}
+				}
+
+				.loading {
+					display: -ms-flexbox;
+				    display: -webkit-flex;
+				    display: flex;
+				    align-items: center;
+				    justify-content: center;
+					@media(max-width: $max-mobile-width) {
+						border-top-left-radius: $corner-radius;
+						border-bottom-left-radius: $corner-radius;
+					}
+					border-top-right-radius: $corner-radius;
+					border-bottom-right-radius: $corner-radius;
+					background: #b43100;
+					width: 60px;
+    				height: 24px;
+				}
+			}
+		}
+	}
+
+	@media(max-width: $max-mobile-width) {
+		form input[type="submit"] {
+			margin-top: 20px;
+		}
+	}
+
+	@media(min-width: $min-tablet-width) {
+		
+		display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+
+	    .img {
+			background: url('../../../assets/img/eli-signin.jpg') no-repeat;
+			background-size: cover;
+			width: 50%;
+			min-height: $min-height;
+		}
+
+		.info {
+			
+			width: 50%;
+			min-height: $min-height;
+
+			form {
+				width: 90%;
+				position: relative;
+				overflow: hidden;
+
+				input[type="submit"],
+				.loading {
+					position: absolute;
+					top: 29px;
+					right: 0;
+					z-index: 1;
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+					padding: 13px 20px 14px;
+				}
+
+				.buttonBackground {
+					position: absolute;
+					height: 52px;
+					width: 50px;
+					top: 29px;
+					right: 0;
+					background: $button-color;
+				}
+			}
+		}
+	}
+}

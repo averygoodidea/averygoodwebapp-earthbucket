@@ -1,0 +1,76 @@
+@import "../../../sass/main.scss";
+
+body {
+	background: #e6ccbe;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #553f3d;
+
+	p {
+		font-size: 17px;
+	}
+
+	a {
+		color: $link-color;
+
+		&:hover,
+		&:focus {
+			color: $link-hover-color;
+
+			i {
+				color: $link-hover-color;
+			}
+		}
+	}
+}
+
+#terrain {
+	position: fixed;
+	background: url('../../../assets/img/terrain-E2536_13.png') no-repeat;
+	background-size: cover;
+	z-index: -2;
+	width: 100%;
+	height: 100vh;
+}
+
+.wrapper {
+	margin: 30px auto;
+	padding: 0 20px;
+	max-width: 1000px;
+}
+
+.side-nav-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 500;
+	background: rgba(0,0,0,.3);
+}
+
+footer {
+	text-align: center;
+	background: $button-color;
+	display: block;
+	border-radius: $corner-radius;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin: 0 auto;
+	width: 180px;
+
+	span {
+		display: inline-block;
+		padding-left: 10px;
+	}
+
+	.avgi {
+		display: inline-block;
+		text-decoration: none;
+		font-size: 200%;
+		padding: 10px 10px 15px;
+
+		i {
+			vertical-align: sub;
+		}
+	}
+}

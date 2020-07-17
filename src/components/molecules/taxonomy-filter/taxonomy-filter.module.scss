@@ -1,0 +1,40 @@
+@import "../../../sass/main.scss";
+
+.taxonomyFilter {
+	padding: 0 2px;
+	list-style-type: none;
+
+	li {
+		display: inline-block;
+		margin-top: 5px;
+		margin-right: 5px;
+
+		button.tabbed {
+			background: $button-hover-color;
+			color: $button-hover-text-color;
+			i {
+				color: $button-hover-text-color;
+			}
+		}
+	}
+
+	.indexButton {
+		padding: 8px 18px 10px;
+		i {
+			margin-right: 0;
+		}
+	}
+
+	@media(max-width: $max-mobile-width) {
+		display: flex;
+		overflow-x: auto;
+		border-top: 2px solid rgba(85,63,61,0.16);
+		border-bottom: 2px solid rgba(85,63,61,0.16);
+		background: #efded2;
+		padding: 10px 20px 15px;
+
+		li:last-child button {
+			margin-right: 20px;
+		}
+	}
+}

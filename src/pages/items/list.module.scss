@@ -1,0 +1,66 @@
+@import "../../sass/vars.scss";
+.bannerImage {
+	min-height: auto;
+	color: #fff;
+	text-align: left;
+	margin: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+
+	h2 {
+		text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+		margin: 80px 0 80px 60%;
+	    text-align: left;
+	    font-size: 170%;
+	}
+}
+.message {
+	text-align: center;
+	span i {
+		color: $link-color;
+	}
+
+	button {
+		display: block;
+		padding-top: 10px;
+		i {
+			vertical-align: middle;
+		}
+	}
+}
+.button {
+	margin-top: 30px;
+	margin: 30px auto 0;
+}
+
+@media (max-width: $max-mobile-width) {
+	.bannerImage {
+		display: none;
+	}
+
+	.emptyMessage button {
+		margin-top: 10px;
+	}
+}
+
+@media (max-width: $max-tablet-width) {
+
+	p > span {
+		display: none;
+	}
+
+	.button {
+		margin-top: 0;
+	}
+}
+
+@media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+	.bannerImage {
+		min-height: auto;
+		background-position: top center !important;
+		h2 {
+			text-align: center;
+			margin: 95px 0;
+		}
+	}
+}

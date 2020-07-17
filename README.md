@@ -4,96 +4,133 @@
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# faithinventory-com-platinumenoch
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+[![faithinventory-com-platinumenoch badge](https://img.shields.io/badge/faithinventory.com-platinumenoch-%23b88e83?style=for-the-badge&logo=gatsby)](https://faithinventory.com/)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+[<img title="ThalliumEli icon" src="https://user-images.githubusercontent.com/261457/85481153-4a511500-b58f-11ea-8020-ec01f0b878f9.png" width="90" />](https://github.com/averysmithproductions/faithinventory-com-infrastructure#diagram)
 
-## 🚀 Quick start
+Prerequisites
+- [An AWS Account with programmatic permission](https://aws.amazon.com/)
+- [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
-1.  **Create a Gatsby site.**
+## Project Description
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+This is a the front-end website for [faithinventory.com](https://faithinventory.com).
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+**PlatinumEnochStack** is declared in the [faithinventory-com-infrastructure](https://github.com/averysmithproductions/faithinventory-com-infrastructure) repo.
 
-1.  **Start developing.**
+It is a Gatsby generated site that provides a curated photo stream user experience similar Instagram and a blog user experience similar to Medium, or Wordpress.
 
-    Navigate into your new site’s directory and start it up.
+The photo data is managed through ThalliumEli, which is Faith Inventory's AWS API service.
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+Each time Gatsby is run, it fetches the photo stream data from ThalliumEli, and stores it as json at:
+`src/data/auth/inventoryItems.json`.
 
-1.  **Open the source code and start editing!**
+PlatinumEnoch is hosted in an AWS S3 Bucket, and cached behind BariumNahum, Faith Inventory's AWS CDN layer.
 
-    Your site is now running at `http://localhost:8000`!
+### Local Development
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+#### Initialize Repo
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+In order for local development to happen, Gatsby settings adjusted first. Please follow these steps:
 
-## 🧐 What's inside?
+1. install the project node modules:
+`npm install`
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+**Since this repo uses nvm v13 or higher. If there is any trouble running the repo, simply run the following command:**
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+`nvm use` and then re-run `npm install`
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+2. Update the Gatsby `.env.development` and `.env.production` files with the following credentials:
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+```
+AWS_ACCESS_KEY_ID=<awsAccessKeyId>
+AWS_SECRET_ACCESS_KEY=<awsSecretAccessKey>
+AWS_REGION=<awsRegion>
+AWS_MEDIA_BUCKET=<environment>-platinumenoch-media
+AWS_APP_BUCKET=<environment>-platinumenoch
+GATSBY_HOSTNAME=[<environment>.]<domainName>
+GATSBY_THALLIUMELI_API_KEY=<environmentThalliumEliApiKey>
+VALINE_LEANCLOUD_APP_ID=<valineLeanCloudAppId>
+VALINE_LEANCLOUD_APP_ID=<valineLeanCloudAppId>
+```
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+The ThalliumEli api key restricts requests to all `/api/1/admin/` routes that are performed by PlatinumEnoch. The value can be found at:
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+https://console.aws.amazon.com/apigateway/home?region=us-east-1#/api-keys/
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+Under `<environment>-ThalliumEliApiKey`
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+3. Seed Blog
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+This script seeds S3 with the image for PlatinumEnoch's first blog post.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+`sh ./scripts/seed-blog.sh <environment> <awsProfile>`
 
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+4. Run Gatsby in development mode.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+`gatsby develop`
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+Then re-run `gatsby develop`
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+### Deployment
 
-## 🎓 Learning Gatsby
+#### For Lower Environment Deployments
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+`sh ./scripts/deploy.sh <environment> <awsProfile>`
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+This website is deployed via a pipeline of Github, Gatsby Cloud and AWS.
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+There are two types of site updates:
+1. Content Updates (generally fast, conducted by an author)
+2. App Updates (generally slow, conducted by a developer)
 
-## 💫 Deploy
+### Content Updates
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+There are two kinds of content updates: An inventory item update, and a blog post update.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+## Managing an Inventory Item
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+To create, edit or delete an inventory item, the author must access:
+<siteUrl>/author/items/.
+
+When an author creates, edits, or deletes a inventory item, ThalliumEli notifies Gatsby Cloud, via a webhook, that data has changed. Gatsby Cloud then receives the notification and triggers a rebuild of the site. Gatsby is configured to make a new request to ThalliumEli, and receive the updated data, of which is stores in `src/data/auth/inventoryItems.json` and then continues to _incrementally_ build the site based on the new data.
+
+Once the new build is complete, Gatsby is then configured to deploy the build to AWS S3.
+
+Once the deployment is completed, BariumNahum needs to be notified to clear its cache. That is done by pressing the "Deploy Site Changes" button found at <siteUrl>/author/site-settings.
+
+## Managing a Blog Post
+
+To create, edit or delete a blog post, an author must access <siteUrl>/author/blog/.
+
+...
+
+### App Updates
+
+An app update refers to the presentation and functional layer of the website. It is not necessarily the words and images that are accessed but really all of the look and feel that surrounds the words and images.
+
+App updates are separate from content updates, and require a push to github in order to trigger a _full_ build on Gatsby Cloud. A full build is different than an incremental build, as Gatsby use its cached version of its previous full build. It forgoes that and generates a new full build.
+
+A developer should open a terminal window and conduct the following commands:
+```
+git clone git@github.com:averysmithproductions/faithinventory-com-platinumenoch.git
+cd faithinventory-com-platinumenoch
+nvm use
+npm install
+gatsby develop
+```
+Gatsby will spin up a local server, something like "http://localhost:8000". You can access that url in your web browser,
+
+Then in a separate terminal window cd into the faithinventory-com-platinumenoch directory again, and conduct your code changes.
+
+Gatsby will hot-reload your changes into the web browser.
+
+Once you are satisfied with your changes, turn off the local Gatsby server. To do that, navigate to the server terminal and press the keyboard combination, 'Control+C'.
+
+Then run the following commands:
+
+```
+gatsby build
+sh ./scripts/deploy.sh ...

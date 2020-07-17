@@ -1,0 +1,7 @@
+@import "../../../sass/main.scss";
+.draggable.dragged {
+	@include box-shadow;
+	button {
+		display: none;
+	}
+}

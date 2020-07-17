@@ -1,0 +1,48 @@
+@import "../../../sass/main.scss";
+
+.logo {
+
+	text-decoration: none;
+
+	i {
+		color: $text-color;
+		font-size: 500%;
+	}
+
+	@media (max-width: $max-mobile-width) {
+		display: none;
+	}
+
+	@media(min-width: $min-tablet-width) {
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+		justify-content: center;
+
+		margin-top: -15px;
+		padding-top: 10px;
+		position: relative;
+		height: 101px;
+		text-decoration: none;
+
+	    &:hover,
+		&:active,
+		&:focus {
+			border-radius: $corner-radius;
+			background: $button-hover-color;
+			color: $button-hover-text-color;
+
+			i {
+				color: $button-hover-text-color;
+			}
+		}
+	}
+
+	@media(max-width: $max-mobile-width) {
+		i {
+			font-size: 340%;
+		}
+	}
+}

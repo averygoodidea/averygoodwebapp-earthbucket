@@ -1,0 +1,56 @@
+@import "../../../sass/main.scss";
+.window {
+	margin-bottom: 30px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: #efded2;
+
+	.info .content {
+
+		padding: 30px 50px 0;
+
+		h3 {
+			font-size: 150%;
+		}
+	
+		p {
+			margin-bottom: 20px;
+			color: $content-text-color;
+			font-size: 18px;
+			line-height: 40px;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li {
+				line-height: 30px;
+			}
+		}
+
+		img {
+			border-radius: 10px;
+		}
+
+	}
+
+	@media(max-width: $max-mobile-width) {
+
+		margin-left: 10px;
+		margin-right: 10px;
+
+		.info .content {
+
+			padding: 20px 40px;
+
+			h3 {
+				font-size: 130%;
+			}
+
+			p {
+				padding: 0;
+			}
+		}
+	}
+}
