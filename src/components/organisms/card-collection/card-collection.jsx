@@ -68,7 +68,7 @@ class CardCollection extends Component {
 			<Fragment>
 				{taxonomies.length > 0 && (
 					<TaxonomyFilter
-						baseRoute='/i/category/'
+						baseRoute='/album/category/'
 						defaultScrollLeftPropName='defaultCategoryFilterScrollLeft'
 						indexRoute='/'
 						fontIcon='inventory-items'

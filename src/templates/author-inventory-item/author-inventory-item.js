@@ -43,14 +43,13 @@ class AuthorInventoryItemTemplate extends Component {
 export default AuthorInventoryItemTemplate
 export const pageQuery = graphql`
 query ($id: String!) {
-  item: inventoryItems(id: {eq: $id}) {
+  item: albumPosts(id: {eq: $id}) {
   	alternative_id
   	categories
     id
     images
     moreInfoUrl
     price
-    scriptureAddress
     summary
     title
   }

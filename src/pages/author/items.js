@@ -26,12 +26,12 @@ class AuthorItemsPage extends Component {
 	}
 	render() {
 		const { isAuthenticated } = this.state
-		const { data: { allInventoryItems }, location } = this.props
+		const { data: { allAlbumPosts }, location } = this.props
 		return(
 			<AuthorLayout isAuthenticated={isAuthenticated} location={location} sectionTitle='Manage'>
 				<SEO title="Create Item" />
 				{isAuthenticated && <AuthorItemManager
-					allInventoryItems={allInventoryItems.edges}
+					allInventoryItems={allAlbumPosts.edges}
 					mode={'CREATE'}
 				/>}
 			</AuthorLayout>
@@ -41,7 +41,7 @@ class AuthorItemsPage extends Component {
 export default AuthorItemsPage
 export const pageQuery = graphql`
 	query {
-      allInventoryItems(sort: {order: DESC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
+      allAlbumPosts(sort: {order: DESC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
         edges {
           node {
           	alternative_id
@@ -57,7 +57,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      allInventoryItemImages: allS3Object(filter: {Key: {regex: "^inventory/items/" }}) {
+      allInventoryItemImages: allS3Object(filter: {Key: {regex: "^album/posts/images/" }}) {
         edges {
           node {
             id

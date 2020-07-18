@@ -5,7 +5,7 @@ import styles from './card.module.scss'
 const Card = ({ categories, history, image, inventoryItems, price, slugId, title }) => (
 	<Link
 		className={styles.card}
-		to={`/i/${slugId}/`}
+		to={`/album/${slugId}/`}
 		state={{
 			inventoryItems,
 			previousPathname: history.pathname,

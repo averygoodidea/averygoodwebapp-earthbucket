@@ -41,7 +41,6 @@ class InventoryItemTemplate extends Component {
 	    	categories,
 	    	price,
 	        moreInfoUrl,
-	        scriptureAddress,
 	        summary,
 	        title
 	    } = data.item
@@ -137,7 +136,6 @@ class InventoryItemTemplate extends Component {
 							/>
 						</div>
 					</section>
-					{scriptureAddress && <ScriptureSection address={scriptureAddress} isModal={isModal} />}
 					<CommentSection isModal={isModal} />
 					<div className={styles.emailForm}>
 						<EmailForm isModal={isModal} />
@@ -150,14 +148,13 @@ class InventoryItemTemplate extends Component {
 export default InventoryItemTemplate
 export const pageQuery = graphql`
 query ($id: String!) {
-  item: inventoryItems(id: {eq: $id}) {
+  item: albumPosts(id: {eq: $id}) {
   	alternative_id
   	categories
     id
     images
     moreInfoUrl
     price
-    scriptureAddress
     summary
     title
   }

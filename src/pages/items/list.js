@@ -16,13 +16,13 @@ class ItemsListPage extends Component {
     }
   }
   componentDidMount() {
-    const { allInventoryItems, allS3Object } = this.props.data
+    const { allAlbumPosts, allS3Object } = this.props.data
     const s3 = {}
     allS3Object.edges.forEach( ({ node }) => {
       s3[node.Key] = node.image
     })
     const inventoryItems = {}
-    allInventoryItems.edges.forEach( edge => {
+    allAlbumPosts.edges.forEach( edge => {
       inventoryItems[edge.node.alternative_id] = edge
     })
     let items = []
@@ -108,7 +108,7 @@ class ItemsListPage extends Component {
 export default ItemsListPage
 export const pageQuery = graphql`
   query {
-    allInventoryItems(filter: {id: {ne: "dummy"}}) {
+    allAlbumPosts(filter: {id: {ne: "dummy"}}) {
       edges {
         node {
           alternative_id

@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			      }
 			    }
 			  }
-			  allAlbumPostImages: allS3Object(filter: {Key: {regex: "^album/posts/images/" }}) {
+			  allAlbumPostImages: allS3Object(filter: {Key: {regex: "/album/posts/images/" }}) {
 			    edges {
 			      node {
 			        id
@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			      }
 			    }
 			  }
-			  allBlogPostImages: allS3Object(filter: {Key: {regex: "^blog/post/images/" }}) {
+			  allBlogPostImages: allS3Object(filter: {Key: {regex: "/blog/posts/images/" }}) {
 			    edges {
 			      node {
 			        id
@@ -92,6 +92,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		reporter.panicOnBuild("Error while running GraphQL query.")
 		return
 	}
+	/* Album Posts */
 	// create album item s3 key map
 	const albumPostTemplate = path.resolve('src/templates/album-post/album-post.js')
 	const authorAlbumPostTemplate = path.resolve('src/templates/author-inventory-item/author-inventory-item.js')
@@ -142,6 +143,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			}
 		})
 	})
+	/* Blog Posts */
 	// create blog posts
 	const blogPostTemplate = path.resolve('src/templates/blog-post/blog-post.jsx')
 	const { allBlogPosts, allBlogPostImages } = result.data
@@ -173,7 +175,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		// collect tag names
 		frontmatter.tags.forEach( tag => blogTagNames[tag] = true )
 	})
-	// create category pages
+	// create tag pages
 	const blogTagTemplate = path.resolve('src/templates/blog-tag/blog-tag.jsx')
 	const allBlogTags = Object.keys(blogTagNames)
 	allBlogTags.forEach( tag => {

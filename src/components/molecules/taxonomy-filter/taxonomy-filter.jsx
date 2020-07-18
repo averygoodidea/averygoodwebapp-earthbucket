@@ -10,7 +10,7 @@ const TaxonomyFilter = ({ baseRoute, defaultScrollLeftPropName, fontIcon, taxono
 	const taxonomyFilterRef = useRef(null)
 	const navItems = taxonomies.sort().map( (taxonomy, i) => {
 		const additionalProps = {}
-		if(baseRoute === '/i/category/') {
+		if(baseRoute === '/album/category/') {
 			additionalProps.fontIcon = `category-${taxonomy}`
 		}
 		return (

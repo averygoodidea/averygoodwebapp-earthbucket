@@ -10,7 +10,7 @@ import './header.scss'
 const Header = ({ inventoryItemEvent, location, rightColElement, sectionTitle, siteDescription, siteTitle }) => {
   const data = useStaticQuery(graphql`
     query {
-      allInventoryItems(filter: {id: {ne: "dummy"}}) {
+      allAlbumPosts(filter: {id: {ne: "dummy"}}) {
         edges {
           node {
             alternative_id
@@ -20,7 +20,7 @@ const Header = ({ inventoryItemEvent, location, rightColElement, sectionTitle, s
     }
   `)
   const inventoryItemIds = []
-  data.allInventoryItems.edges.forEach( edge => {
+  data.allAlbumPosts.edges.forEach( edge => {
     inventoryItemIds.push(edge.node.alternative_id)
   })
   let localStorageItemIds = []
