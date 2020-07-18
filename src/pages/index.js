@@ -7,7 +7,7 @@ class IndexPage extends Component {
   constructor () {
     super()
     this.state = {
-      inventoryItems: [],
+      albumPosts: [],
       s3Map: {}
     }
   }
@@ -23,19 +23,19 @@ class IndexPage extends Component {
     const taxonomies = Object.keys(inventoryCategoryNames)
     
     this.setState({
-      inventoryItems: allAlbumPosts.edges,
+      albumPosts: allAlbumPosts.edges,
       s3ObjectMap,
       taxonomies
     })
   }
   render() {
-    const { inventoryItems, s3ObjectMap, taxonomies } = this.state
+    const { albumPosts, s3ObjectMap, taxonomies } = this.state
     const { location } = this.props
     return (
       <Layout location={location}>
         <SEO title="Home" keywords={['jesus', 'black', 'negroland', 'survivalist', 'hebrew', 'christ']} />
         <CardCollection
-          inventoryItems={inventoryItems}
+          albumPosts={albumPosts}
           location={location}
           s3={s3ObjectMap}
           taxonomies={taxonomies}

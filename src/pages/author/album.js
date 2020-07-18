@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { graphql, navigate } from 'gatsby'
 import { SEO } from 'atoms'
-import { AuthorItemManager, AuthorLayout } from 'organisms'
+import { AuthorAlbumPostManager, AuthorLayout } from 'organisms'
 import { AVeryGoodAuthenticator } from 'assets-js'
 
-class AuthorInventoryItemTemplate extends Component {
+class AuthorAlbumPostsPage extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -26,32 +26,36 @@ class AuthorInventoryItemTemplate extends Component {
 	}
 	render() {
 		const { isAuthenticated } = this.state
-		const { data: { item }, location, pageContext: { allInventoryItems, s3ObjectList } } = this.props
+		const { data: { allAlbumPosts }, location } = this.props
 		return(
 			<AuthorLayout isAuthenticated={isAuthenticated} location={location} sectionTitle='Manage'>
-				<SEO title="Edit Item" />
-				{isAuthenticated && <AuthorItemManager
-					allInventoryItems={allInventoryItems}
-					mode={'UPDATE'}
-					s3={s3ObjectList}
-					selectedItem={item}
+				<SEO title="Create Item" />
+				{isAuthenticated && <AuthorAlbumPostManager
+					allAlbumPosts={allAlbumPosts.edges}
+					mode={'CREATE'}
 				/>}
 			</AuthorLayout>
 		)
 	}
 }
-export default AuthorInventoryItemTemplate
+export default AuthorAlbumPostsPage
 export const pageQuery = graphql`
-query ($id: String!) {
-  item: albumPosts(id: {eq: $id}) {
-  	alternative_id
-  	categories
-    id
-    images
-    moreInfoUrl
-    price
-    summary
-    title
-  }
-}
+	query {
+      allAlbumPosts(sort: {order: DESC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
+        edges {
+          node {
+          	alternative_id
+            id
+            categories
+            createdAt
+            images
+            moreInfoUrl
+            price
+            slugId
+            summary
+            title
+          }
+        }
+      }
+    }
 `

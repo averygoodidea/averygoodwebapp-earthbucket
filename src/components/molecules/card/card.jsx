@@ -2,12 +2,12 @@ import React from 'react'
 import { graphql, Link, navigate } from 'gatsby'
 import styles from './card.module.scss'
 
-const Card = ({ categories, history, image, inventoryItems, price, slugId, title }) => (
+const Card = ({ categories, history, image, albumPosts, price, slugId, title }) => (
 	<Link
 		className={styles.card}
 		to={`/album/${slugId}/`}
 		state={{
-			inventoryItems,
+			albumPosts,
 			previousPathname: history.pathname,
 			previousScrollY: history.scrollY,
 			previousAmountToShow: history.amountToShow,

@@ -3,22 +3,22 @@ import { graphql, navigate } from 'gatsby'
 import Img from 'gatsby-image'
 import { Button, CommentSection, SEO } from 'atoms'
 import { EmailForm, ScriptureSection } from 'molecules'
-import { InventoryItemActivityMenu, Layout } from 'organisms'
+import { AlbumPostActivityMenu, Layout } from 'organisms'
 import styles from './album-post.module.scss'
 import { ButtonBack, ButtonNext, CarouselProvider, DotGroup, Image, Slide, Slider } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import classNames from 'classnames'
 
-class InventoryItemTemplate extends Component {
+class AlbumPostTemplate extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			inventoryItemEvent: []
+			albumPostEvent: []
 		}
-		this.inventoryItemActivityMenuRef = createRef()
+		this.albumPostActivityMenuRef = createRef()
 	}
-	onInventoryItemEvent (inventoryItemEvent) {
-		this.setState( { inventoryItemEvent, shouldShowDoubleClickAnimation: true }, () => {
+	onAlbumPostEvent (albumPostEvent) {
+		this.setState( { albumPostEvent, shouldShowDoubleClickAnimation: true }, () => {
 			const removeClikcAnimationFromViewport = setTimeout(() => {
 				clearTimeout(removeClikcAnimationFromViewport)
 				this.setState( { shouldShowDoubleClickAnimation: false })
@@ -26,15 +26,15 @@ class InventoryItemTemplate extends Component {
 		})
 	}
 	onDoubleClick() {
-		const { hasBeenCollected } = this.inventoryItemActivityMenuRef.current.state
+		const { hasBeenCollected } = this.albumPostActivityMenuRef.current.state
 		if(!hasBeenCollected) {
-			this.inventoryItemActivityMenuRef.current.addToList()
+			this.albumPostActivityMenuRef.current.addToList()
 		} else {
-			this.inventoryItemActivityMenuRef.current.removeFromList()
+			this.albumPostActivityMenuRef.current.removeFromList()
 		}
 	}
 	render() {
-		const { inventoryItemEvent, shouldShowDoubleClickAnimation } = this.state
+		const { albumPostEvent, shouldShowDoubleClickAnimation } = this.state
 		const { data, location, pageContext: { s3ObjectList } } = this.props
 		const {
 	    	//id,
@@ -54,7 +54,7 @@ class InventoryItemTemplate extends Component {
 	    	// show modal
 	    if (
 	      typeof window !== `undefined` &&
-	      window.___INVENTORYFAITH_INITIAL_RENDER_COMPLETE
+	      window.___AVERYGOODWEBAPP_INITIAL_RENDER_COMPLETE
 	    ) {
 	    	if (window.innerWidth > 750) {
 		      isModal = true
@@ -70,7 +70,7 @@ class InventoryItemTemplate extends Component {
 
 		return (
 			<Layout
-				inventoryItemEvent={this.state.inventoryItemEvent}
+				albumPostEvent={this.state.albumPostEvent}
 				isModal={isModal}
 				location={location}>
 				<SEO
@@ -82,8 +82,8 @@ class InventoryItemTemplate extends Component {
 					<section>
 						<div className={styles.gallery} onDoubleClick={() => { this.onDoubleClick() }}>
 							{shouldShowDoubleClickAnimation && <div className={styles.likeAnimation}>
-								{inventoryItemEvent.type === 'LIKED' && <i className='font-icon-like' />}
-								{inventoryItemEvent.type === 'DISLIKED' && <i className='font-icon-dislike' />}
+								{albumPostEvent.type === 'LIKED' && <i className='font-icon-like' />}
+								{albumPostEvent.type === 'DISLIKED' && <i className='font-icon-dislike' />}
 							</div>}
 							<CarouselProvider
 								naturalSlideWidth={300}
@@ -128,11 +128,11 @@ class InventoryItemTemplate extends Component {
 								</div>
 								<p><em>{`appx $${price}`}</em></p>
 							</div>
-							<InventoryItemActivityMenu
+							<AlbumPostActivityMenu
 								item={data.albumPost}
 								moreInfoUrl={moreInfoUrl}
-								onInventoryItemEvent={ e => this.onInventoryItemEvent(e) }
-								ref={this.inventoryItemActivityMenuRef}
+								onAlbumPostEvent={ e => this.onAlbumPostEvent(e) }
+								ref={this.albumPostActivityMenuRef}
 							/>
 						</div>
 					</section>
@@ -145,7 +145,7 @@ class InventoryItemTemplate extends Component {
 		)
 	}
 }
-export default InventoryItemTemplate
+export default AlbumPostTemplate
 export const pageQuery = graphql`
 query ($id: String!) {
   albumPost: albumPosts(id: {eq: $id}) {

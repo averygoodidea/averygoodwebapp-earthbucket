@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { ImageUploader, Select, SubmitButton, Textarea, Textfield, Toast } from 'atoms'
-import { AuthorInventoryMenu, AuthorMoreMenu } from 'molecules'
-import styles from './author-item-manager.module.scss'
-import './author-item-manager.scss'
+import { AuthorAlbumPostMenu, AuthorMoreMenu } from 'molecules'
+import styles from './author-album-post-manager.module.scss'
+import './author-album-post-manager.scss'
 import { isEqual, isEmpty } from 'lodash'
 import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes' 
@@ -17,14 +17,14 @@ const getDelimitedStringOfIds = (keys, delimiter) => {
 	})
 	return ids
 }
-class AuthorItemManager extends Component {
+class AuthorAlbumPostManager extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			allCategories: [],
 			categoriesValue: [],
 			imagesValue: {},
-			inventoryItems: [],
+			albumPosts: [],
 			LOADING_STATE: 'unloaded',
 			moreInfoUrlValue: '',
 			moreMenuItems: [],
@@ -39,25 +39,25 @@ class AuthorItemManager extends Component {
 		}
 	}
 	componentDidMount() {
-		// set categories, inventory items, "more" menu items
-		const { allInventoryItems, s3 } = this.props
+		// set categories, album posts, and "more" menu items
+		const { allAlbumPosts, s3 } = this.props
 		const categoryNames = {}
-		const inventoryItems = allInventoryItems.map( ({ node }) => {
-			const item = {
+		const albumPosts = allAlbumPosts.map( ({ node }) => {
+			const post = {
 				...node,
 				onClick: e => {
 					this.navigateToSelectedItemPage(e.slugId)
 				}
 			}
 			// collect category names
-			item.categories.forEach( category => categoryNames[category] = true )
-			return item
+			post.categories.forEach( category => categoryNames[category] = true )
+			return post
 		})
 		const allCategories = Object.keys(categoryNames).map( category => ({ value: category, label: category }) )
 	    const moreMenuItems = [{
 	    	fontIcon: 'trash-bin',
 	    	onClick: () => {
-	    		const isConfirmed = confirm('Are you sure you want to delete this item?')
+	    		const isConfirmed = confirm('Are you sure you want to delete this post?')
 	    		if (isConfirmed) {
 		    		this.deleteSelectedItem()
 		    	}
@@ -66,7 +66,7 @@ class AuthorItemManager extends Component {
 	    }]
 	    const state = {
 	    	allCategories,
-	    	inventoryItems,
+	    	albumPosts,
 	    	moreMenuItems,
 	    	s3
 	    }
@@ -83,10 +83,10 @@ class AuthorItemManager extends Component {
 	    this.setState({ ...state })
 	}
 	navigateToNewItemPage() {
-		navigate('/author/items/')
+		navigate('/author/album/')
 	}
 	navigateToSelectedItemPage(id) {
-		navigate(`/author/items/${id}/`)
+		navigate(`/author/album/${id}/`)
 	}
 	refreshPage() {
 		document.location.href = document.location.origin + document.location.pathname
@@ -340,7 +340,7 @@ class AuthorItemManager extends Component {
 			}).then( result => {
 				closeNotification()
 				toastedNotes.notify(<Toast message="Item Deleted!" />, { duration: TOAST_DURATION })
-				navigate('/author/items/', { replace: true })
+				navigate('/author/album/', { replace: true })
 			}).catch( error => {
 				console.error(error)
 			})
@@ -350,7 +350,7 @@ class AuthorItemManager extends Component {
 		const { mode } = this.props
 		const {
 			allCategories,
-			inventoryItems,
+			albumPosts,
 			LOADING_STATE,
 			moreMenuItems,
 			s3,
@@ -360,8 +360,12 @@ class AuthorItemManager extends Component {
 			<Fragment>
 				<div className={styles.window}>
 					<div className={styles.menu}>
-						<h2>Manage Inventory Items</h2>
-						{!isEmpty(inventoryItems) && <AuthorInventoryMenu selectedItem={selectedItem} items={inventoryItems} onPlusButtonClick={() => this.navigateToNewItemPage() } />}
+						<h2>Manage Album Posts</h2>
+						{!isEmpty(albumPosts) && <AuthorAlbumPostMenu
+							selectedItem={selectedItem}
+							albumPosts={albumPosts}
+							onPlusButtonClick={() => this.navigateToNewItemPage() }
+						/>}
 					</div>
 					<div className={styles.info}>
 						<div className="wrapper">
@@ -513,4 +517,4 @@ class AuthorItemManager extends Component {
 		)
 	}
 }
-export default AuthorItemManager
+export default AuthorAlbumPostManager

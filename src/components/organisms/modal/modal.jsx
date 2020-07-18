@@ -12,7 +12,7 @@ Modal.setAppElement(`#___gatsby`)
 
 const { rhythm } = new Typography()
 
-class InventoryItemModal extends Component {
+class AlbumPostModal extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -21,7 +21,7 @@ class InventoryItemModal extends Component {
 	}
 	componentDidMount() {
 		const { location } = this.props
-		const enableNav = location.state && location.state.inventoryItems && location.state.inventoryItems.length > 1
+		const enableNav = location.state && location.state.albumPosts && location.state.albumPosts.length > 1
 		if (enableNav) {
 			mousetrap.bind(`left`, () => this.previous())
 			mousetrap.bind(`right`, () => this.next())
@@ -40,42 +40,42 @@ class InventoryItemModal extends Component {
 		}
 	}
 	findCurrentIndex() {
-		const { inventoryItems } = this.props.location.state
-		const index = findIndex( inventoryItems, ({ node }) => this.props.location.pathname.includes(node.slugId) )
+		const { albumPosts } = this.props.location.state
+		const index = findIndex( albumPosts, ({ node }) => this.props.location.pathname.includes(node.slugId) )
 		return index
 	}
 	next(e) {
-		const { inventoryItems } = this.props.location.state
+		const { albumPosts } = this.props.location.state
 		if (e) {
 			e.stopPropagation()
 		}
 		const currentIndex = this.findCurrentIndex()
 		if (currentIndex || currentIndex === 0) {
-			let inventoryItem
+			let albumPost
 			// wrap around if at end
-			if (currentIndex + 1 === inventoryItems.length) {
-				inventoryItem = inventoryItems[0]
+			if (currentIndex + 1 === albumPosts.length) {
+				albumPost = albumPosts[0]
 			} else {
-				inventoryItem = inventoryItems[currentIndex + 1]
+				albumPost = albumPosts[currentIndex + 1]
 			}
-			navigate(`/album/${inventoryItem.node.slugId}/`, { state: { ...this.props.location.state } })
+			navigate(`/album/${albumPost.node.slugId}/`, { state: { ...this.props.location.state } })
 		}
 	}
 	previous(e) {
-		const { inventoryItems } = this.props.location.state
+		const { albumPosts } = this.props.location.state
 		if (e) {
 			e.stopPropagation()
 		}
 			const currentIndex = this.findCurrentIndex()
 		if (currentIndex || currentIndex === 0) {
-			let inventoryItem
+			let albumPost
 			// wrap around if at start
 			if (currentIndex === 0) {
-				inventoryItem = inventoryItems.slice(-1)[0]
+				albumPost = albumPosts.slice(-1)[0]
 			} else {
-				inventoryItem = inventoryItems[currentIndex - 1]
+				albumPost = albumPosts[currentIndex - 1]
 			}
-			navigate(`/album/${inventoryItem.node.slugId}/`, { state: { ...this.props.location.state } })
+			navigate(`/album/${albumPost.node.slugId}/`, { state: { ...this.props.location.state } })
 		}
 	}
 	closeModal() {
@@ -156,12 +156,12 @@ class InventoryItemModal extends Component {
 		)
 	}
 }
-InventoryItemModal.propTypes = {
+AlbumPostModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired
 }
-InventoryItemModal.defaultProps = {
+AlbumPostModal.defaultProps = {
   isOpen: true,
   location: {}
 }
-export default InventoryItemModal
+export default AlbumPostModal

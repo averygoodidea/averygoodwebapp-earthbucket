@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { SEO } from 'atoms'
 import { CardCollection, Layout } from 'organisms'
 
-const InventoryCategoryTemplate = ({ location, pageContext: { albumPosts, s3ObjectMap, taxonomies } }) => {
+const AlbumCategoryTemplate = ({ location, pageContext: { albumPosts, s3ObjectMap, taxonomies } }) => {
 	return (
 	  <Layout location={location}>
-	  	<SEO title='Item Categories' keywords={taxonomies} />
+	  	<SEO title='Album Categories' keywords={taxonomies} />
 	    <CardCollection
-	      inventoryItems={albumPosts}
+	      albumPosts={albumPosts}
 	      location={location}
 	      s3={s3ObjectMap}
 	      taxonomies={taxonomies}
@@ -15,4 +15,4 @@ const InventoryCategoryTemplate = ({ location, pageContext: { albumPosts, s3Obje
 	  </Layout>
 	)
 }
-export default InventoryCategoryTemplate
+export default AlbumCategoryTemplate

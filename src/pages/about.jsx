@@ -34,7 +34,7 @@ const AboutPage = ({ data, location }) => (
 		<div className='row'>
 			<div className='col-xs-12 col-sm-offset-1 col-sm-4'>
 				<br />
-				<Link to="/album/O2y-vMrVTFSacfWWyofoWQ/" state={{ inventoryItems: [], previousPathname: location.pathname }}>
+				<Link to="/album/O2y-vMrVTFSacfWWyofoWQ/" state={{ albumPosts: [], previousPathname: location.pathname }}>
 					<Img fluid={data.sitWalkStandJpg.childImageSharp.fluid} />
 				</Link>
 			</div>

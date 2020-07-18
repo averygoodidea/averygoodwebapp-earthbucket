@@ -51,9 +51,9 @@ class CardCollection extends Component {
 		this.shouldUpdate = false
 	}
 	render() {
-		const { inventoryItems, location, s3, taxonomies } = this.props
+		const { albumPosts, location, s3, taxonomies } = this.props
 		const { amountToShow, isShowingMore, scrollY } = this.state
-		const items = inventoryItems.slice(0, amountToShow)
+		const posts = albumPosts.slice(0, amountToShow)
 		const history = {
 			amountToShow,
 			pathname: location.pathname,
@@ -77,13 +77,13 @@ class CardCollection extends Component {
 					/>
 				)}
 				<div className={styles.cardCollection}>
-					{items.map( ({ node: { id, slugId, title, images, categories, price } }, i) => (
+					{posts.map( ({ node: { id, slugId, title, images, categories, price } }, i) => (
 					    <Card
 					      key={i}
 					      categories={categories}
 					      history={history}
 					      image={s3[images[0]]} // grab the first image in the images array
-					      inventoryItems={items}
+					      albumPosts={posts}
 					      price={price}
 					      slugId={slugId}
 					      title={title}
@@ -95,14 +95,14 @@ class CardCollection extends Component {
 	}
 }
 CardCollection.propTypes = {
-	inventoryItems: PropTypes.array,
+	albumPosts: PropTypes.array,
 	location: PropTypes.object,
 	s3: PropTypes.object,
 	taxonomies: PropTypes.array
 }
 CardCollection.defaultProps = {
 	enableTaxonomyFilter: true,
-	inventoryItems: [],
+	albumPosts: [],
 	location: { pathname: '' },
 	s3: {},
 	taxonomies: []

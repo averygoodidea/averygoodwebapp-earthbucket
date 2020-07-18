@@ -21,14 +21,14 @@ const AuthorLayout = ({ children, isModal, isAuthenticated, location, sectionTit
   const navbarItems = [{
     fontIcon: 'inventory-item',
     onClick: e => navigate(e.targetView),
-    targetView: '/author/items/',
-    title: 'Inventory Items'
+    targetView: '/author/album/',
+    title: 'Album Posts'
   },
   {
     fontIcon: 'adjust',
     onClick: e => navigate(e.targetView),
-    title: 'Site Settings',
-    targetView: '/author/site-settings/'
+    targetView: '/author/site-settings/',
+    title: 'Site Settings'
   }]
 
   const currentView = location.pathname

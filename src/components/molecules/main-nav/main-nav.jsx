@@ -9,7 +9,7 @@ const MainNav = ({ currentView }) => {
 	const items = [{
 		fontIcon: 'inventory-items',
 		target: '/',
-		title: 'Inventory',
+		title: 'Album',
 	},{
 		fontIcon: 'typewriter',
 		target: '/blog/',

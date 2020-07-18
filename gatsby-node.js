@@ -95,7 +95,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	/* Album Posts */
 	// create album item s3 key map
 	const albumPostTemplate = path.resolve('src/templates/album-post/album-post.js')
-	const authorAlbumPostTemplate = path.resolve('src/templates/author-inventory-item/author-inventory-item.js')
+	const authorAlbumPostTemplate = path.resolve('src/templates/author-album-post/author-album-post.js')
 	const { allAlbumPosts, allAlbumPostImages } = result.data
 	const s3AlbumPostImagesMap = {}
 	allAlbumPostImages.edges.forEach( ({ node }) => {

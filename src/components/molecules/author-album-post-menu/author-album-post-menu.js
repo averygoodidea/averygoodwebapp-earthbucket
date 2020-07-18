@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from "prop-types"
 import { Button, PlusButton } from 'atoms'
-import styles from './author-inventory-menu.module.scss'
+import styles from './author-album-post-menu.module.scss'
 import classNames from 'classnames'
 
 const sortByDate = (a, b) => {
@@ -24,11 +24,11 @@ const sortAlphabetically = (a, b) => {
 	}
 	return result
 }
-const AuthorInventoryMenu = ({ items, onPlusButtonClick, selectedItem }) => {
-	const [inventoryItems, setInventoryItems] = useState(items)
+const AuthorAlbumPostMenu = ({ albumPosts, onPlusButtonClick, selectedItem }) => {
+	const [posts, setPosts] = useState(albumPosts)
 	const [sortedBy, setSortedBy] = useState('most-recent')
 	return (
-		<div className={styles.authorInventoryMenu}>
+		<div className={styles.authorAlbumPostsMenu}>
 			<div className={styles.plusButton}>
 				<PlusButton onClick={ e => onPlusButtonClick() } />
 			</div>
@@ -39,7 +39,7 @@ const AuthorInventoryMenu = ({ items, onPlusButtonClick, selectedItem }) => {
 					label='Sort by Most Recent'
 					onClick={() => {
 						//sorted by date, reverse chronological
-						setInventoryItems([].concat(inventoryItems.sort(sortByDate)))
+						setPosts([].concat(posts.sort(sortByDate)))
 						setSortedBy('most-recent')
 					}}
 				/>
@@ -48,13 +48,13 @@ const AuthorInventoryMenu = ({ items, onPlusButtonClick, selectedItem }) => {
 					isIconDisabled={true}
 					label='Sort by Title'
 					onClick={() => {
-						setInventoryItems([].concat(inventoryItems.sort(sortAlphabetically)))
+						setPosts([].concat(posts.sort(sortAlphabetically)))
 						setSortedBy('alphabetically')
 					}}
 				/>
 			</div>
 			<ul>
-				{inventoryItems.map( (item, i) => {
+				{posts.map( (item, i) => {
 					const className = classNames({
 						[styles.tabbed]: selectedItem.id === item.id
 					})
@@ -69,20 +69,20 @@ const AuthorInventoryMenu = ({ items, onPlusButtonClick, selectedItem }) => {
 							/>
 						</li>
 					)
-			})}
+				})}
 			</ul>
 		</div>
 	)
 }
-AuthorInventoryMenu.propTypes = {
-  items: PropTypes.array,
+AuthorAlbumPostMenu.propTypes = {
+  albumPosts: PropTypes.array,
   onPlusButtonClick: PropTypes.func,
   selectedItem: PropTypes.object
 }
 
-AuthorInventoryMenu.defaultProps = {
-  items: [],
+AuthorAlbumPostMenu.defaultProps = {
+  albumPosts: [],
   onPlusButtonClick: () => {},
   selectedItem: {}
 }
-export default AuthorInventoryMenu
+export default AuthorAlbumPostMenu

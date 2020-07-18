@@ -10,7 +10,7 @@ import("../modal/modal").then( modal => {
   Modal = modal.default
 })
 
-const Layout = ({ children, inventoryItemEvent, isModal, location, sectionTitle }) => {
+const Layout = ({ children, albumPostEvent, isModal, location, sectionTitle }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -42,7 +42,7 @@ const Layout = ({ children, inventoryItemEvent, isModal, location, sectionTitle 
       ) : (
         <Fragment>
           <Header
-            inventoryItemEvent={inventoryItemEvent}
+            albumPostEvent={albumPostEvent}
             location={location}
             sectionTitle={sectionTitle}
             siteTitle={data.site.siteMetadata.title}

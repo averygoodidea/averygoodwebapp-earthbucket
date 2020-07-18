@@ -1,4 +1,4 @@
-import AuthorInventoryMenu from './author-inventory-menu/author-inventory-menu'
+import AuthorAlbumPostMenu from './author-album-post-menu/author-album-post-menu'
 import AuthorMoreMenu from './author-more-menu/author-more-menu'
 import AuthorNavbar from './author-navbar/author-navbar'
 import BlogNavbar from './blog-navbar/blog-navbar'
@@ -12,7 +12,7 @@ import ShareMenu from './share-menu/share-menu'
 import TaxonomyFilter from './taxonomy-filter/taxonomy-filter'
 
 export {
-	AuthorInventoryMenu,
+	AuthorAlbumPostMenu,
 	AuthorMoreMenu,
 	AuthorNavbar,
 	BlogNavbar,

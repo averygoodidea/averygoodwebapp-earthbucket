@@ -18,7 +18,7 @@ class AuthorIndexPage extends Component {
 			const { isVerified, message } = result
 			if (isVerified) {
 				// navigate to dashboard
-				navigate('/author/items/', {
+				navigate('/author/album/', {
 					state: { isAuthenticated: isVerified },
 					replace: true
 				})

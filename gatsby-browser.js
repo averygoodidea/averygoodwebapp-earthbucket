@@ -14,5 +14,5 @@ exports.shouldUpdateScroll = args => {
 }
 
 exports.onInitialClientRender = () => {
-  window.___INVENTORYFAITH_INITIAL_RENDER_COMPLETE = true
+  window.___AVERYGOODWEBAPP_INITIAL_RENDER_COMPLETE = true
 }

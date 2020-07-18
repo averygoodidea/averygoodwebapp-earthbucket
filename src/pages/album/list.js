@@ -20,21 +20,21 @@ class ItemsListPage extends Component {
     allS3Object.edges.forEach( ({ node }) => {
       s3[node.Key] = node.image
     })
-    const inventoryItems = {}
+    let albumPosts = {}
     allAlbumPosts.edges.forEach( edge => {
-      inventoryItems[edge.node.alternative_id] = edge
+      albumPosts[edge.node.alternative_id] = edge
     })
-    // get album posts by local storage id and filter out any that don't exist in the database anymore.
-    const albumPosts = LocalStorageList.getPostIds().map( itemId => inventoryItems[itemId]).filter( item => !isEmpty(item))
+    // get only the album posts that have ids in local storage. Also, filter out any ids found in LocalStorage that doesn't exist in the data store anymore.
+    albumPosts = LocalStorageList.getPostIds().map( postId => albumPosts[postId]).filter( id => !isEmpty(id))
     this.setState({
-      inventoryItems: albumPosts,
+      albumPosts,
       s3
     })
   }
   onEmailButtonClick() {
-    const { inventoryItems } = this.state
+    const { albumPosts } = this.state
     let message = 'Your List of Favorites:'
-    inventoryItems.forEach( ( { node: { categories, moreInfoUrl, price, title } }, i) => {
+    albumPosts.forEach( ( { node: { categories, moreInfoUrl, price, title } }, i) => {
       message += '\n'
       message += `\n${i + 1}. ${title}`
       message += `, $${price}`
@@ -46,7 +46,7 @@ class ItemsListPage extends Component {
   render() {
     const {
       amountToShow,
-      inventoryItems,
+      albumPosts,
       s3
     } = this.state
     const { data, location } = this.props
@@ -63,12 +63,12 @@ class ItemsListPage extends Component {
         <SEO title='Your List' />
         <ContentWindow bannerImage={bannerImage}>
           <div className={styles.message}>
-            {inventoryItems && inventoryItems.length === 0 && <Fragment>
-              <p className={styles.emptyMessage}>Your inventory list is <strong>empty</strong>.<br />You can add items by pressing the "like" <span><i className="font-icon-like" /></span> button on an inventory item post.
+            {albumPosts && albumPosts.length === 0 && <Fragment>
+              <p className={styles.emptyMessage}>Your list is <strong>empty</strong>.<br />You can add items by pressing the "like" <span><i className="font-icon-like" /></span> button on an album post.
                 <Button
                     cn={styles.button}
                     fontIcon='inventory-items'
-                    label='Go to Inventory'
+                    label='Go to Album'
                     onClick={ e => {
                       e.preventDefault()
                       navigate('/')
@@ -76,7 +76,7 @@ class ItemsListPage extends Component {
                   />
               </p>
             </Fragment>}
-            {inventoryItems && inventoryItems.length > 0 && <Fragment>
+            {albumPosts && albumPosts.length > 0 && <Fragment>
               <p><span>The below list is stored in your browser and <strong>will be deleted when you clear your cache</strong>.<br />You should email this list to yourself every now and then to keep a back-up.</span>
                 <Button
                     cn={styles.button}
@@ -93,7 +93,7 @@ class ItemsListPage extends Component {
           </div>
         </ContentWindow>
         <CardCollection
-          inventoryItems={inventoryItems}
+          albumPosts={albumPosts}
           location={location}
           s3={s3}
         />
@@ -128,10 +128,10 @@ export const pageQuery = graphql`
     }
     eliYourListJpg: imageSharp(fluid: {originalName: {eq: "eli-yourlist.jpg"}})  {
       id
-        fluid {
-          originalImg
-          src
-        }
+      fluid {
+        originalImg
+        src
+      }
     }
   }
 `

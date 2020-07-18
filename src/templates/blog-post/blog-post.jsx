@@ -20,7 +20,7 @@ const BlogPost = ({ location, pageContext }) => {
 	// therefore, manualy reset scroll position on blog post render
 	if (
 	      typeof window !== `undefined` &&
-	      window.___INVENTORYFAITH_INITIAL_RENDER_COMPLETE
+	      window.___AVERYGOODWEBAPP_INITIAL_RENDER_COMPLETE
 	    ) {
 		window.scrollTo(0,0)
 	}
