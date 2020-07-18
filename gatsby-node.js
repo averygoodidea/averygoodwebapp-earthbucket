@@ -117,7 +117,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		})
 		// construct author album item page
 		createPage({
-			path: `/author/items/${slugId}/`,
+			path: `/author/album/${slugId}/`,
 			component: slash(authorAlbumPostTemplate),
 			context: {
 				id,

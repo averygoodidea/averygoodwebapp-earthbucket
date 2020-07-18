@@ -4,7 +4,7 @@ import { SEO } from 'atoms'
 import { AuthorAlbumPostManager, AuthorLayout } from 'organisms'
 import { AVeryGoodAuthenticator } from 'assets-js'
 
-class AuthorAlbumPostsPage extends Component {
+class AuthorAlbumPage extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -38,7 +38,7 @@ class AuthorAlbumPostsPage extends Component {
 		)
 	}
 }
-export default AuthorAlbumPostsPage
+export default AuthorAlbumPage
 export const pageQuery = graphql`
 	query {
       allAlbumPosts(sort: {order: DESC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
