@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { Button, CommentSection, SEO } from 'atoms'
 import { EmailForm, ScriptureSection } from 'molecules'
 import { InventoryItemActivityMenu, Layout } from 'organisms'
-import styles from './inventory-item.module.scss'
+import styles from './album-post.module.scss'
 import { ButtonBack, ButtonNext, CarouselProvider, DotGroup, Image, Slide, Slider } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import classNames from 'classnames'

@@ -67,7 +67,7 @@ module.exports = {
         // Type prefix of entities from server
         typePrefix: "",
         // The url, this should be the endpoint you are attempting to pull data from
-        url: `https://${process.env.GATSBY_HOSTNAME}/api/1/inventory/items/graphql`,
+        url: `https://${process.env.GATSBY_EARTHBUCKET_HOSTNAME}/api/1/album/posts/graphql`,
         method: "get",
         headers: {
           "Content-Type": "application/json"
@@ -76,7 +76,7 @@ module.exports = {
         data: '',
         // Name of the data to be downloaded.  Will show in graphQL or be saved to a file
         // using this name. i.e. posts.json
-        name: `inventoryItems`,
+        name: `albumPosts`,
         // Nested level of entities in response object, example: `data.posts`
         entityLevel: ``,
         // Optionally save the JSON data to a file locally
@@ -110,12 +110,12 @@ module.exports = {
         // Only available from version 2.1.0
         entitiesArray: [
           {
-            url: `https://${process.env.GATSBY_HOSTNAME}/api/1/inventory/items`,
+            url: `https://${process.env.GATSBY_EARTHBUCKET_HOSTNAME}/api/1/album/posts`,
             method: "get",
             headers: {
               "Content-Type": "application/json"
             },
-            name: `inventoryItems`
+            name: `albumPosts`
           }
         ]
       }
