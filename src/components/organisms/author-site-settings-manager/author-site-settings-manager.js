@@ -3,7 +3,7 @@ import { Button, Toast } from 'atoms'
 import styles from './author-site-settings-manager.module.scss'
 import ReactLoading from 'react-loading'
 import { isEmpty } from 'lodash'
-import AveryGoodAuthenticator from '../../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes'
 
 const TOAST_DURATION = 10000 // 10 seconds
@@ -23,11 +23,11 @@ class AuthorSiteSettingsManager extends Component {
 			}, {
 				duration: null
 			})
-			const { getStorage } = AveryGoodAuthenticator.utils
+			const { getStorage } = AVeryGoodAuthenticator.utils
 			const headers = {
 				'Content-Type': 'application/json',
 				'Authorization': getStorage('authorizationHash'),
-				'x-api-key': process.env.GATSBY_THALLIUMELI_API_KEY
+				'x-api-key': process.env.GATSBY_WATERAPI_KEY
 			}
 			fetch(`/api/1/admin/cloudfront-cache`, {
 				method: 'DELETE',
@@ -36,7 +36,7 @@ class AuthorSiteSettingsManager extends Component {
 				// if access is unauthorized
 					// sign out
 				if(response.status === 401) {
-					AveryGoodAuthenticator.signOut()
+					AVeryGoodAuthenticator.signOut()
 				}
 			}).then( () => {
 				this.setState({ LOADING_STATE: 'loaded' }, () => {

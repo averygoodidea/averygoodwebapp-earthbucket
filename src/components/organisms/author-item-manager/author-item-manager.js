@@ -4,7 +4,7 @@ import { AuthorInventoryMenu, AuthorMoreMenu } from 'molecules'
 import styles from './author-item-manager.module.scss'
 import './author-item-manager.scss'
 import { isEqual, isEmpty } from 'lodash'
-import AveryGoodAuthenticator from '../../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes' 
 import { navigate } from 'gatsby'
 
@@ -12,7 +12,7 @@ const TOAST_DURATION = 4000 // 4 seconds
 const getDelimitedStringOfIds = (keys, delimiter) => {
 	let ids = ''
 	keys.forEach( (id, i) => {
-		const key = id.split('inventory/items/')[1].split('.jpg')[0]
+		const key = id.split('album/posts/images/')[1].split('.jpg')[0]
 		ids += i === 0 ? key : `${delimiter}${key}`
 	})
 	return ids
@@ -140,11 +140,11 @@ class AuthorItemManager extends Component {
 	        	}
             }
             this.setState({ LOADING_STATE: 'loading' }, async () => {
-				const { getStorage } = AveryGoodAuthenticator.utils
+				const { getStorage } = AVeryGoodAuthenticator.utils
 				const headers = {
 					'Content-Type': 'application/json',
 					'Authorization': getStorage('authorizationHash'),
-					'x-api-key': process.env.GATSBY_THALLIUMELI_API_KEY
+					'x-api-key': process.env.GATSBY_WATERAPI_KEY
 				}
 				// if there are images and these images have not been previously uploaded AND they should be uploaded 
 					// get s3 pre-signed upload urls
@@ -155,14 +155,14 @@ class AuthorItemManager extends Component {
 				const { files, keyOrder } = imagesValue
 				if (files && !isEqual(files, previouslySavedImagesValue.files)) {
 					// retrieve s3 upload urls
-					let result = await fetch(`/api/1/admin/inventory/s3/urls?amount=${files.length}`, {
+					let result = await fetch(`/api/1/admin/album/s3/urls?amount=${files.length}`, {
 						method: 'GET',
 						headers
 					}).then( response => {
 						// if access is unauthorized
 							// sign out
 						if(response.status === 401) {
-							AveryGoodAuthenticator.signOut()
+							AVeryGoodAuthenticator.signOut()
 						}
 						return response
 					}).catch( error => {
@@ -194,7 +194,7 @@ class AuthorItemManager extends Component {
 					}
 					const renamedFiles = renameFiles(s3UrlData.map( datum => datum.photoFilename ), files)
 					uploadFilesToS3(s3UrlData.map( datum => datum.uploadURL ), renamedFiles)
-					params['images'] = renamedFiles.map( file => `inventory/items/${file.name}` )
+					params['images'] = renamedFiles.map( file => `album/posts/images/${file.name}` )
 				} else if (keyOrder) {
 					params['images'] = keyOrder
 				}
@@ -208,7 +208,7 @@ class AuthorItemManager extends Component {
 					duration: null
 				})
 				if (mode === 'CREATE') {
-					fetch(`/api/1/admin/inventory/item`, {
+					fetch(`/api/1/admin/album/post`, {
 						method: 'POST',
 						headers,
 						body: JSON.stringify(params),
@@ -216,7 +216,7 @@ class AuthorItemManager extends Component {
 						// if access is unauthorized
 							// sign out
 						if(response.status === 401) {
-							AveryGoodAuthenticator.signOut()
+							AVeryGoodAuthenticator.signOut()
 						}
 						return response.json()
 					}).then( response => {
@@ -239,7 +239,7 @@ class AuthorItemManager extends Component {
 						console.error( error )
 					})
 				} else if (mode === 'UPDATE') {
-					fetch(`/api/1/admin/inventory/items/${selectedItem.alternative_id}`, {
+					fetch(`/api/1/admin/album/posts/${selectedItem.alternative_id}`, {
 						method: 'PUT',
 						headers,
 						body: JSON.stringify(params),
@@ -247,7 +247,7 @@ class AuthorItemManager extends Component {
 						// if access is unauthorized
 							// sign out
 						if(response.status === 401) {
-							AveryGoodAuthenticator.signOut()
+							AVeryGoodAuthenticator.signOut()
 						}
 						return response
 					}).then( response => {
@@ -279,7 +279,7 @@ class AuthorItemManager extends Component {
 									const imageFilenames = !isEmpty(previouslySavedImageFilenames) ? previouslySavedImageFilenames : selectedItem.images
 									const imagesToBeDeleted = imageFilenames.filter( key => !params['images'].includes(key) )
 									const deleteUnusedImagesFromS3 = ids => {
-										fetch(`/api/1/admin/inventory/s3/images?ids=${ids}`, {
+										fetch(`/api/1/admin/album/s3/images?ids=${ids}`, {
 											method: 'DELETE',
 											headers
 										}).catch( error => {
@@ -312,29 +312,29 @@ class AuthorItemManager extends Component {
 			}, {
 				duration: null
 			})
-			const { getStorage } = AveryGoodAuthenticator.utils
+			const { getStorage } = AVeryGoodAuthenticator.utils
 			const headers = {
 				'Content-Type': 'application/json',
 				'Authorization': getStorage('authorizationHash'),
-				'x-api-key': process.env.GATSBY_THALLIUMELI_API_KEY
+				'x-api-key': process.env.GATSBY_WATERAPI_KEY
 			}
 			const {
 				selectedItem
 			} = this.state
 			const ids = getDelimitedStringOfIds(selectedItem.images, ',')
-			fetch(`/api/1/admin/inventory/s3/images?ids=${ids}`, {
+			fetch(`/api/1/admin/album/s3/images?ids=${ids}`, {
 				method: 'DELETE',
 				headers
 			}).then( response => {
 				// if access is unauthorized
 					// sign out
 				if(response.status === 401) {
-					AveryGoodAuthenticator.signOut()
+					AVeryGoodAuthenticator.signOut()
 				}
 			}).catch( error => {
 				console.error(error)
 			})
-			fetch(`/api/1/admin/inventory/items/${selectedItem.alternative_id}`, {
+			fetch(`/api/1/admin/album/posts/${selectedItem.alternative_id}`, {
 				method: 'DELETE',
 				headers
 			}).then( result => {

@@ -43,7 +43,7 @@ class InventoryItemTemplate extends Component {
 	        moreInfoUrl,
 	        summary,
 	        title
-	    } = data.item
+	    } = data.albumPost
 		let isModal = false
 	    // We don't want to show the modal if
 	    // 1. a user navigates directly to a post
@@ -116,7 +116,7 @@ class InventoryItemTemplate extends Component {
 											label={category}
 											onClick={e => {
 												e.preventDefault()
-												navigate(`/i/category/${category}`)
+												navigate(`/album/category/${category}`)
 											}}
 											className={styles.iconButton}
 											fontIcon={`category-${category}`}
@@ -129,7 +129,7 @@ class InventoryItemTemplate extends Component {
 								<p><em>{`appx $${price}`}</em></p>
 							</div>
 							<InventoryItemActivityMenu
-								item={data.item}
+								item={data.albumPost}
 								moreInfoUrl={moreInfoUrl}
 								onInventoryItemEvent={ e => this.onInventoryItemEvent(e) }
 								ref={this.inventoryItemActivityMenuRef}
@@ -148,7 +148,7 @@ class InventoryItemTemplate extends Component {
 export default InventoryItemTemplate
 export const pageQuery = graphql`
 query ($id: String!) {
-  item: albumPosts(id: {eq: $id}) {
+  albumPost: albumPosts(id: {eq: $id}) {
   	alternative_id
   	categories
     id

@@ -1,4 +1,4 @@
-const AveryGoodNarrowcaster = {
+const AVeryGoodNarrowcaster = {
 	share: (service, url, serviceMessage) => {
 		let endpoint
 		let message
@@ -52,4 +52,4 @@ const AveryGoodNarrowcaster = {
 		}
 	}
 }
-module.exports = AveryGoodNarrowcaster
+module.exports = AVeryGoodNarrowcaster

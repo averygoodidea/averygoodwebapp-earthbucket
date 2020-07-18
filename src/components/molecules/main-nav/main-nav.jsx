@@ -25,7 +25,7 @@ const MainNav = ({ currentView }) => {
 				let shouldTabButton
 				if (currentView === target) {
 					shouldTabButton = true
-				} else if (target === '/' && (currentView.includes('/i/') || currentView.includes('/category/') ||  currentView.includes('/items/list/'))) {
+				} else if (target === '/' && (currentView.includes('/album/') || currentView.includes('/category/') ||  currentView.includes('/album/list/'))) {
 					shouldTabButton = true
 				} else if (target === '/blog/' && currentView.includes('/blog/')) {
 					shouldTabButton = true

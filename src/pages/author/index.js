@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { navigate } from 'gatsby'
 import { Toast } from 'atoms'
 import { AuthorLayout, AuthorSignInForm } from 'organisms'
-import AveryGoodAuthenticator from '../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes' 
 
 class AuthorIndexPage extends Component {
@@ -13,7 +13,7 @@ class AuthorIndexPage extends Component {
 		}
 	}
 	componentDidMount() {
-		const { verifyAuthentication } = AveryGoodAuthenticator
+		const { verifyAuthentication } = AVeryGoodAuthenticator
 		verifyAuthentication().then( result => {
 			const { isVerified, message } = result
 			if (isVerified) {

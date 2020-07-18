@@ -5,8 +5,7 @@ import { ContentWindow } from 'molecules'
 import { CardCollection, Layout } from 'organisms'
 import styles from './list.module.scss'
 import { isEmpty } from 'lodash'
-import AveryGoodNarrowcaster from '../../assets/js/averygoodnarrowcaster'
-// import SEO from "../components/seo"
+import { AVeryGoodNarrowcaster, LocalStorageList } from 'assets-js'
 
 class ItemsListPage extends Component {
   constructor () {
@@ -25,19 +24,16 @@ class ItemsListPage extends Component {
     allAlbumPosts.edges.forEach( edge => {
       inventoryItems[edge.node.alternative_id] = edge
     })
-    let items = []
-    if (window.localStorage.getItem('itemIds')) {
-      // get inventory items by local storage id and filter out any that don't exist in the database anymore.
-      items = window.localStorage.getItem('itemIds').split(',').map( itemId => inventoryItems[itemId]).filter( item => !isEmpty(item))
-    }
+    // get album posts by local storage id and filter out any that don't exist in the database anymore.
+    const albumPosts = LocalStorageList.getPostIds().map( itemId => inventoryItems[itemId]).filter( item => !isEmpty(item))
     this.setState({
-      inventoryItems: items,
+      inventoryItems: albumPosts,
       s3
     })
   }
   onEmailButtonClick() {
     const { inventoryItems } = this.state
-    let message = 'My Faith Inventory List:'
+    let message = 'Your List of Favorites:'
     inventoryItems.forEach( ( { node: { categories, moreInfoUrl, price, title } }, i) => {
       message += '\n'
       message += `\n${i + 1}. ${title}`
@@ -45,7 +41,7 @@ class ItemsListPage extends Component {
       message += `\n${moreInfoUrl}`
       categories.forEach( (category, i) => message += `${i === 0 ? '' : ','}${category}` )
     })
-    AveryGoodNarrowcaster.share('email', '', message)
+    AVeryGoodNarrowcaster.share('email', '', message)
   }
   render() {
     const {
@@ -122,7 +118,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allS3Object(filter: {Key: {regex: "^inventory/items/" }}) {
+    allS3Object(filter: {Key: {regex: "/album/posts/" }}) {
       edges {
         node {
           Key

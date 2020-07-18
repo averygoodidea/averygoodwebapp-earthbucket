@@ -30,7 +30,7 @@ class ScriptureSection extends Component {
 			const { address, isModal } = this.props
 			const className = classNames({
 			[styles.scriptureSection]: true,
-			[styles.brighten]: !isModal && typeof window !== `undefined` && window.location.pathname.includes('/i/')
+			[styles.brighten]: !isModal && typeof window !== `undefined` && window.location.pathname.includes('/album/')
 		})
 		return (
 			<div className={className}>

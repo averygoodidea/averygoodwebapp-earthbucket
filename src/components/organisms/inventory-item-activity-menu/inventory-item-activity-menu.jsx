@@ -5,7 +5,7 @@ import { ShareMenu } from 'molecules'
 import styles from './inventory-item-activity-menu.module.scss'
 import toastedNotes from 'toasted-notes'
 import { isEmpty } from 'lodash'
-import AveryGoodNarrowcaster from '../../../assets/js/averygoodnarrowcaster'
+import { LocalStorageList } from 'assets-js'
 import moment from 'moment'
 
 const TOAST_DURATION = 1000 // 1 second
@@ -19,21 +19,20 @@ class InventoryItemActivityMenu extends Component {
 	}
 	componentDidMount() {
 		const { alternative_id } = this.props.item
-		if (window.localStorage.getItem('itemIds')) {
-			const itemIds = window.localStorage.getItem('itemIds').split(',')
-			this.setState({ hasBeenCollected: itemIds.includes(alternative_id) })
+		const postIds = LocalStorageList.getPostIds()
+		if (!isEmpty(postIds)) {
+			this.setState({ hasBeenCollected: postIds.includes(alternative_id) })
 		} else {
-			window.localStorage.setItem('itemIds', '')
+			window.localStorage.setItem('postIds', '')
 		}
 	}
 	addToList() {
 		const { item: { alternative_id, title }, onInventoryItemEvent } = this.props
-		let itemIds = window.localStorage.getItem('itemIds').split(',').filter( itemId => !isEmpty(itemId))
+		const itemIds = LocalStorageList.getPostIds().filter( postId => !isEmpty(postId))
 		if (!itemIds.includes(alternative_id)) {
-			itemIds.push(alternative_id)
-			window.localStorage.setItem('itemIds', itemIds.join(','))
+			LocalStorageList.addPostId(alternative_id)
 			this.setState( { hasBeenCollected: true }, () => {
-				toastedNotes.notify(<Toast htmlMessage={`<p><strong>Added</strong> <em>${title}</em> to Your List</p>`} fontIcon="like" to={'/items/list/'} />, { duration: TOAST_DURATION })
+				toastedNotes.notify(<Toast htmlMessage={`<p><strong>Added</strong> <em>${title}</em> to Your List</p>`} fontIcon="like" to={'/album/list/'} />, { duration: TOAST_DURATION })
 				onInventoryItemEvent({
 					type: 'LIKED',
 					createdAt: moment().unix()
@@ -43,12 +42,11 @@ class InventoryItemActivityMenu extends Component {
 	}
 	removeFromList() {
 		const { item: { alternative_id, title }, onInventoryItemEvent } = this.props
-		let itemIds = window.localStorage.getItem('itemIds').split(',').filter( itemId => !isEmpty(itemId))
+		const itemIds = LocalStorageList.getPostIds().filter( postId => !isEmpty(postId))
 		if (itemIds.includes(alternative_id)) {
-			itemIds = itemIds.filter( itemId => itemId !== alternative_id )
-			window.localStorage.setItem('itemIds', itemIds.join(','))
+			LocalStorageList.removePostId(alternative_id)
 			this.setState( { hasBeenCollected: false }, () => {
-				toastedNotes.notify(<Toast htmlMessage={`<p><strong>Removed</strong> <em>${title}</em> from Your List</p>`} fontIcon="dislike" to={'/items/list/'} />, { duration: TOAST_DURATION })
+				toastedNotes.notify(<Toast htmlMessage={`<p><strong>Removed</strong> <em>${title}</em> from Your List</p>`} fontIcon="dislike" to={'/album/list/'} />, { duration: TOAST_DURATION })
 				onInventoryItemEvent({
 					type: 'DISLIKED',
 					createdAt: moment().unix()

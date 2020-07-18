@@ -6,8 +6,9 @@ import { MainNav } from "molecules"
 import { isEmpty } from 'lodash'
 import styles from './header.module.scss'
 import './header.scss'
+import { LocalStorageList } from 'assets-js'
 
-const Header = ({ inventoryItemEvent, location, rightColElement, sectionTitle, siteDescription, siteTitle }) => {
+const Header = ({ albumPostEvent, location, rightColElement, sectionTitle, siteDescription, siteTitle }) => {
   const data = useStaticQuery(graphql`
     query {
       allAlbumPosts(filter: {id: {ne: "dummy"}}) {
@@ -19,17 +20,14 @@ const Header = ({ inventoryItemEvent, location, rightColElement, sectionTitle, s
       }
     }
   `)
-  const inventoryItemIds = []
+  const albumPostIds = []
   data.allAlbumPosts.edges.forEach( edge => {
-    inventoryItemIds.push(edge.node.alternative_id)
+    albumPostIds.push(edge.node.alternative_id)
   })
-  let localStorageItemIds = []
-  if (typeof window !== `undefined` && window.localStorage.getItem('itemIds')) {
-    // get ids from local storage and filter out any that don't exist in the database anymore.
-    localStorageItemIds = window.localStorage.getItem('itemIds').split(',').filter( itemId => inventoryItemIds.includes(itemId) )
-  }
   const currentView = location.pathname
-  const shouldShowListButton = (currentView === '/' || currentView.includes('/i/') || currentView.includes('/category/') || currentView === '/items/list/')
+  const shouldShowListButton = (currentView === '/' || currentView.includes('/album/') || currentView.includes('/category/') || currentView === '/album/list/')
+  // get ids from local storage and filter out any that don't exist in the database anymore.
+  const listLength = typeof window !== `undefined` ? LocalStorageList.getPostIds().filter( postId => albumPostIds.includes(postId) ).length : -1
   return (
     <header className={styles.header}>
       <div className="container-fluid">
@@ -52,17 +50,17 @@ const Header = ({ inventoryItemEvent, location, rightColElement, sectionTitle, s
         <div className="row">
             <div className="col-xs-9 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-8">
               {shouldShowListButton && <div className={styles.listButton}>
-                {localStorageItemIds.length > 0 && <div className={styles.amount} onClick={ e => {
+                {listLength > 0 && <div className={styles.amount} onClick={ e => {
                   e.preventDefault()
-                  navigate('/items/list/')
-                }}>{localStorageItemIds.length}</div>}
+                  navigate('/album/list/')
+                }}>{listLength}</div>}
                 <Button
-                  cn={currentView === '/items/list/' ? styles.tabbed : ''}
+                  cn={currentView === '/album/list/' ? styles.tabbed : ''}
                   label="Your List"
                   fontIcon='school-backpack'
                   onClick={ e => {
                     e.preventDefault()
-                    navigate('/items/list/')
+                    navigate('/album/list/')
                   }}
                 />
               </div>}

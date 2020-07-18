@@ -1,4 +1,4 @@
-const AveryGoodAuthenticator = {
+const AVeryGoodAuthenticator = {
 	sendMagicLink: email => {
 		// if administrator exists
 			// generate temporary signin key
@@ -8,7 +8,7 @@ const AveryGoodAuthenticator = {
 			createTemporarySignInKey,
 			setStorage,
 			IS_SIGNED_IN_MAX_AGE
-		} = AveryGoodAuthenticator.utils
+		} = AVeryGoodAuthenticator.utils
 		const params = {
 			email,
 			signInKey: createTemporarySignInKey(5)
@@ -44,13 +44,13 @@ const AveryGoodAuthenticator = {
 		// else
 			// keep signed out
 		return new Promise( ( resolve ) => {
-			const { getStorage } = AveryGoodAuthenticator.utils
+			const { getStorage } = AVeryGoodAuthenticator.utils
 			if (getStorage('authorizationHash')) {
 				if (getStorage('isSignedIn')) {
 					// is verified
 					resolve({ 'isVerified': true })
 				} else {
-					const { getQueryStringParameter } = AveryGoodAuthenticator.utils
+					const { getQueryStringParameter } = AVeryGoodAuthenticator.utils
 					const submittedKey = getQueryStringParameter('signin')
 					if (submittedKey) {
 						const headers = {
@@ -63,7 +63,7 @@ const AveryGoodAuthenticator = {
 						}).then( async response => {
 							const  { status } = response
 							if (status === 200) {
-								const { setStorage, IS_SIGNED_IN_MAX_AGE } = AveryGoodAuthenticator.utils
+								const { setStorage, IS_SIGNED_IN_MAX_AGE } = AVeryGoodAuthenticator.utils
 								setStorage('isSignedIn', 'true', IS_SIGNED_IN_MAX_AGE)
 								const authorizationHash = response.headers.get('x-amzn-remapped-authorization')
 								if (authorizationHash) {
@@ -88,7 +88,7 @@ const AveryGoodAuthenticator = {
 		})
 	},
 	signOut: () => {
-	  const { setStorage } = AveryGoodAuthenticator.utils
+	  const { setStorage } = AVeryGoodAuthenticator.utils
 	  setStorage('isSignedIn', undefined)
 	  setStorage('authorizationHash', undefined)
 	  // refresh the page and clear any search items appended to the url
@@ -119,7 +119,7 @@ const AveryGoodAuthenticator = {
 		    }
 		    return randomString;
 		},
-		// set cookie
+		// set/get cookie
 		setCookie: (name, value, maxAge = 0) => {
 			document.cookie = `${name}=${value}; max-age=${maxAge}; path=/; domain=${document.location.host}; Secure;`
 		},
@@ -128,7 +128,7 @@ const AveryGoodAuthenticator = {
 			cookie = cookie.length > 0 ? cookie[0].split('=')[1] : undefined
 			return cookie
 		},
-		// set storage
+		// set/get storage
 		setStorage: (name, value, maxAge = 0) => {
 			if (value) {
 				const currentTime = Math.round(Date.now() / 1000)
@@ -154,4 +154,4 @@ const AveryGoodAuthenticator = {
 		IS_SIGNED_IN_MAX_AGE: 604800 // 604800 is 7 days in seconds
 	}
 }
-module.exports = AveryGoodAuthenticator
+module.exports = AVeryGoodAuthenticator

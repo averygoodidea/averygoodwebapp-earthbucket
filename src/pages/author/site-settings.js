@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { navigate } from 'gatsby'
 import { SEO } from 'atoms'
 import { AuthorLayout, AuthorSiteSettingsManager } from 'organisms'
-import AveryGoodAuthenticator from '../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 
 class AuthorSiteSettingsPage extends Component {
 	constructor() {
@@ -12,7 +12,7 @@ class AuthorSiteSettingsPage extends Component {
 		}
 	}
 	componentDidMount() {
-		const { verifyAuthentication } = AveryGoodAuthenticator
+		const { verifyAuthentication } = AVeryGoodAuthenticator
 		verifyAuthentication().then( result => {
 			const { isVerified } = result
 			if (isVerified) {

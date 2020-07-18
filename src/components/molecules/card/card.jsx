@@ -21,7 +21,7 @@ const Card = ({ categories, history, image, inventoryItems, price, slugId, title
 						key={i}
 						onClick={e => {
 							e.preventDefault()
-							navigate(`/i/category/${category}/`)
+							navigate(`/album/category/${category}/`)
 						}}
 						className={styles.iconButton}
 					>

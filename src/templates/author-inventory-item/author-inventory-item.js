@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { graphql, navigate } from 'gatsby'
 import { SEO } from 'atoms'
 import { AuthorItemManager, AuthorLayout } from 'organisms'
-import AveryGoodAuthenticator from '../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 
 class AuthorInventoryItemTemplate extends Component {
 	constructor() {
@@ -13,7 +13,7 @@ class AuthorInventoryItemTemplate extends Component {
 		}
 	}
 	componentDidMount() {
-		const { verifyAuthentication } = AveryGoodAuthenticator
+		const { verifyAuthentication } = AVeryGoodAuthenticator
 		verifyAuthentication().then( result => {
 			const { isVerified } = result
 			if (isVerified) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Button } from 'atoms'
 import { Header } from 'organisms'
 import styles from './author-header.module.scss'
-import AveryGoodAuthenticator from '../../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 
 const AuthorHeader = ({ authenticationState, sectionTitle, siteTitle, siteDescription }) => (
   <Header
@@ -16,7 +16,7 @@ const AuthorHeader = ({ authenticationState, sectionTitle, siteTitle, siteDescri
               e.preventDefault()
               const isConfirmed = confirm('Are you sure you want to sign out?')
               if (isConfirmed) {
-                AveryGoodAuthenticator.signOut()
+                AVeryGoodAuthenticator.signOut()
               }
             }}
           />

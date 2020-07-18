@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { graphql, navigate } from 'gatsby'
 import { SEO } from 'atoms'
 import { AuthorItemManager, AuthorLayout } from 'organisms'
-import AveryGoodAuthenticator from '../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 
 class AuthorItemsPage extends Component {
 	constructor() {
@@ -13,7 +13,7 @@ class AuthorItemsPage extends Component {
 		}
 	}
 	componentDidMount() {
-		const { verifyAuthentication } = AveryGoodAuthenticator
+		const { verifyAuthentication } = AVeryGoodAuthenticator
 		verifyAuthentication().then( result => {
 			const { isVerified } = result
 			if (isVerified) {
@@ -54,15 +54,6 @@ export const pageQuery = graphql`
             slugId
             summary
             title
-          }
-        }
-      }
-      allInventoryItemImages: allS3Object(filter: {Key: {regex: "^album/posts/images/" }}) {
-        edges {
-          node {
-            id
-            Key
-            ...S3Image
           }
         }
       }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Textfield, SubmitButton } from 'atoms'
 import styles from './email-form.module.scss'
 import classNames from 'classnames'
-import AveryGoodAuthenticator from '../../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 import { isEmpty } from 'lodash'
 
 class EmailForm extends Component {
@@ -19,7 +19,7 @@ class EmailForm extends Component {
 		}
 	}
 	onChange(email) {
-		const { utils } = AveryGoodAuthenticator
+		const { utils } = AVeryGoodAuthenticator
 		if(utils.isValidEmailFormat(email)) {
 			this.setState({
 				email,
@@ -45,7 +45,7 @@ class EmailForm extends Component {
 		const { isModal, mode } = this.props
 		const className = classNames({
 			[styles.emailForm]: true,
-			[styles.brighten]: !isModal && typeof window !== `undefined` && window.location.pathname.includes('/i/')
+			[styles.brighten]: !isModal && typeof window !== `undefined` && window.location.pathname.includes('/album/')
 		})
 		return (
 			<div className={className}>

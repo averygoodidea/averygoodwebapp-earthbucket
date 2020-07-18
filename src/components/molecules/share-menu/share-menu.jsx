@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'atoms'
-import AveryGoodNarrowcaster from '../../../assets/js/averygoodnarrowcaster'
+import { AVeryGoodNarrowcaster } from 'assets-js'
 import styles from './share-menu.module.scss'
 import classNames from 'classnames'
 import { isEmpty } from 'lodash'
@@ -47,7 +47,7 @@ const ShareMenu = ({ cn, url, tags }) => {
 		label={""}
 		onClick={ e => { 
 			e.preventDefault()
-			AveryGoodNarrowcaster.share(service, url, message)
+			AVeryGoodNarrowcaster.share(service, url, message)
 		}}
 	/></li>)
 

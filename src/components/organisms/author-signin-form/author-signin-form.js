@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 import { SubmitButton, Textfield, Toast } from 'atoms'
 import styles from './author-signin-form.module.scss'
 import ReactLoading from 'react-loading'
-import AveryGoodAuthenticator from '../../../assets/js/averygoodauthenticator'
+import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes'
 
 const TOAST_DURATION = 30000 // 30 seconds
@@ -32,7 +32,7 @@ class AuthorSignInForm extends Component {
 			}, {
 				duration: null
 			})
-			const { sendMagicLink } = AveryGoodAuthenticator
+			const { sendMagicLink } = AVeryGoodAuthenticator
 			const { email } = this.state
 			sendMagicLink(email).then( data => {
 				this.setState({ LOADING_STATE: 'loaded' }, () => {
@@ -76,7 +76,7 @@ class AuthorSignInForm extends Component {
 		})
 	}
 	onChange(email) {
-		const { utils } = AveryGoodAuthenticator
+		const { utils } = AVeryGoodAuthenticator
 		if(utils.isValidEmailFormat(email)) {
 			this.setState({
 				email,

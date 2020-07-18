@@ -58,7 +58,7 @@ class InventoryItemModal extends Component {
 			} else {
 				inventoryItem = inventoryItems[currentIndex + 1]
 			}
-			navigate(`/i/${inventoryItem.node.slugId}/`, { state: { ...this.props.location.state } })
+			navigate(`/album/${inventoryItem.node.slugId}/`, { state: { ...this.props.location.state } })
 		}
 	}
 	previous(e) {
@@ -75,7 +75,7 @@ class InventoryItemModal extends Component {
 			} else {
 				inventoryItem = inventoryItems[currentIndex - 1]
 			}
-			navigate(`/i/${inventoryItem.node.slugId}/`, { state: { ...this.props.location.state } })
+			navigate(`/album/${inventoryItem.node.slugId}/`, { state: { ...this.props.location.state } })
 		}
 	}
 	closeModal() {

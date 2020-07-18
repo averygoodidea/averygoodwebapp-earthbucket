@@ -12,9 +12,9 @@ class IndexPage extends Component {
     }
   }
   componentDidMount() {
-    const { allAlbumPosts, allInventoryItemImages } = this.props.data
+    const { allAlbumPosts, allAlbumPostImages } = this.props.data
     const s3ObjectMap = {}
-    allInventoryItemImages.edges.forEach( ({ node }) => {
+    allAlbumPostImages.edges.forEach( ({ node }) => {
       s3ObjectMap[node.Key] = node.image
     })
     // create inventory category taxonomies
@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allInventoryItemImages: allS3Object(filter: {Key: {regex: "^inventory/items/" }}) {
+    allAlbumPostImages: allS3Object(filter: {Key: {regex: "/album/posts/images/" }}) {
       edges {
         node {
           Key
