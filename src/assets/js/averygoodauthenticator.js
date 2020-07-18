@@ -14,7 +14,7 @@ const AVeryGoodAuthenticator = {
 			signInKey: createTemporarySignInKey(5)
 		}
 		// put admin magic link
-		return fetch('/api/1/inventory/admin/magic-link', {
+		return fetch('/api/1/admin/magic-link', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const AVeryGoodAuthenticator = {
 							'Content-Type': 'application/json',
 							'Authorization': getStorage('authorizationHash')
 						}
-						fetch(`/api/1/inventory/admin/hash?submittedKey=${submittedKey}`, {
+						fetch(`/api/1/admin/hash?submittedKey=${submittedKey}`, {
 							method: 'GET',
 							headers
 						}).then( async response => {

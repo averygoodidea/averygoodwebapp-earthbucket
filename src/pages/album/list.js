@@ -24,7 +24,7 @@ class ItemsListPage extends Component {
     allAlbumPosts.edges.forEach( edge => {
       albumPosts[edge.node.alternative_id] = edge
     })
-    // get only the album posts that have ids in local storage. Also, filter out any ids found in LocalStorage that doesn't exist in the data store anymore.
+    // get only the album posts that have ids in local storage. Also, filter out any ids found in local storage that doesn't exist in the data store anymore.
     albumPosts = LocalStorageList.getPostIds().map( postId => albumPosts[postId]).filter( id => !isEmpty(id))
     this.setState({
       albumPosts,
