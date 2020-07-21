@@ -6,8 +6,7 @@ const CloseButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.closeButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-close" />
 	</button>
 )

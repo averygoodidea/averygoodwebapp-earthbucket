@@ -59,7 +59,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     /* CSS Pre-Processor */
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+        options: {
+          // https://github.com/gatsbyjs/gatsby/issues/6655
+          data: '@import "main.scss";',
+          includePaths: ["src/assets/sass"]
+        },
+     },
     /* Import Content from Data Sources */
     {
       resolve: "gatsby-source-apiserver",

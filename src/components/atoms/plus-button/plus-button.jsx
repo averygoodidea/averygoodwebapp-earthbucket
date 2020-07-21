@@ -6,8 +6,7 @@ const PlusButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.plusButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-plus" />
 	</button>
 )

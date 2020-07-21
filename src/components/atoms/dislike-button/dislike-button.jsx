@@ -6,8 +6,7 @@ const DislikeButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.dislikeButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-dislike" />
 	</button>
 )

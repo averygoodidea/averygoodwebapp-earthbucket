@@ -1,0 +1,9 @@
+@import "font-icons.scss";
+@import "normalize.scss";
+@import "flexboxgrid.scss";
+@import "vars.scss";
+
+body :focus {
+	outline: 2px solid #1ec4a4;
+	outline-offset: 2px;
+}

@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { graphql, navigate, useStaticQuery } from "gatsby"
 import { AuthorNavbar } from "molecules"
 import { AuthorHeader } from 'organisms'
-import styles from "./author-layout.scss"
 import "../layout/layout.scss"
 
 const AuthorLayout = ({ children, isModal, isAuthenticated, location, sectionTitle }) => {

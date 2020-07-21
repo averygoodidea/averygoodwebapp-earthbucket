@@ -6,8 +6,7 @@ const LikeButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.likeButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-like" />
 	</button>
 )

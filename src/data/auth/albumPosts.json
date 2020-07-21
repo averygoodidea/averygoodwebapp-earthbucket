@@ -17,18 +17,20 @@
   },
   {
     "categories": [
-      "food"
+      "food",
+      "water"
     ],
-    "createdAt": 1595076838,
-    "id": "6b062d72-d13e-4685-9765-dda33050a4f5",
+    "createdAt": 1595117961,
+    "id": "475c0600-07d0-4953-91f6-e50990e096e4",
     "images": [
-      "album/posts/images/bb89fdbf-0cad-4894-a32a-5825fcf56c2b.jpg",
-      "album/posts/images/2ee9fb57-5f91-4536-ba00-15f85722dd8a.jpg"
+      "album/posts/images/ddba1f51-fae1-4747-a940-c5d6cf8e6cc8.jpg",
+      "album/posts/images/4bfbbd9a-3410-40ce-9bed-8f0cba82fba8.jpg",
+      "album/posts/images/2cf6e012-8fb6-474e-b509-928b049c51ca.jpg"
     ],
-    "moreInfoUrl": "https://www.wildplanetfoods.com/product/wild-sockeye-salmon/",
-    "price": 45,
-    "slugId": "Oi7QtlL-TSuZL1z6xk56EA",
-    "summary": "With it being extremely healthy, relatively inexpensive and easily accessible, canned salmon is the best deal in town.",
-    "title": "Canned Salmon"
+    "moreInfoUrl": "test link",
+    "price": 53,
+    "slugId": "GRSAc6FdROayawMen6h9hg",
+    "summary": "test",
+    "title": "test edit 2"
   }
 ]

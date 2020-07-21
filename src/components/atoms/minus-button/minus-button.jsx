@@ -6,8 +6,7 @@ const MinusButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.minusButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-minus" />
 	</button>
 )

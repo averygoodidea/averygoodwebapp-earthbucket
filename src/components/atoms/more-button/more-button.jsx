@@ -6,8 +6,7 @@ const MoreButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.moreButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-ellipsis" />
 	</button>
 )

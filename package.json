@@ -2,7 +2,7 @@
   "name": "averygoodwebapp-earthbucket",
   "private": true,
   "description": "AVeryGoodWebApp - EarthBucket",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Avery Smith <avery@averygoodidea.com>",
   "dependencies": {
     "@robinmetral/gatsby-source-s3": "^1.1.1",
@@ -10,6 +10,7 @@
     "atoms": "file:src/components/atoms",
     "b64-to-blob": "^1.2.19",
     "classnames": "^2.2.6",
+    "css-loader": "^3.6.0",
     "gatsby": "^2.20.12",
     "gatsby-cli": "^2.12.44",
     "gatsby-core-utils": "^1.1.1",
@@ -31,7 +32,6 @@
     "molecules": "file:src/components/molecules",
     "moment": "^2.26.0",
     "mousetrap": "^1.6.5",
-    "node-sass": "^4.13.1",
     "organisms": "file:src/components/organisms",
     "prop-types": "^15.7.2",
     "pure-react-carousel": "^1.27.0",
@@ -46,13 +46,30 @@
     "react-select": "^3.1.0",
     "react-spring": "^8.0.27",
     "slug": "^2.1.1",
+    "style-loader": "^1.2.1",
     "toasted-notes": "^3.2.0",
     "typography": "^0.16.19",
     "uuidv4": "^6.0.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/react": "^10.4.7",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-gatsby": "^0.5.2",
+    "babel-preset-react-app": "^9.1.2",
     "eslint-config-react-app": "^5.2.1",
-    "prettier": "^1.19.1"
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.1.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^1.19.1",
+    "sass-resources-loader": "^2.0.3"
   },
   "keywords": [
     "gatsby"
@@ -66,7 +83,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",

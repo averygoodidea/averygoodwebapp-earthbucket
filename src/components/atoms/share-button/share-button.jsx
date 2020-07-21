@@ -6,8 +6,7 @@ const ShareButton = ({ onClick, onKeyPress }) => (
 	<button
 		className={styles.shareButton}
 		onClick={onClick}
-		onKeyPress={onKeyPress}
-	>
+		onKeyPress={onKeyPress}>
 		<i className="font-icon-share" />
 	</button>
 )
