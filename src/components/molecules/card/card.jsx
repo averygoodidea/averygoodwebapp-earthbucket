@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link, navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import styles from './card.module.scss'
 
 const Card = ({ categories, history, image, albumPosts, price, slugId, title }) => (

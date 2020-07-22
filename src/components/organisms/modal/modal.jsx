@@ -4,7 +4,7 @@ import Modal from 'react-modal'
 import { findIndex } from 'lodash'
 import mousetrap from 'mousetrap'
 import Typography from 'typography'
-import { navigate, StaticQuery, graphql } from 'gatsby'
+import { navigate } from 'gatsby'
 import styles from './modal.module.scss'
 import './modal.scss'
 
@@ -28,8 +28,6 @@ class AlbumPostModal extends Component {
 			mousetrap.bind(`space`, () => this.next())
 		}
 		this.setState( { enableNav })
-
-		const comments = document.querySelector('.comments')
 	}
 	componentWillUnmount() {
 		const { enableNav } = this.state

@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'atoms'
 import styles from './taxonomy-filter.module.scss'
-import { graphql, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 import classNames from 'classnames'
 
 const TaxonomyFilter = ({ baseRoute, defaultScrollLeftPropName, fontIcon, taxonomies, indexRoute, location }) => {

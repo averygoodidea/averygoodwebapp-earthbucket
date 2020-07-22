@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from "prop-types"
 import { Button, PlusButton } from 'atoms'
 import styles from './author-album-post-menu.module.scss'

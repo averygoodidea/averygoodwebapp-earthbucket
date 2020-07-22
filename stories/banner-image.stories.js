@@ -1,6 +1,6 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { BannerImage } from 'atoms';
+import React from 'react';
 
 export default {
   title: 'BannerImage',

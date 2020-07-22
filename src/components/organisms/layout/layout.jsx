@@ -1,9 +1,8 @@
-import React, { Fragment, useRef } from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, PageRenderer, useStaticQuery } from 'gatsby'
 import { Header } from 'organisms'
 import './layout.scss'
-import classNames from 'classnames'
 
 let Modal
 import("../modal/modal").then( modal => {

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Button } from 'atoms'
 import classNames from 'classnames'
 import styles from './scripture-section.module.scss'
-import { isEmpty } from 'lodash'
 
 class ScriptureSection extends Component {
 

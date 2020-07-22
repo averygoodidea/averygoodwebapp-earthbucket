@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { ContentWindow, SEO } from 'atoms'
+import { SEO } from 'atoms'
 import { ExcerptCollection, Layout } from "organisms"
 
 const BlogIndexPage = ({ data, location }) => {

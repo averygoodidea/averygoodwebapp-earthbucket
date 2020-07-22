@@ -1,3 +1,4 @@
+/*eslint no-restricted-globals: ["off"]*/
 import React, { Component, Fragment } from 'react'
 import { ImageUploader, Select, SubmitButton, Textarea, Textfield, Toast } from 'atoms'
 import { AuthorAlbumPostMenu, AuthorMoreMenu } from 'molecules'
@@ -131,12 +132,12 @@ class AuthorAlbumPostManager extends Component {
             	const key = keys[i]
                 const param = params[key]
                 if (!param) {
-                    throw `'${keys[i]}' parameter is required.`
+                    throw new Error(`'${keys[i]}' parameter is required.`)
                 }
             }
             if (mode === 'CREATE') {
 	        	if (!imagesValue.files) {
-	        		throw "'images' parameter is required."
+	        		throw new Error("'images' parameter is required.")
 	        	}
             }
             this.setState({ LOADING_STATE: 'loading' }, async () => {
@@ -229,11 +230,7 @@ class AuthorAlbumPostManager extends Component {
 						this.setState({ LOADING_STATE: 'loaded' }, () => {
 							closeNotification()
 							toastedNotes.notify(<Toast message={message} fontIcon="inventory-item" />, { duration: TOAST_DURATION })
-							const delayFormResetToPreventTooManySubmissions = setTimeout(() => {
-								//this.setState({ LOADING_STATE: 'unloaded' })
-								//clearTimeout(delayFormResetToPreventTooManySubmissions)
-								this.refreshPage()
-							}, TOAST_DURATION)
+							setTimeout(() => this.refreshPage(), TOAST_DURATION)
 						})
 					}).catch( error => {
 						console.error( error )

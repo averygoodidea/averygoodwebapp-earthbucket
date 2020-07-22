@@ -41,7 +41,7 @@ class ExcerptCollection extends Component {
 	}
 	render() {
 		const { postExcerpts, s3, taxonomies, location } = this.props
-		const { amountToShow, isShowingMore } = this.state
+		const { amountToShow } = this.state
 		const excerpts = postExcerpts.slice(0, amountToShow)
 
 		return (

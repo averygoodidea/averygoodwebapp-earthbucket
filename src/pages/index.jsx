@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import { graphql } from 'gatsby'
 import { SEO } from 'atoms'
+import { graphql } from 'gatsby'
 import { CardCollection, Layout } from 'organisms'
+import React, { Component } from "react"
 
 class IndexPage extends Component {
   constructor () {

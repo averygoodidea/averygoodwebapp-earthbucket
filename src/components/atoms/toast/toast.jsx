@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import ReactLoading from 'react-loading'
@@ -14,7 +14,7 @@ const Toast = ({ fontIcon, htmlMessage, loadingState, message, fullWidth, to }) 
 
 	const html = (
 		<div className={className}>
-			{fontIcon && <i className={`font-icon-${fontIcon}`} role="icon" />}
+			{fontIcon && <i className={`font-icon-${fontIcon}`} />}
 			{!fontIcon && loadingState === 'loading' && <div className={styles.loading}><ReactLoading type={'spin'} color={'#915535'} width={28} height={28} /></div>}
 			{htmlMessage ? <div dangerouslySetInnerHTML={{ __html: htmlMessage }} /> : <p>{message}</p>}
 		</div>

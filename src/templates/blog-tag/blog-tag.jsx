@@ -1,6 +1,6 @@
-import React, { Component, useEffect } from 'react'
 import { SEO } from 'atoms'
 import { ExcerptCollection, Layout } from 'organisms'
+import React, { useEffect } from 'react'
 
 const BlogTagTemplate = ({ location, pageContext: { allPostExcerpts, s3ObjectMap, taxonomies } }) => {
     // reach router doesn't trigger a browser refresh, therefore the scrollTo Y position never resets

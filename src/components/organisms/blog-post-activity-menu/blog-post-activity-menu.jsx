@@ -18,7 +18,7 @@ class BlogPostActivityMenu extends Component {
 		this.setState({ isShareMenuOpen: !isShareMenuOpen })
 	}
 	render() {
-		const { author, categories, date, tags } = this.props
+		const { author, date, tags } = this.props
 		const { isShareMenuOpen } = this.state
 		return (
 			<div className={styles.activityMenu}>

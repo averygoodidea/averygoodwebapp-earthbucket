@@ -39,10 +39,9 @@ class EmailForm extends Component {
 			emailInputPlaceholder,
 			helpMessage,
 			isEmailInputDisabled,
-			isSubmitButtonDisabled,
-			LOADING_STATE
+			isSubmitButtonDisabled
 		} = this.state
-		const { isModal, mode } = this.props
+		const { isModal } = this.props
 		const className = classNames({
 			[styles.emailForm]: true,
 			[styles.brighten]: !isModal && typeof window !== `undefined` && window.location.pathname.includes('/album/')

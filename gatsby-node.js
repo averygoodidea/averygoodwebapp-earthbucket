@@ -104,7 +104,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	const albumCategoryNames = {}
 	// create album item posts
 	allAlbumPosts.edges.forEach( edge => {
-		const { categories, id, images, slugId, title } = edge.node
+		const { categories, id, images, slugId } = edge.node
 		// construct public album item post
 		const s3ObjectList = images.map( key => s3AlbumPostImagesMap[key] )
 		createPage({

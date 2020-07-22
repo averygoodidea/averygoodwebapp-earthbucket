@@ -1,3 +1,4 @@
+/*eslint no-restricted-globals: ["off"]*/
 const AVeryGoodNarrowcaster = {
 	share: (service, url, serviceMessage) => {
 		let endpoint

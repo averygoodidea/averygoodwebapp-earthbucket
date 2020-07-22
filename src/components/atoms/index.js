@@ -13,8 +13,8 @@ import Select from './select/select'
 import SEO from './seo/seo'
 import ShareButton from './share-button/share-button'
 import SubmitButton from './submit-button/submit-button'
-import Textfield from './textfield/textfield'
 import Textarea from './textarea/textarea'
+import Textfield from './textfield/textfield'
 import Toast from './toast/toast'
 
 export {

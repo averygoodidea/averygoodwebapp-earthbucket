@@ -3,7 +3,6 @@ import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import PropTypes from "prop-types"
 import { Button, Logo } from "atoms"
 import { MainNav } from "molecules"
-import { isEmpty } from 'lodash'
 import styles from './header.module.scss'
 import './header.scss'
 import { LocalStorageList } from 'assets-js'

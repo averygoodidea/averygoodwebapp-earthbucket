@@ -1,3 +1,4 @@
+/*eslint no-restricted-globals: ["off"]*/
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { MinusButton } from 'atoms'
@@ -106,7 +107,7 @@ class ImageUploader extends Component {
 		}
 	}
 	onDrop(acceptedFiles) {
-		const { defaultValue, onChange } = this.props
+		const { onChange } = this.props
 		const files = acceptedFiles.map(file => Object.assign(file, {
 			preview: URL.createObjectURL(file)
 		}))

@@ -1,8 +1,7 @@
+/*eslint no-restricted-globals: ["off"]*/
 import React, { Component } from 'react'
 import { Button, Toast } from 'atoms'
 import styles from './author-site-settings-manager.module.scss'
-import ReactLoading from 'react-loading'
-import { isEmpty } from 'lodash'
 import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes'
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { isEmpty } from 'lodash'
 import { SubmitButton, Textfield, Toast } from 'atoms'
 import styles from './author-signin-form.module.scss'
-import ReactLoading from 'react-loading'
 import { AVeryGoodAuthenticator } from 'assets-js'
 import toastedNotes from 'toasted-notes'
 
@@ -96,8 +95,7 @@ class AuthorSignInForm extends Component {
 			emailInputPlaceholder,
 			helpMessage,
 			isEmailInputDisabled,
-			isSubmitButtonDisabled,
-			LOADING_STATE
+			isSubmitButtonDisabled
 		} = this.state
 		return(
 			<div className={styles.window}>

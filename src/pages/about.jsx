@@ -1,10 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
-import ConcentricVictoriesSvg from '../assets/img/concentric-victories.svg'
 import { BannerImage, CommentSection, SEO } from 'atoms'
+import { graphql,Link } from "gatsby"
+import Img from "gatsby-image"
 import { ContentWindow, EmailForm } from 'molecules'
 import { Layout } from "organisms"
+import React from "react"
+
+import ConcentricVictoriesSvg from '../assets/img/concentric-victories.svg'
 import styles from './about.module.scss'
 
 const AboutPage = ({ data, location }) => (
@@ -48,11 +49,11 @@ const AboutPage = ({ data, location }) => (
 		<div className='row'>
 			<div className='col-xs-12 col-sm-6'>
 				<br />
-				<img src={ConcentricVictoriesSvg} />
+				<img alt="Concentric Victories Diagram" src={ConcentricVictoriesSvg} />
 			</div>
 			<div className='col-xs-12 col-sm-5'>
 				<p><strong>Concentric Victories</strong> are personal areas of mastery that originate from a position of sitting, and then works it way outward to more external areas in one's life.</p>
-				<p>This could be likened unto a <a href="https://en.wikipedia.org/wiki/Faberg%C3%A9_egg" target="_blank">Fabergé egg</a>, or <a href="https://en.wikipedia.org/wiki/Concentric_objects" target="_blank">concentric circles</a>.</p>
+				<p>This could be likened unto a <a href="https://en.wikipedia.org/wiki/Faberg%C3%A9_egg" target="_blank" rel="noreferrer">Fabergé egg</a>, or <a href="https://en.wikipedia.org/wiki/Concentric_objects" target="_blank" rel="noreferrer">concentric circles</a>.</p>
 			</div>
 		</div>
 		<p>

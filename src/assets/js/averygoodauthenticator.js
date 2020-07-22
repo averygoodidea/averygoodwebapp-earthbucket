@@ -141,7 +141,7 @@ const AVeryGoodAuthenticator = {
 		getStorage: (name) => {
 			let result = undefined
 			if(localStorage.getItem(name) !== null) {
-				data = JSON.parse(localStorage.getItem(name))
+				const data = JSON.parse(localStorage.getItem(name))
 				const currentTime = Math.round(Date.now() / 1000)
 				if (data.expiresIn > currentTime) {
 					result = data.value

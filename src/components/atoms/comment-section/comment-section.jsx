@@ -1,3 +1,4 @@
+/*eslint no-useless-computed-key: ["off"]*/
 import React from 'react'
 import PropTypes from 'prop-types'
 import Valine from 'gatsby-plugin-valine'

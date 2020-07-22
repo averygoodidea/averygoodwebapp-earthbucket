@@ -52,7 +52,7 @@ class CardCollection extends Component {
 	}
 	render() {
 		const { albumPosts, location, s3, taxonomies } = this.props
-		const { amountToShow, isShowingMore, scrollY } = this.state
+		const { amountToShow, scrollY } = this.state
 		const posts = albumPosts.slice(0, amountToShow)
 		const history = {
 			amountToShow,

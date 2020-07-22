@@ -45,7 +45,6 @@ class ItemsListPage extends Component {
   }
   render() {
     const {
-      amountToShow,
       albumPosts,
       s3
     } = this.state

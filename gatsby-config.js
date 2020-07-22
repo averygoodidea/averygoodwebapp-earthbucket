@@ -174,6 +174,18 @@ module.exports = {
           placeholder: `Leave a comment.`,
           requiredFields: ['nick', 'mail']
       }
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false
+        }
+      }
     }
   ],
 }

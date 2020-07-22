@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 import { Button } from 'atoms' 
 import styles from './main-nav.module.scss'
 import classNames from 'classnames'

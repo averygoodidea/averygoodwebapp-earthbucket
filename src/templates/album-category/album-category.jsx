@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { SEO } from 'atoms'
 import { CardCollection, Layout } from 'organisms'
 
