@@ -1,39 +1,53 @@
-import { SEO } from 'atoms'
-import { graphql } from 'gatsby'
-import { CardCollection, Layout } from 'organisms'
-import React, { Component } from "react"
+import { SEO } from "atoms";
+import { graphql } from "gatsby";
+import { CardCollection, Layout } from "organisms";
+import React, { Component } from "react";
 
 class IndexPage extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
       albumPosts: [],
       s3Map: {}
-    }
+    };
   }
   componentDidMount() {
-    const { allAlbumPosts, allAlbumPostImages } = this.props.data
-    const s3ObjectMap = {}
-    allAlbumPostImages.edges.forEach( ({ node }) => {
-      s3ObjectMap[node.Key] = node.image
-    })
+    const { allAlbumPosts, allAlbumPostImages } = this.props.data;
+    const s3ObjectMap = {};
+    allAlbumPostImages.edges.forEach(({ node }) => {
+      s3ObjectMap[node.Key] = node.image;
+    });
     // create inventory category taxonomies
-    const inventoryCategoryNames = {}
-    allAlbumPosts.edges.forEach( ({ node }) => node.categories.forEach( category => inventoryCategoryNames[category] = true ))
-    const taxonomies = Object.keys(inventoryCategoryNames)
-    
+    const inventoryCategoryNames = {};
+    allAlbumPosts.edges.forEach(({ node }) =>
+      node.categories.forEach(
+        category => (inventoryCategoryNames[category] = true)
+      )
+    );
+    const taxonomies = Object.keys(inventoryCategoryNames);
+
     this.setState({
       albumPosts: allAlbumPosts.edges,
       s3ObjectMap,
       taxonomies
-    })
+    });
   }
   render() {
-    const { albumPosts, s3ObjectMap, taxonomies } = this.state
-    const { location } = this.props
+    const { albumPosts, s3ObjectMap, taxonomies } = this.state;
+    const { location } = this.props;
     return (
       <Layout location={location}>
-        <SEO title="Home" keywords={['jesus', 'black', 'negroland', 'survivalist', 'hebrew', 'christ']} />
+        <SEO
+          title="Home"
+          keywords={[
+            "jesus",
+            "black",
+            "negroland",
+            "survivalist",
+            "hebrew",
+            "christ"
+          ]}
+        />
         <CardCollection
           albumPosts={albumPosts}
           location={location}
@@ -41,10 +55,10 @@ class IndexPage extends Component {
           taxonomies={taxonomies}
         />
       </Layout>
-    )
+    );
   }
 }
-export default IndexPage
+export default IndexPage;
 export const pageQuery = graphql`
   fragment S3Image on S3Object {
     image: localFile {
@@ -56,10 +70,13 @@ export const pageQuery = graphql`
           tracedSVG
         }
       }
-      }
+    }
   }
   query {
-    allAlbumPosts(sort: {order: DESC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
+    allAlbumPosts(
+      sort: { order: DESC, fields: createdAt }
+      filter: { id: { ne: "dummy" } }
+    ) {
       edges {
         node {
           id
@@ -71,7 +88,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    allAlbumPostImages: allS3Object(filter: {Key: {regex: "/album/posts/images/" }}) {
+    allAlbumPostImages: allS3Object(
+      filter: { Key: { regex: "/album/posts/images/" } }
+    ) {
       edges {
         node {
           Key
@@ -80,4 +99,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

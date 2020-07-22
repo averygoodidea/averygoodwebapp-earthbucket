@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
+import Helmet from "react-helmet";
 
 function SEO({ description, keywords, lang, meta, openGraphImgSrc, title }) {
   const { defaultOpenGraphImg, site } = useStaticQuery(
@@ -14,7 +14,9 @@ function SEO({ description, keywords, lang, meta, openGraphImgSrc, title }) {
             author
           }
         }
-        defaultOpenGraphImg: imageSharp(fluid: {originalName: {eq: "open-graph.jpg"}})  {
+        defaultOpenGraphImg: imageSharp(
+          fluid: { originalName: { eq: "open-graph.jpg" } }
+        ) {
           id
           fluid {
             src
@@ -22,80 +24,82 @@ function SEO({ description, keywords, lang, meta, openGraphImgSrc, title }) {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const metaOpenGraphImgSrc = openGraphImgSrc || defaultOpenGraphImg.fluid.src
+  const metaDescription = description || site.siteMetadata.description;
+  const metaOpenGraphImgSrc = openGraphImgSrc || defaultOpenGraphImg.fluid.src;
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           property: `og:title`,
-          content: title,
+          content: title
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: `website`
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary`
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: title
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
-          name: 'og:image',
+          name: "og:image",
           content: metaOpenGraphImgSrc
         }
-      ].concat(
-        keywords.length > 0
-          ? {
-              name: `keywords`,
-              content: keywords.join(`, `),
-            }
-          : []
-      ).concat(meta)}
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `)
+              }
+            : []
+        )
+        .concat(meta)}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {
   keywords: [],
   lang: `en`,
   meta: [],
-  description: ``,
-}
+  description: ``
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
   keywords: PropTypes.array,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
+  title: PropTypes.string.isRequired
+};
 
-export default SEO
+export default SEO;
