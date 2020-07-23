@@ -22,6 +22,7 @@ const Button = ({
   });
   return (
     <button
+      data-testid="button"
       className={className}
       onClick={onClick}
       onKeyPress={onKeyPress}
@@ -29,7 +30,7 @@ const Button = ({
     >
       {align === "left" && !isIconDisabled && (
         <Fragment>
-          <i className={`font-icon-${fontIcon || label}`} />
+          <i data-testid="icon" className={`font-icon-${fontIcon || label}`} />
           <span>{label}</span>
         </Fragment>
       )}
@@ -37,7 +38,10 @@ const Button = ({
         <Fragment>
           <div className={styles.rightAligned}>
             <span>{label}</span>
-            <i className={`font-icon-${fontIcon || label}`} />
+            <i
+              data-testid="icon"
+              className={`font-icon-${fontIcon || label}`}
+            />
           </div>
         </Fragment>
       )}

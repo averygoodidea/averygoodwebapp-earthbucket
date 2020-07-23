@@ -1,7 +1,7 @@
 import { BannerImage } from "atoms";
 import React from "react";
-import { bannerImageData } from "test-data";
 import { render } from "@testing-library/react";
+import data from "./data";
 
 const getBase64 = path => {
   const buff = fs.readFileSync(path);
@@ -19,14 +19,14 @@ const getBase64 = path => {
 
 describe("BannerImage", () => {
   it("should render background image", () => {
-    const { src } = bannerImageData;
+    const { src } = data;
     const { getByTestId } = render(<BannerImage src={src} />);
     const result = getByTestId("banner-image");
     expect(result).toHaveAttribute("style");
     expect(result.style["background-image"].includes(src)).toBe(true);
   });
   it("should render text", () => {
-    const { headerText } = bannerImageData;
+    const { headerText } = data;
     const { getByText } = render(
       <BannerImage>
         <h2>{headerText}</h2>

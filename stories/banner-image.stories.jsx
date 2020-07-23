@@ -1,6 +1,6 @@
 import { BannerImage } from "atoms";
 import React from "react";
-import { bannerImageData } from "test-data";
+import data from "components/atoms/banner-image/data";
 import "../src/components/organisms/layout/layout.scss";
 import styles from "../src/templates/blog-post/blog-post.module.scss";
 
@@ -9,7 +9,7 @@ export default {
   component: BannerImage
 };
 
-const { headerText, src } = bannerImageData;
+const { headerText, src } = data;
 
 export const BackgroundPositionTop = () => (
   <BannerImage backgroundPosition="top" cn={styles.bannerImage} src={src}>

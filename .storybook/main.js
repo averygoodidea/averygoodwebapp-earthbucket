@@ -1,8 +1,8 @@
 const path = require("path")
 
 module.exports = {
-  stories: ['../stories/**/*.stories.js'],
-  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-jest/register'],
+  stories: ['../stories/**/*.stories.js','../stories/**/*.stories.jsx'],
+  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-jest/register', '@storybook/addon-cssresources/register'],
   webpackFinal: async config => {
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]
@@ -49,20 +49,48 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            additionalData: '@import "main.scss";',
+            //additionalData: '@import "main.scss";',
             sassOptions: {
               indentWidth: 4,
               includePaths: ["src/assets/sass"],
             },
           },
         },
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            // Provide path to the file with resources
+            resources: [
+              // do not resolve ../src/assets/sass/font-icons.scss here because that creates a circular dependency within font-icons.scss!
+              // instead, import that file in preview.js
+              path.resolve(__dirname, '../src/assets/sass/normalize.scss'),
+              path.resolve(__dirname, '../src/assets/sass/flexboxgrid.scss'),
+              path.resolve(__dirname, '../src/assets/sass/vars.scss')
+            ],
+          },
+        },
       ],
-      include: path.resolve(__dirname, '../src/')
+      include: [path.resolve(__dirname, '../src/')]
     })
+    
+    config.module.rules.push({
+      ///\.woff(2)?(\?[a-z0-9]+)?$/
+      test: /\.woff(2)?(\?[a-z0-9]+)?$/,
+      use: [
+        {
+          loader: 'file-loader',
+          query: {
+            name: '[name].[ext]'
+          }
+        }
+      ],
+      include: path.resolve(__dirname, '../')
+    });
 
+    // reference test folder
     config.resolve.modules = [
       ...(config.resolve.modules || []),
-      path.resolve('./src/'),
+      path.resolve('./test/'),
     ];
 
     return config

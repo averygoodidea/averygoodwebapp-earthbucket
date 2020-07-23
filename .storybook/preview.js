@@ -1,14 +1,17 @@
 import { action } from "@storybook/addon-actions"
 import { addDecorator } from '@storybook/react'; // <- or your view layer
 import { withTests } from '@storybook/addon-jest';
- 
+ import { withCssResources } from '@storybook/addon-cssresources';
+
 import results from '../.jest-test-results.json';
- 
+import "../src/assets/sass/font-icons.scss";
+
 addDecorator(
   withTests({
     results,
   })
 );
+addDecorator(withCssResources)
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
