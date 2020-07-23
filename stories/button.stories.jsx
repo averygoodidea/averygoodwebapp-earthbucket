@@ -11,8 +11,17 @@ export default {
 
 const { fontIcon, labelText } = data;
 
-export const BasicButton = () => <Button fontIcon={fontIcon} label={labelText} onClick={action("clicked")} />;
-export const BasicButtonIconAlignedRight = () => <Button align="right" fontIcon={fontIcon} label={labelText} onClick={action("clicked")} />;
+export const BasicButton = () => (
+  <Button fontIcon={fontIcon} label={labelText} onClick={action("clicked")} />
+);
+export const BasicButtonIconAlignedRight = () => (
+  <Button
+    align="right"
+    fontIcon={fontIcon}
+    label={labelText}
+    onClick={action("clicked")}
+  />
+);
 
 const story = {
   parameters: {
