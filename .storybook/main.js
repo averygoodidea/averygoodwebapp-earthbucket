@@ -2,7 +2,7 @@ const path = require("path")
 
 module.exports = {
   stories: ['../stories/**/*.stories.js'],
-  addons: ['@storybook/addon-actions', '@storybook/addon-links'],
+  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-jest/register'],
   webpackFinal: async config => {
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]
@@ -29,24 +29,41 @@ module.exports = {
     // Make whatever fine-grained changes you need
 
     // load in sass preprocessor
-    // enable main.scss variables to be available globally
     config.module.rules.push({
       test: /\.scss$/,
       loaders: [
         'style-loader',
-        'css-loader',
-        'sass-loader',
-        // https://github.com/shakacode/sass-resources-loader#tips
         {
-          loader: 'sass-resources-loader',
+          loader: 'css-loader',
           options: {
-            // Provide path to the file with resources
-            resources: path.resolve(__dirname, '../src/assets/sass/main.scss')
+            importLoaders: 1,
+            modules: {
+                mode: 'local',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                // localIdentName: '[sha1:hash:hex:4]',
+                context: path.resolve(__dirname, 'src'),
+                hashPrefix: 'my-custom-hash',
+            },
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            additionalData: '@import "main.scss";',
+            sassOptions: {
+              indentWidth: 4,
+              includePaths: ["src/assets/sass"],
+            },
           },
         },
       ],
       include: path.resolve(__dirname, '../src/')
     })
+
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      path.resolve('./src/'),
+    ];
 
     return config
   },

@@ -1,14 +1,39 @@
 import { BannerImage } from "atoms";
 import React from "react";
-import { action } from "@storybook/addon-actions";
+import { bannerImageData } from "test-data";
+import "../src/components/organisms/layout/layout.scss";
+import styles from "../src/templates/blog-post/blog-post.module.scss";
 
 export default {
-  title: "BannerImage",
+  title: "Banner Image",
   component: BannerImage
 };
 
-export const Text = () => (
-  <BannerImage backgroundPosition="center" cn={""} src={""}>
-    <h2>Below is the list of items that you've collected.</h2>
+const { headerText, src } = bannerImageData;
+
+export const BackgroundPositionTop = () => (
+  <BannerImage backgroundPosition="top" cn={styles.bannerImage} src={src}>
+    <h2>{headerText}</h2>
   </BannerImage>
 );
+
+export const BackgroundPositionCenter = () => (
+  <BannerImage backgroundPosition="center" cn={styles.bannerImage} src={src}>
+    <h2>{headerText}</h2>
+  </BannerImage>
+);
+
+export const BackgroundPositionBottom = () => (
+  <BannerImage backgroundPosition="bottom" cn={styles.bannerImage} src={src}>
+    <h2>{headerText}</h2>
+  </BannerImage>
+);
+
+const story = {
+  parameters: {
+    jest: ["components/atoms/banner-image/banner-image.test.jsx"]
+  }
+};
+BackgroundPositionTop.story = story;
+BackgroundPositionCenter.story = story;
+BackgroundPositionBottom.story = story;

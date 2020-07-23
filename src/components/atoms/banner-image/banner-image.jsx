@@ -12,6 +12,7 @@ const BannerImage = ({ backgroundPosition, children, cn, src }) => {
   return (
     <div
       className={className}
+      data-testid="banner-image"
       style={{
         background: `url('${src}') no-repeat`,
         backgroundSize: "cover",

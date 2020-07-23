@@ -54,6 +54,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-jest": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
@@ -79,7 +80,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^1.19.1",
     "sass-loader": "^9.0.2",
-    "sass-resources-loader": "^2.0.3",
+    "test-data": "file:test/data",
     "typescript": "^3.9.7",
     "uninstall": "0.0.0"
   },
@@ -95,7 +96,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest",
+    "test": "jest --json --outputFile=.jest-test-results.json || true",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
