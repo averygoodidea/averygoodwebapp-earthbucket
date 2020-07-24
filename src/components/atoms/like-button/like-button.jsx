@@ -4,11 +4,12 @@ import styles from "./like-button.module.scss";
 
 const LikeButton = ({ onClick, onKeyPress }) => (
   <button
+    data-testid="like-button"
     className={styles.likeButton}
     onClick={onClick}
     onKeyPress={onKeyPress}
   >
-    <i className="font-icon-like" />
+    <i data-testid="icon" className="font-icon-like" />
   </button>
 );
 LikeButton.propTypes = {

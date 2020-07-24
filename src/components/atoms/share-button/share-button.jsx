@@ -4,11 +4,12 @@ import styles from "./share-button.module.scss";
 
 const ShareButton = ({ onClick, onKeyPress }) => (
   <button
+    data-testid="share-button"
     className={styles.shareButton}
     onClick={onClick}
     onKeyPress={onKeyPress}
   >
-    <i className="font-icon-share" />
+    <i data-testid="icon" className="font-icon-share" />
   </button>
 );
 ShareButton.propTypes = {

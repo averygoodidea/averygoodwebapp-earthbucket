@@ -4,11 +4,12 @@ import styles from "./close-button.module.scss";
 
 const CloseButton = ({ onClick, onKeyPress }) => (
   <button
+    data-testid="close-button"
     className={styles.closeButton}
     onClick={onClick}
     onKeyPress={onKeyPress}
   >
-    <i className="font-icon-close" />
+    <i data-testid="icon" className="font-icon-close" />
   </button>
 );
 CloseButton.propTypes = {

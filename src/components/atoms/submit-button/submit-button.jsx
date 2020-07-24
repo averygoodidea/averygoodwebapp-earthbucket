@@ -4,6 +4,7 @@ import styles from "./submit-button.module.scss";
 
 const SubmitButton = ({ onClick, onKeyPress, value, isDisabled }) => (
   <input
+    data-testid="submit-button"
     className={styles.button}
     type="submit"
     value={value}

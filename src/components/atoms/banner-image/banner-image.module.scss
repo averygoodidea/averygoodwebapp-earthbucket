@@ -11,6 +11,15 @@
 	align-items: center;
 	justify-content: center;
 
+	h2 {
+	    font-size: 260%;
+		color: #fff;
+		filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.5));
+		text-align: center;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
 	@media(max-width: $max-mobile-width) {
 		margin-left: 10px;
 		margin-right: 10px;

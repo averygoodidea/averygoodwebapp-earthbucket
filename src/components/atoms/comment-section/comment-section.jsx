@@ -12,7 +12,7 @@ const CommentSection = ({ isModal, mode }) => {
     ["brighten"]: mode === "compact" && !isModal
   });
   return (
-    <div className={className}>
+    <div data-testid="comment-section" className={className}>
       {typeof window !== `undefined` && (
         <Valine path={window.location.pathname} />
       )}

@@ -2,7 +2,7 @@ const path = require("path")
 
 module.exports = {
   stories: ['../stories/**/*.stories.js','../stories/**/*.stories.jsx'],
-  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-jest/register', '@storybook/addon-cssresources/register'],
+  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-jest/register'],
   webpackFinal: async config => {
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]
@@ -90,6 +90,7 @@ module.exports = {
     // reference test folder
     config.resolve.modules = [
       ...(config.resolve.modules || []),
+      path.resolve('./src/'),
       path.resolve('./test/'),
     ];
 

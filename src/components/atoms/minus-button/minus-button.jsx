@@ -4,11 +4,12 @@ import styles from "./minus-button.module.scss";
 
 const MinusButton = ({ onClick, onKeyPress }) => (
   <button
+    data-testid="minus-button"
     className={styles.minusButton}
     onClick={onClick}
     onKeyPress={onKeyPress}
   >
-    <i className="font-icon-minus" />
+    <i data-testid="icon" className="font-icon-minus" />
   </button>
 );
 MinusButton.propTypes = {

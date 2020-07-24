@@ -131,7 +131,7 @@ class ImageUploader extends Component {
     const { list } = this.state;
     const { label } = this.props;
     return (
-      <div>
+      <div data-testid="image-uploader">
         <div className={styles.label}>{label}</div>
         <Dropzone
           accept="image/jpeg"
@@ -149,7 +149,7 @@ class ImageUploader extends Component {
           )}
         </Dropzone>
         {!isEmpty(list) && (
-          <div className={styles.sortableList}>
+          <div data-testid="sortable-list" className={styles.sortableList}>
             <DragSortableList
               items={list}
               moveTransitionDuration={0.3}

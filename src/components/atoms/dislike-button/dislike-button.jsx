@@ -4,11 +4,12 @@ import styles from "./dislike-button.module.scss";
 
 const DislikeButton = ({ onClick, onKeyPress }) => (
   <button
+    data-testid="dislike-button"
     className={styles.dislikeButton}
     onClick={onClick}
     onKeyPress={onKeyPress}
   >
-    <i className="font-icon-dislike" />
+    <i data-testid="icon" className="font-icon-dislike" />
   </button>
 );
 DislikeButton.propTypes = {

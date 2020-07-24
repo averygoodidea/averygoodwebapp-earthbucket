@@ -18,7 +18,8 @@ const Button = ({
   const className = classNames({
     [styles.button]: true,
     [styles[theme]]: true,
-    [cn]: !isEmpty(cn)
+    [cn]: !isEmpty(cn),
+    [styles.rightAligned]: align === "right" && !isIconDisabled
   });
   return (
     <button
@@ -36,13 +37,11 @@ const Button = ({
       )}
       {align === "right" && !isIconDisabled && (
         <Fragment>
-          <div className={styles.rightAligned}>
-            <span>{label}</span>
-            <i
-              data-testid="icon"
-              className={`font-icon-${fontIcon || label}`}
-            />
-          </div>
+          <span>{label}</span>
+          <i
+            data-testid="icon"
+            className={`font-icon-${fontIcon || label}`}
+          />
         </Fragment>
       )}
       {isIconDisabled && <Fragment>{label}</Fragment>}
