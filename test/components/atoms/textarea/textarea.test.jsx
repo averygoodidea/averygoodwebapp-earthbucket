@@ -1,7 +1,7 @@
 import { Textarea } from "atoms";
 import React from "react";
 import { render } from "@testing-library/react";
-import data from './data'
+import data from "./data";
 
 describe("Textarea", () => {
   it("should exist", () => {
@@ -10,9 +10,9 @@ describe("Textarea", () => {
     expect(result).toBeInTheDocument();
   });
   it("should render default value", () => {
-    const { defaultValue } = data
+    const { defaultValue } = data;
     const { getByTestId } = render(<Textarea defaultValue={defaultValue} />);
     const result = getByTestId("textarea");
-    expect(result.defaultValue).toEqual(defaultValue)
+    expect(result.defaultValue).toEqual(defaultValue);
   });
 });

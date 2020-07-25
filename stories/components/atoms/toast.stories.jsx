@@ -8,11 +8,9 @@ export default {
   component: Toast
 };
 
-const { fontIcon, htmlMessage, message, to } = data
+const { fontIcon, htmlMessage, message, to } = data;
 
-export const Message = () => (
-  <Toast message={message} />
-);
+export const Message = () => <Toast message={message} />;
 export const MessageWithIcon = () => (
   <Toast fontIcon={fontIcon} message={message} />
 );

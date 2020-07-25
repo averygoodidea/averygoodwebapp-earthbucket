@@ -47,7 +47,11 @@ const Toast = ({
           {html}
         </Link>
       )}
-      {!to && <Fragment><div data-testid="toast">{html}</div></Fragment>}
+      {!to && (
+        <Fragment>
+          <div data-testid="toast">{html}</div>
+        </Fragment>
+      )}
     </Fragment>
   );
 };

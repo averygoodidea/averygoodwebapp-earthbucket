@@ -9,7 +9,11 @@ export default {
 };
 
 export const Empty = () => (
-  <Textfield label="Name" onChange={action("changed")} placeholder={"type something"} />
+  <Textfield
+    label="Name"
+    onChange={action("changed")}
+    placeholder={"type something"}
+  />
 );
 export const WithDefaultData = () => (
   <Textfield

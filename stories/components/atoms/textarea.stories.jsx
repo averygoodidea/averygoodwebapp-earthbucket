@@ -9,7 +9,11 @@ export default {
 };
 
 export const Empty = () => (
-  <Textarea label="Summary" onChange={action("changed")} placeholder={"type something"} />
+  <Textarea
+    label="Summary"
+    onChange={action("changed")}
+    placeholder={"type something"}
+  />
 );
 export const WithDefaultData = () => (
   <Textarea
