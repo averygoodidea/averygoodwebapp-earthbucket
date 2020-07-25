@@ -12,6 +12,7 @@ const Textarea = ({
   <label>
     <div className={styles.label}>{label}</div>
     <textarea
+      data-testid="textarea"
       className={styles.textarea}
       placeholder={placeholder}
       onChange={onChange}

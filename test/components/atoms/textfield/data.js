@@ -1,4 +1,5 @@
 const data = {
-	defaultValue: [{}]
+	defaultValue: 'Lil Flip'
 }
+
 export default data

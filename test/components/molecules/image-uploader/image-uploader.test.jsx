@@ -1,7 +1,7 @@
-import { ImageUploader } from "atoms";
+import { ImageUploader } from "molecules";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import data from './data'
+import data from "./data";
 
 describe("ImageUploader", () => {
   it("should exist", () => {
@@ -10,8 +10,10 @@ describe("ImageUploader", () => {
     expect(result).toBeInTheDocument();
   });
   it("should display sortable list", () => {
-    const { defaultValue } = data
-    const { getByTestId } = render(<ImageUploader defaultValue={defaultValue}/>);
+    const { defaultValue } = data;
+    const { getByTestId } = render(
+      <ImageUploader defaultValue={defaultValue} />
+    );
     const result = getByTestId("sortable-list");
     expect(result).toBeInTheDocument();
   });

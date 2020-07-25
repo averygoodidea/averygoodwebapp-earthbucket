@@ -4,16 +4,14 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Atoms/Share Button",
-  component: ShareButton,
+  component: ShareButton
 };
 
-export const Default = () => (
-  <ShareButton onClick={action("clicked")} />
-);
+export const Icon = () => <ShareButton onClick={action("clicked")} />;
 
 const story = {
   parameters: {
     jest: ["components/atoms/share-button/share-button.test.jsx"]
   }
 };
-Default.story = story;
+Icon.story = story;

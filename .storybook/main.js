@@ -28,7 +28,7 @@ module.exports = {
 
     // Make whatever fine-grained changes you need
 
-    // load in sass preprocessor
+    // for css modules
     config.module.rules.push({
       test: /\.scss$/,
       loaders: [
@@ -70,7 +70,41 @@ module.exports = {
           },
         },
       ],
-      include: [path.resolve(__dirname, '../src/')]
+      include: [path.resolve(__dirname, '../src/')],
+      exclude: [path.resolve(__dirname, '../src/components/atoms/comment-section/')]
+    })
+
+    // for global css imports
+    config.module.rules.push({
+      test: /\.scss$/,
+      loaders: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            //additionalData: '@import "main.scss";',
+            sassOptions: {
+              indentWidth: 4,
+              includePaths: ["src/assets/sass"],
+            },
+          },
+        },
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            // Provide path to the file with resources
+            resources: [
+              // do not resolve ../src/assets/sass/font-icons.scss here because that creates a circular dependency within font-icons.scss!
+              // instead, import that file in preview.js
+              path.resolve(__dirname, '../src/assets/sass/normalize.scss'),
+              path.resolve(__dirname, '../src/assets/sass/flexboxgrid.scss'),
+              path.resolve(__dirname, '../src/assets/sass/vars.scss')
+            ],
+          },
+        },
+      ],
+      include: [path.resolve(__dirname, '../src/components/atoms/comment-section/')]
     })
     
     config.module.rules.push({

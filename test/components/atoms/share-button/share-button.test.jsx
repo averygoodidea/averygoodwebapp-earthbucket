@@ -5,9 +5,7 @@ import { fireEvent, render } from "@testing-library/react";
 describe("ShareButton", () => {
   it("should invoke callback function", () => {
     const mockedCallback = jest.fn();
-    const { getByTestId } = render(
-      <ShareButton onClick={mockedCallback} />
-    );
+    const { getByTestId } = render(<ShareButton onClick={mockedCallback} />);
     const button = getByTestId("share-button");
     fireEvent.click(button);
     expect(mockedCallback).toHaveBeenCalledTimes(1);

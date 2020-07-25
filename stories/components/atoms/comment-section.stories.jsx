@@ -1,25 +1,41 @@
 import { CommentSection } from "atoms";
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import "components/atoms/comment-section/comment-section.scss";
 
 export default {
   title: "Atoms/Comment Section",
-  component: CommentSection,
+  component: CommentSection
 };
 
-export const Default = () => (
-  <CommentSection />
+const valineOptions = {
+  lang: "en",
+  langmode: {
+    nick: "nickname",
+    mail: "email",
+    nickFail: "Nick name cannot be less than 3 characters.",
+    link: "Website"
+  },
+  enableqq: "true",
+  placeholder: `Leave a comment.`,
+  requiredfields: ["nick", "mail"]
+};
+
+export const CompactInsideModal = () => (
+  <CommentSection isModal={true} valineOptions={valineOptions} />
 );
 
-export const OutsideModal = () => (
-  <CommentSection isModal={false} />
+export const FullWidthOutsideModal = () => (
+  <CommentSection
+    isModal={false}
+    mode="fullWidth"
+    valineOptions={valineOptions}
+  />
 );
-
 
 const story = {
   parameters: {
     jest: ["components/atoms/comment-section/comment-section.test.jsx"]
   }
 };
-Default.story = story;
+CompactInsideModal.story = story;
+FullWidthOutsideModal.story = story;

@@ -5,9 +5,7 @@ import { fireEvent, render } from "@testing-library/react";
 describe("MinusButton", () => {
   it("should invoke callback function", () => {
     const mockedCallback = jest.fn();
-    const { getByTestId } = render(
-      <MinusButton onClick={mockedCallback} />
-    );
+    const { getByTestId } = render(<MinusButton onClick={mockedCallback} />);
     const button = getByTestId("minus-button");
     fireEvent.click(button);
     expect(mockedCallback).toHaveBeenCalledTimes(1);

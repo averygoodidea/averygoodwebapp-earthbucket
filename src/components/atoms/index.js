@@ -3,7 +3,6 @@ import Button from "./button/button";
 import CloseButton from "./close-button/close-button";
 import CommentSection from "./comment-section/comment-section";
 import DislikeButton from "./dislike-button/dislike-button";
-import ImageUploader from "./image-uploader/image-uploader";
 import LikeButton from "./like-button/like-button";
 import Logo from "./logo/logo";
 import MinusButton from "./minus-button/minus-button";
@@ -23,7 +22,6 @@ export {
   CloseButton,
   CommentSection,
   DislikeButton,
-  ImageUploader,
   LikeButton,
   Logo,
   MinusButton,

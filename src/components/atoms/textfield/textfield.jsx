@@ -30,6 +30,7 @@ const Textfield = ({
     <label>
       <div className={labelClassName}>{label}</div>
       <input
+        data-testid="textfield"
         className={styles.textfield}
         type={type}
         placeholder={placeholder}

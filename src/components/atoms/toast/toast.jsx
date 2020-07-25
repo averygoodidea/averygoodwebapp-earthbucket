@@ -21,7 +21,7 @@ const Toast = ({
 
   const html = (
     <div className={className}>
-      {fontIcon && <i className={`font-icon-${fontIcon}`} />}
+      {fontIcon && <i data-testid="icon" className={`font-icon-${fontIcon}`} />}
       {!fontIcon && loadingState === "loading" && (
         <div className={styles.loading}>
           <ReactLoading
@@ -43,11 +43,11 @@ const Toast = ({
   return (
     <Fragment>
       {to && (
-        <Link to={to} className={styles.link}>
+        <Link data-testid="toast" to={to} className={styles.link}>
           {html}
         </Link>
       )}
-      {!to && <Fragment>{html}</Fragment>}
+      {!to && <Fragment><div data-testid="toast">{html}</div></Fragment>}
     </Fragment>
   );
 };
@@ -56,7 +56,8 @@ Toast.propTypes = {
   fontIcon: PropTypes.string,
   loadingState: PropTypes.string,
   htmlMessage: PropTypes.string,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  to: PropTypes.string
 };
 Toast.defaultProps = {
   message: "Toast Message!",

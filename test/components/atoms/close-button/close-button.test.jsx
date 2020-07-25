@@ -5,9 +5,7 @@ import { fireEvent, render } from "@testing-library/react";
 describe("CloseButton", () => {
   it("should invoke callback function", () => {
     const mockedCallback = jest.fn();
-    const { getByTestId } = render(
-      <CloseButton onClick={mockedCallback} />
-    );
+    const { getByTestId } = render(<CloseButton onClick={mockedCallback} />);
     const button = getByTestId("close-button");
     fireEvent.click(button);
     expect(mockedCallback).toHaveBeenCalledTimes(1);

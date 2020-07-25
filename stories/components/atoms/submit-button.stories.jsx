@@ -1,19 +1,17 @@
-import { ShareButton } from "atoms";
+import { SubmitButton } from "atoms";
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
 export default {
-  title: "Atoms/Share Button",
-  component: ShareButton,
+  title: "Atoms/Submit Button",
+  component: SubmitButton
 };
 
-export const Default = () => (
-  <ShareButton onClick={action("clicked")} />
-);
+export const Text = () => <SubmitButton onClick={action("clicked")} />;
 
 const story = {
   parameters: {
-    jest: ["components/atoms/share-button/share-button.test.jsx"]
+    jest: ["components/atoms/submit-button/submit-button.test.jsx"]
   }
 };
-Default.story = story;
+Text.story = story;

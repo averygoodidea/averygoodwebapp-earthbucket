@@ -1,15 +1,8 @@
 /*eslint no-restricted-globals: ["off"]*/
 import { AVeryGoodAuthenticator } from "assets-js";
-import {
-  ImageUploader,
-  Select,
-  SubmitButton,
-  Textarea,
-  Textfield,
-  Toast
-} from "atoms";
+import { Select, SubmitButton, Textarea, Textfield, Toast } from "atoms";
 import { navigate } from "gatsby";
-import { AuthorAlbumPostMenu, AuthorMoreMenu } from "molecules";
+import { AuthorAlbumPostMenu, AuthorMoreMenu, ImageUploader } from "molecules";
 import React, { Component, Fragment } from "react";
 import toastedNotes from "toasted-notes";
 import { isEmpty, isEqual } from "lodash";

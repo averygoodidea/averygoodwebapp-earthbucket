@@ -19,7 +19,7 @@ const Select = ({ label, options, placeholder, defaultValue, onChange }) => {
     onChange(categories);
   };
   return (
-    <div>
+    <div data-testid="select">
       <div className={styles.label}>{label}</div>
       <ReactSelect
         className={styles.select}

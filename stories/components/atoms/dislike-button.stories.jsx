@@ -4,16 +4,14 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Atoms/Dislike Button",
-  component: DislikeButton,
+  component: DislikeButton
 };
 
-export const Default = () => (
-  <DislikeButton onClick={action("clicked")} />
-);
+export const Icon = () => <DislikeButton onClick={action("clicked")} />;
 
 const story = {
   parameters: {
     jest: ["components/atoms/dislike-button/dislike-button.test.jsx"]
   }
 };
-Default.story = story;
+Icon.story = story;

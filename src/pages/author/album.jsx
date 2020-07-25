@@ -20,7 +20,7 @@ class AuthorAlbumPage extends Component {
         this.setState({ isAuthenticated: isVerified });
       } else {
         // navigate to author signin form
-        navigate("/author/", { replace: true });
+        //navigate("/author/", { replace: true });
       }
     });
   }
@@ -37,12 +37,14 @@ class AuthorAlbumPage extends Component {
         sectionTitle="Manage"
       >
         <SEO title="Create Item" />
-        {isAuthenticated && (
+        {
+          /*isAuthenticated && (*/
           <AuthorAlbumPostManager
             allAlbumPosts={allAlbumPosts.edges}
             mode={"CREATE"}
           />
-        )}
+          /*)*/
+        }
       </AuthorLayout>
     );
   }

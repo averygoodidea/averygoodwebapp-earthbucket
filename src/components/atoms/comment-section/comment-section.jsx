@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./comment-section.scss";
 
-const CommentSection = ({ isModal, mode }) => {
+const CommentSection = ({ isModal, mode, valineOptions }) => {
   const className = classNames({
     ["commentSection"]: true,
     ["fullWidth"]: mode === "fullWidth",
@@ -14,7 +14,7 @@ const CommentSection = ({ isModal, mode }) => {
   return (
     <div data-testid="comment-section" className={className}>
       {typeof window !== `undefined` && (
-        <Valine path={window.location.pathname} />
+        <Valine path={window.location.pathname} {...valineOptions} />
       )}
     </div>
   );
@@ -22,11 +22,13 @@ const CommentSection = ({ isModal, mode }) => {
 
 CommentSection.propTypes = {
   mode: PropTypes.string,
-  isModal: PropTypes.bool
+  isModal: PropTypes.bool,
+  valineOptions: PropTypes.object
 };
 CommentSection.defaultProps = {
   isModal: false,
-  mode: "compact" // compact|fullWidth
+  mode: "compact", // compact|fullWidth
+  valineOptions: {}
 };
 
 export default CommentSection;

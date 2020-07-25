@@ -4,16 +4,14 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Atoms/Close Button",
-  component: CloseButton,
+  component: CloseButton
 };
 
-export const Default = () => (
-  <CloseButton onClick={action("clicked")} />
-);
+export const Icon = () => <CloseButton onClick={action("clicked")} />;
 
 const story = {
   parameters: {
     jest: ["components/atoms/close-button/close-button.test.jsx"]
   }
 };
-Default.story = story;
+Icon.story = story;

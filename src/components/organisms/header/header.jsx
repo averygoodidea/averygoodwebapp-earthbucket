@@ -48,7 +48,9 @@ const Header = ({
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-2 col-md-3">
-            <Logo />
+            <div className={styles.logo}>
+              <Logo />
+            </div>
           </div>
           <div className="col-sm-6 col-md-5">
             <div id="hero-text" className={styles.heroText}>

@@ -38,10 +38,7 @@ const Button = ({
       {align === "right" && !isIconDisabled && (
         <Fragment>
           <span>{label}</span>
-          <i
-            data-testid="icon"
-            className={`font-icon-${fontIcon || label}`}
-          />
+          <i data-testid="icon" className={`font-icon-${fontIcon || label}`} />
         </Fragment>
       )}
       {isIconDisabled && <Fragment>{label}</Fragment>}

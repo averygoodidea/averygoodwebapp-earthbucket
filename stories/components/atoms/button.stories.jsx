@@ -5,7 +5,7 @@ import data from "components/atoms/button/data";
 
 export default {
   title: "Atoms/Button",
-  component: Button,
+  component: Button
 };
 
 const { fontIcon, labelText } = data;
@@ -14,11 +14,7 @@ export const Text = () => (
   <Button label={labelText} onClick={action("clicked")} />
 );
 export const Icon = () => (
-  <Button
-    fontIcon={fontIcon}
-    label={labelText}
-    onClick={action("clicked")}
-  />
+  <Button fontIcon={fontIcon} label={labelText} onClick={action("clicked")} />
 );
 export const IconRightAlign = () => (
   <Button
@@ -44,4 +40,4 @@ Text.story = story;
 Icon.story = story;
 IconRightAlign.story = story;
 IsDisabled.story = story;
-RedTheme.story = story
+RedTheme.story = story;

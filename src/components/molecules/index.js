@@ -6,6 +6,7 @@ import Card from "./card/card";
 import ContentWindow from "./content-window/content-window";
 import EmailForm from "./email-form/email-form";
 import Excerpt from "./excerpt/excerpt";
+import ImageUploader from "./image-uploader/image-uploader";
 import MainNav from "./main-nav/main-nav";
 import ScriptureSection from "./scripture-section/scripture-section";
 import ShareMenu from "./share-menu/share-menu";
@@ -20,6 +21,7 @@ export {
   ContentWindow,
   EmailForm,
   Excerpt,
+  ImageUploader,
   MainNav,
   ScriptureSection,
   ShareMenu,

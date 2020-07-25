@@ -4,16 +4,14 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Atoms/More Button",
-  component: MoreButton,
+  component: MoreButton
 };
 
-export const Default = () => (
-  <MoreButton onClick={action("clicked")} />
-);
+export const Icon = () => <MoreButton onClick={action("clicked")} />;
 
 const story = {
   parameters: {
     jest: ["components/atoms/more-button/more-button.test.jsx"]
   }
 };
-Default.story = story;
+Icon.story = story;

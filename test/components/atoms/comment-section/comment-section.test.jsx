@@ -1,6 +1,6 @@
 import { CommentSection } from "atoms";
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 describe("CommentSection", () => {
   it("should exist", () => {
