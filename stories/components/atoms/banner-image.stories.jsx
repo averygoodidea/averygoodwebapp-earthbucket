@@ -1,11 +1,14 @@
 import { BannerImage } from "atoms";
 import React from "react";
 import data from "components/atoms/banner-image/data";
-import styles from "templates/blog-post/blog-post.module.scss";
+import styles from "components/molecules/content-window/content-window.module.scss";
 
 export default {
   title: "Atoms/Banner Image",
-  component: BannerImage
+  component: BannerImage,
+  parameters: {
+    jest: ["components/atoms/banner-image/banner-image.test.jsx"]
+  }
 };
 
 const { headerText, src } = data;
@@ -28,18 +31,8 @@ export const BackgroundPositionBottom = () => (
   </BannerImage>
 );
 
-export const RemoveBottomRoundedCorners = () => (
+export const RemoveBottomRoundedCornersForContentWindow = () => (
   <BannerImage backgroundPosition="bottom" cn={styles.bannerImage} src={src}>
     <h2>{headerText}</h2>
   </BannerImage>
 );
-
-const story = {
-  parameters: {
-    jest: ["components/atoms/banner-image/banner-image.test.jsx"]
-  }
-};
-BackgroundPositionTop.story = story;
-BackgroundPositionCenter.story = story;
-BackgroundPositionBottom.story = story;
-RemoveBottomRoundedCorners.story = story;

@@ -66,8 +66,9 @@ class EmailForm extends Component {
           </p>
         </div>
         <form
+          data-testid="email-form"
           _lpchecked="1"
-          action="https://tinyletter.com/faithinventory"
+          action={`https://tinyletter.com/${process.env.GATSBY_TINYLETTER_USERNAME}`}
           className={styles.form}
           method="post"
           target="popupwindow"

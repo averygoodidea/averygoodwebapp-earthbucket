@@ -5,16 +5,12 @@ import data from "components/molecules/blog-navbar/data";
 
 export default {
   title: "Molecules/Blog Navbar",
-  component: BlogNavbar
+  component: BlogNavbar,
+  parameters: {
+    jest: ["components/molecules/blog-navbar/blog-navbar.test.jsx"]
+  }
 };
 
 const { next, previous } = data;
 
 export const Navbar = () => <BlogNavbar next={next} previous={previous} />;
-
-const story = {
-  parameters: {
-    jest: ["components/molecules/blog-navbar/blog-navbar.test.jsx"]
-  }
-};
-Navbar.story = story;

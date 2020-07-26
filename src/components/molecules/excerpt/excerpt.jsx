@@ -15,8 +15,9 @@ const Excerpt = ({
   url
 }) => {
   return (
-    <div className={styles.window}>
+    <div data-testid="excerpt" className={styles.window}>
       <div
+        data-testid="excerpt-image"
         className={styles.colA}
         onClick={() => navigate(url)}
         style={{
@@ -27,7 +28,7 @@ const Excerpt = ({
       ></div>
       <div className={styles.colB}>
         <div className={styles.content}>
-          <Link to={url}>
+          <Link data-testid="excerpt-title" to={url}>
             <h2>{title}</h2>
           </Link>
           <p>{summary}</p>

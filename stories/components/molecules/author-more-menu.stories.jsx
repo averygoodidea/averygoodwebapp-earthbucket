@@ -5,16 +5,13 @@ import data from "components/molecules/author-more-menu/data";
 
 export default {
   title: "Molecules/Author More Menu",
-  component: AuthorMoreMenu
+  component: AuthorMoreMenu,
+  decorators: [storyFn => <div style={{ width: "50%" }}>{storyFn()}</div>],
+  parameters: {
+    jest: ["components/molecules/author-more-menu/author-more-menu.test.jsx"]
+  }
 };
 
 const { moreMenuItems } = data;
 
 export const Menu = () => <AuthorMoreMenu items={moreMenuItems} />;
-
-const story = {
-  parameters: {
-    jest: ["components/molecules/author-more-menu/author-more-menu.test.jsx"]
-  }
-};
-Menu.story = story;

@@ -5,7 +5,13 @@ import data from "components/molecules/author-album-post-menu/data";
 
 export default {
   title: "Molecules/Author Album Post Menu",
-  component: AuthorAlbumPostMenu
+  component: AuthorAlbumPostMenu,
+  decorators: [storyFn => <div style={{ width: "50%" }}>{storyFn()}</div>],
+  parameters: {
+    jest: [
+      "components/molecules/author-album-post-menu/author-album-post-menu.test.jsx"
+    ]
+  }
 };
 
 const { albumPosts, selectedItem } = data;
@@ -24,13 +30,3 @@ export const WithSelectedItem = () => (
     selectedItem={selectedItem}
   />
 );
-
-const story = {
-  parameters: {
-    jest: [
-      "components/molecules/author-album-post-menu/author-album-post-menu.test.jsx"
-    ]
-  }
-};
-Menu.story = story;
-WithSelectedItem.story = story;

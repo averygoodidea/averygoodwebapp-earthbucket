@@ -5,7 +5,10 @@ import data from "components/molecules/author-navbar/data";
 
 export default {
   title: "Molecules/Author Navbar",
-  component: AuthorNavbar
+  component: AuthorNavbar,
+  parameters: {
+    jest: ["components/molecules/author-navbar/author-navbar.test.jsx"]
+  }
 };
 
 const { navbarItems } = data;
@@ -13,10 +16,3 @@ const { navbarItems } = data;
 export const Navbar = () => (
   <AuthorNavbar currentView={navbarItems[0].targetView} items={navbarItems} />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/molecules/author-navbar/author-navbar.test.jsx"]
-  }
-};
-Navbar.story = story;

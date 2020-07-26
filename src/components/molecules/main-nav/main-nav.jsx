@@ -24,7 +24,7 @@ const MainNav = ({ currentView }) => {
     }
   ];
   return (
-    <nav className={styles.mainNav}>
+    <nav data-testid="main-nav" className={styles.mainNav}>
       {items.map(({ fontIcon, target, title }, i) => {
         let shouldTabButton;
         if (currentView === target) {

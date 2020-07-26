@@ -2,7 +2,6 @@ import { BannerImage, CommentSection, SEO } from "atoms";
 import { BlogNavbar, ContentWindow, EmailForm } from "molecules";
 import { BlogPostActivityMenu, Layout } from "organisms";
 import React from "react";
-import styles from "./blog-post.module.scss";
 
 const BlogPost = ({ location, pageContext }) => {
   const {
@@ -19,11 +18,7 @@ const BlogPost = ({ location, pageContext }) => {
   } = pageContext;
   const bannerImageSrc = s3ObjectMap[coverPhoto].childImageSharp.fluid.src;
   const bannerImage = (
-    <BannerImage
-      backgroundPosition="center"
-      cn={styles.bannerImage}
-      src={bannerImageSrc}
-    >
+    <BannerImage backgroundPosition="center" src={bannerImageSrc}>
       <h2>{title}</h2>
     </BannerImage>
   );

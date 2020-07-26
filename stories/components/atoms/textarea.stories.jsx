@@ -5,7 +5,11 @@ import data from "components/atoms/textarea/data";
 
 export default {
   title: "Atoms/Textarea",
-  component: Textarea
+  component: Textarea,
+  decorators: [storyFn => <div style={{ width: "50%" }}>{storyFn()}</div>],
+  parameters: {
+    jest: ["components/atoms/textarea/textarea.test.jsx"]
+  }
 };
 
 export const Empty = () => (
@@ -23,11 +27,3 @@ export const WithDefaultData = () => (
     placeholder={"type something"}
   />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/atoms/textarea/textarea.test.jsx"]
-  }
-};
-Empty.story = story;
-WithDefaultData.story = story;

@@ -5,14 +5,11 @@ import data from "components/molecules/card/data";
 
 export default {
   title: "Molecules/Card",
-  component: Card
-};
-
-export const Default = () => <Card {...data} />;
-
-const story = {
+  component: Card,
+  decorators: [storyFn => <div style={{ display: "flex" }}>{storyFn()}</div>],
   parameters: {
     jest: ["components/molecules/card/card.test.jsx"]
   }
 };
-Default.story = story;
+
+export const Default = () => <Card {...data} />;

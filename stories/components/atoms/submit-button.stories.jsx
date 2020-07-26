@@ -4,14 +4,10 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Atoms/Submit Button",
-  component: SubmitButton
-};
-
-export const Text = () => <SubmitButton onClick={action("clicked")} />;
-
-const story = {
+  component: SubmitButton,
   parameters: {
     jest: ["components/atoms/submit-button/submit-button.test.jsx"]
   }
 };
-Text.story = story;
+
+export const Text = () => <SubmitButton onClick={action("clicked")} />;

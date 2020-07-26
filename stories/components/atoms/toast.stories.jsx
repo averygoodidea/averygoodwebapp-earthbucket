@@ -5,7 +5,10 @@ import data from "components/atoms/toast/data";
 
 export default {
   title: "Atoms/Toast",
-  component: Toast
+  component: Toast,
+  parameters: {
+    jest: ["components/atoms/toast/toast.test.jsx"]
+  }
 };
 
 const { fontIcon, htmlMessage, message, to } = data;
@@ -23,14 +26,3 @@ export const LinkedMessage = () => (
 export const FullWidth = () => (
   <Toast fontIcon={fontIcon} fullWidth={true} message={message} />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/atoms/toast/toast.test.jsx"]
-  }
-};
-Message.story = story;
-MessageWithIcon.story = story;
-HTMLMessage.story = story;
-LinkedMessage.story = story;
-FullWidth.story = story;

@@ -5,7 +5,10 @@ import data from "components/atoms/button/data";
 
 export default {
   title: "Atoms/Button",
-  component: Button
+  component: Button,
+  parameters: {
+    jest: ["components/atoms/button/button.test.jsx"]
+  }
 };
 
 const { fontIcon, labelText } = data;
@@ -30,14 +33,3 @@ export const IsDisabled = () => (
 export const RedTheme = () => (
   <Button label={labelText} onClick={action("clicked")} theme="red" />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/atoms/button/button.test.jsx"]
-  }
-};
-Text.story = story;
-Icon.story = story;
-IconRightAlign.story = story;
-IsDisabled.story = story;
-RedTheme.story = story;

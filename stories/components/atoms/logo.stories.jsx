@@ -3,14 +3,10 @@ import React from "react";
 
 export default {
   title: "Atoms/Logo",
-  component: Logo
-};
-
-export const MainNavigationLogoGraphic = () => <Logo />;
-
-const story = {
+  component: Logo,
   parameters: {
     jest: ["components/atoms/logo/logo.test.jsx"]
   }
 };
-MainNavigationLogoGraphic.story = story;
+
+export const MainNavigationLogoGraphic = () => <Logo />;

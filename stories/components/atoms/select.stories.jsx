@@ -5,7 +5,11 @@ import data from "components/atoms/select/data";
 
 export default {
   title: "Atoms/Select",
-  component: Select
+  component: Select,
+  decorators: [storyFn => <div style={{ width: "50%" }}>{storyFn()}</div>],
+  parameters: {
+    jest: ["components/atoms/select/select.test.jsx"]
+  }
 };
 
 export const Empty = () => (
@@ -19,11 +23,3 @@ export const WithDefaultData = () => (
     options={[]}
   />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/atoms/select/select.test.jsx"]
-  }
-};
-Empty.story = story;
-WithDefaultData.story = story;

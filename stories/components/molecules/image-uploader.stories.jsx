@@ -5,7 +5,11 @@ import data from "components/molecules/image-uploader/data";
 
 export default {
   title: "Molecules/Image Uploader",
-  component: ImageUploader
+  component: ImageUploader,
+  decorators: [storyFn => <div style={{ width: "50%" }}>{storyFn()}</div>],
+  parameters: {
+    jest: ["components/molecules/image-uploader/image-uploader.test.jsx"]
+  }
 };
 
 export const UploadAnImage = () => <ImageUploader label="Upload Image" />;
@@ -16,11 +20,3 @@ export const DragToReOrder = () => (
     label="Drag to Re-Order Images"
   />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/molecules/image-uploader/image-uploader.test.jsx"]
-  }
-};
-UploadAnImage.story = story;
-DragToReOrder.story = story;

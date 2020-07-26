@@ -4,7 +4,10 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Atoms/Comment Section",
-  component: CommentSection
+  component: CommentSection,
+  parameters: {
+    jest: ["components/atoms/comment-section/comment-section.test.jsx"]
+  }
 };
 
 const valineOptions = {
@@ -31,11 +34,3 @@ export const FullWidthOutsideModal = () => (
     valineOptions={valineOptions}
   />
 );
-
-const story = {
-  parameters: {
-    jest: ["components/atoms/comment-section/comment-section.test.jsx"]
-  }
-};
-CompactInsideModal.story = story;
-FullWidthOutsideModal.story = story;
