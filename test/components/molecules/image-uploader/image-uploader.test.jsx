@@ -1,6 +1,6 @@
 import { ImageUploader } from "molecules";
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import data from "./data";
 
 describe("ImageUploader", () => {

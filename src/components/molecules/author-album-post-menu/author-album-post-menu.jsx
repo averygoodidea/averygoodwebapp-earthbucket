@@ -32,7 +32,10 @@ const AuthorAlbumPostMenu = ({
   const [posts, setPosts] = useState(albumPosts);
   const [sortedBy, setSortedBy] = useState("most-recent");
   return (
-    <div className={styles.authorAlbumPostsMenu}>
+    <div
+      data-testid="author-album-post-menu"
+      className={styles.authorAlbumPostsMenu}
+    >
       <div className={styles.plusButton}>
         <PlusButton onClick={e => onPlusButtonClick()} />
       </div>

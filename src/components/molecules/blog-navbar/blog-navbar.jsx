@@ -2,12 +2,13 @@ import { Button } from "atoms";
 import { navigate } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+import { isEmpty } from "lodash";
 import styles from "./blog-navbar.module.scss";
 
 const BlogNavbar = ({ next, previous }) => {
   return (
     <div className={styles.navbar}>
-      {previous !== null ? (
+      {!isEmpty(previous) ? (
         <Button
           cn={styles.previous}
           fontIcon="previous"
@@ -23,7 +24,7 @@ const BlogNavbar = ({ next, previous }) => {
         label="Blog Index"
         onClick={() => navigate("/blog/")}
       />
-      {next !== null ? (
+      {!isEmpty(next) ? (
         <Button
           align="right"
           cn={styles.next}

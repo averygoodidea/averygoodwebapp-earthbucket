@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./author-navbar.module.scss";
 
 const AuthorNavbar = ({ items, currentView }) => (
-  <nav className={styles.authorNavbar}>
+  <nav data-testid="author-navbar" className={styles.authorNavbar}>
     {items.map((item, i) => (
       <Button
         key={i}

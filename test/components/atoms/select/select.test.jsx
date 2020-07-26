@@ -7,8 +7,8 @@ describe("Select", () => {
   it("should render the correct amount of values", () => {
     const { defaultValue } = data;
     const { getByText } = render(<Select defaultValue={defaultValue} />);
-    for (let i = 0; i < defaultValue.length; i++) {
-      expect(getByText(defaultValue[i].value)).toBeInTheDocument();
-    }
+    defaultValue.forEach(option =>
+      expect(getByText(option.value)).toBeInTheDocument()
+    );
   });
 });

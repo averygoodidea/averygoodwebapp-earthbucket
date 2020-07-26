@@ -18,7 +18,7 @@ class AuthorMoreMenu extends Component {
     const { isOpen } = this.state;
     const { items } = this.props;
     return (
-      <div className={styles.authorMoreMenu}>
+      <div data-testid="author-more-menu" className={styles.authorMoreMenu}>
         <div className={styles.moreButton}>
           <MoreButton
             onClick={e => {
