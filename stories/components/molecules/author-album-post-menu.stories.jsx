@@ -6,7 +6,11 @@ import data from "components/molecules/author-album-post-menu/data";
 export default {
   title: "Molecules/Author Album Post Menu",
   component: AuthorAlbumPostMenu,
-  decorators: [storyFn => <div style={{ width: "50%" }}>{storyFn()}</div>],
+  decorators: [
+    storyFn => (
+      <div style={{ marginTop: "10px", width: "30%" }}>{storyFn()}</div>
+    )
+  ],
   parameters: {
     jest: [
       "components/molecules/author-album-post-menu/author-album-post-menu.test.jsx"

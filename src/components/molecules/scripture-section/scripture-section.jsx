@@ -39,7 +39,7 @@ class ScriptureSection extends Component {
         window.location.pathname.includes("/album/")
     });
     return (
-      <div className={className}>
+      <div data-testid="scripture-section" className={className}>
         <div className="row">
           <div className="col-sm-3">
             <Button

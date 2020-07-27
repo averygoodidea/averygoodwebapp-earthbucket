@@ -40,7 +40,7 @@ const ShareMenu = ({ cn, url, tags }) => {
       fontIcon: "pinterest",
       label: "Pinterest",
       service: "pinterest",
-      message: `check out faithinventory.com ${hashTags}`
+      message: `check out ${process.env.GATSBY_EARTHBUCKET_HOSTNAME} ${hashTags}`
     },
     {
       fontIcon: "facebook",
@@ -50,7 +50,7 @@ const ShareMenu = ({ cn, url, tags }) => {
     }
   ];
   const buttons = menuData.map(({ fontIcon, label, service, message }, i) => (
-    <li key={i}>
+    <li data-testid={`share-menu-button-${service}`} key={i}>
       <Button
         fontIcon={fontIcon}
         label={""}
@@ -68,18 +68,18 @@ const ShareMenu = ({ cn, url, tags }) => {
   });
 
   return (
-    <div className={className}>
+    <div data-testid="share-menu" className={className}>
       <ul>{buttons}</ul>
     </div>
   );
 };
 
 ShareMenu.propTypes = {
-  hashTags: PropTypes.array
+  tags: PropTypes.array
 };
 
 ShareMenu.defaultProps = {
-  hashTags: []
+  tags: []
 };
 
 export default ShareMenu;

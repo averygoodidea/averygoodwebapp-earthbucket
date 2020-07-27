@@ -55,10 +55,11 @@ const TaxonomyFilter = ({
     [styles.tabbed]: currentView === indexRoute,
     [styles.indexButton]: true
   });
+  const testId = indexRoute.includes("blog") ? "blog" : "album";
   return (
-    <nav>
+    <nav data-testid="taxonomy-filter">
       <ul className={styles.taxonomyFilter} ref={taxonomyFilterRef}>
-        <li>
+        <li data-testid={`taxomony-filter-${testId}-index-button`}>
           <Button
             fontIcon={fontIcon}
             label=""
