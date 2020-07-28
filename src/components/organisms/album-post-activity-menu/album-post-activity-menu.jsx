@@ -91,7 +91,7 @@ class AlbumPostActivityMenu extends Component {
   render() {
     const { hasBeenCollected, isShareMenuOpen } = this.state;
     return (
-      <div className={styles.activityMenu}>
+      <div data-testid="album-post-activity-menu" className={styles.activityMenu}>
         <div className={styles.plusButton}>
           {!hasBeenCollected && (
             <LikeButton
@@ -141,15 +141,11 @@ class AlbumPostActivityMenu extends Component {
   }
 }
 AlbumPostActivityMenu.propTypes = {
+  item: PropTypes.object,
   moreInfoUrl: PropTypes.string,
-  onClick: PropTypes.func,
-  onKeyPress: PropTypes.func,
-  onDisliked: PropTypes.func,
-  onLiked: PropTypes.func
+  onAlbumPostEvent: PropTypes.func,
 };
 AlbumPostActivityMenu.defaultProps = {
-  onClick: () => {},
-  onKeyPress: () => {},
   onAlbumPostEvent: () => {}
 };
 export default AlbumPostActivityMenu;

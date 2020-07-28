@@ -105,7 +105,8 @@
     "clean": "gatsby clean",
     "test": "jest ./test --json --outputFile=.jest-test-results.json || true",
     "storybook": "start-storybook -p 6006 watch-css -s ./static,./test/storybook-static",
-    "build-storybook": "build-storybook -s ./static,./test/storybook-static"
+    "build-storybook": "build-storybook -s ./static,./test/storybook-static",
+    "kill-port": "npx kill-port 8000"
   },
   "repository": {
     "type": "git",

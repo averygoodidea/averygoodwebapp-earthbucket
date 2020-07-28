@@ -5,7 +5,7 @@ import { Header } from 'organisms'
 import './layout.scss'
 
 let Modal
-import("../modal/modal").then( modal => {
+import("./modal/modal").then( modal => {
   Modal = modal.default
 })
 

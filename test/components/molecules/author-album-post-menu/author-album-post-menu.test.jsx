@@ -1,6 +1,6 @@
 import { AuthorAlbumPostMenu } from "molecules";
 import React from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import data from "./data";
 
 describe("AuthorAlbumPostMenu", () => {
