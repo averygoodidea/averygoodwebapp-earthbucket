@@ -6,20 +6,6 @@ import data from "components/organisms/author-album-post-manager/data";
 export default {
   title: "Organisms/Author Album Post Manager",
   component: AuthorAlbumPostManager,
-  decorators: [
-    storyFn => (
-      <div
-        style={{
-          // width: "50%",
-          // marginTop: "120px",
-          // marginLeft: "auto",
-          // marginRight: "auto"
-        }}
-      >
-        {storyFn()}
-      </div>
-    )
-  ],
   parameters: {
     jest: [
       "components/organisms/author-album-post-manager/author-album-post-manager.test.jsx"
