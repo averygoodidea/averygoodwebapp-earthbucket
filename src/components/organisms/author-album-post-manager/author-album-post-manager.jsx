@@ -3,6 +3,7 @@ import { AVeryGoodAuthenticator } from "assets-js";
 import { Select, SubmitButton, Textarea, Textfield, Toast } from "atoms";
 import { navigate } from "gatsby";
 import { AuthorAlbumPostMenu, AuthorMoreMenu, ImageUploader } from "molecules";
+import PropTypes from "prop-types";
 import React, { Component, Fragment } from "react";
 import toastedNotes from "toasted-notes";
 import { isEmpty, isEqual } from "lodash";
@@ -397,7 +398,7 @@ class AuthorAlbumPostManager extends Component {
         headers
       })
         .then(result => {
-          closeNotification();
+          closeNotification && closeNotification();
           toastedNotes.notify(<Toast message="Item Deleted!" />, {
             duration: TOAST_DURATION
           });
@@ -420,7 +421,7 @@ class AuthorAlbumPostManager extends Component {
     } = this.state;
     return (
       <Fragment>
-        <div className={styles.window}>
+        <div data-testid="author-album-post-manager" className={styles.window}>
           <div className={styles.menu}>
             <h2>Manage Album Posts</h2>
             {!isEmpty(albumPosts) && (
@@ -436,12 +437,13 @@ class AuthorAlbumPostManager extends Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-offset-2 col-sm-8">
                   <div className={styles.content}>
-                    <form>
+                    <form data-testid="author-album-post-manager-form">
                       {mode === "CREATE" && (
                         <Fragment>
                           <h2>Create New Item</h2>
                           <Textfield
                             label="title (required)"
+                            name="title"
                             type="text"
                             placeholder="title of item goes here"
                             onChange={e => {
@@ -450,6 +452,7 @@ class AuthorAlbumPostManager extends Component {
                           />
                           <Textarea
                             label="summary (required)"
+                            name="summary"
                             placeholder="summary of item goes here"
                             onChange={e => {
                               this.setState({ summaryValue: e.target.value });
@@ -457,6 +460,7 @@ class AuthorAlbumPostManager extends Component {
                           />
                           <Textfield
                             label="scripture (optional). For now this can only support references from the 66 Books of the Protestant Canon."
+                            name="scripture"
                             type="text"
                             placeholder="Matthew 6:2-8"
                             onChange={e => {
@@ -467,6 +471,7 @@ class AuthorAlbumPostManager extends Component {
                           />
                           <Select
                             label="categories (required)"
+                            name="categories"
                             placeholder="select..."
                             options={allCategories}
                             onChange={categories => {
@@ -475,6 +480,7 @@ class AuthorAlbumPostManager extends Component {
                           />
                           <Textfield
                             label="price (required)"
+                            name="price"
                             type="number"
                             placeholder="5.00"
                             onChange={e => {
@@ -485,8 +491,9 @@ class AuthorAlbumPostManager extends Component {
                           />
                           <Textfield
                             label="link for more info (required)"
-                            type="text"
+                            name="more-info-url"
                             placeholder="https://amazon.com/some-link"
+                            type="text"
                             onChange={e => {
                               this.setState({
                                 moreInfoUrlValue: e.target.value
@@ -511,6 +518,7 @@ class AuthorAlbumPostManager extends Component {
                               </div>
                               <Textfield
                                 label="title (required)"
+                                name="title"
                                 type="text"
                                 placeholder="title of item goes here"
                                 defaultValue={selectedItem.title}
@@ -522,6 +530,7 @@ class AuthorAlbumPostManager extends Component {
                               />
                               <Textarea
                                 label="summary (required)"
+                                name="summary"
                                 placeholder="summary of item goes here"
                                 defaultValue={decodeURIComponent(
                                   selectedItem.summary
@@ -534,6 +543,7 @@ class AuthorAlbumPostManager extends Component {
                               />
                               <Textfield
                                 label="scripture (optional, can only support references from the 66 books of the protestant canon for now)"
+                                name="scripture"
                                 type="text"
                                 placeholder="Matthew 6:2-8"
                                 defaultValue={selectedItem.scriptureAddress}
@@ -545,6 +555,7 @@ class AuthorAlbumPostManager extends Component {
                               />
                               <Select
                                 label="categories (required)"
+                                name="categories"
                                 placeholder="select..."
                                 options={allCategories}
                                 defaultValue={selectedItem.categories.map(
@@ -561,6 +572,7 @@ class AuthorAlbumPostManager extends Component {
                               />
                               <Textfield
                                 label="price (required)"
+                                name="price"
                                 type="number"
                                 placeholder="5.00"
                                 defaultValue={selectedItem.price}
@@ -572,6 +584,7 @@ class AuthorAlbumPostManager extends Component {
                               />
                               <Textfield
                                 label="link for more info (required)"
+                                name="more-info-url"
                                 type="text"
                                 placeholder="https://amazon.com/some-link"
                                 defaultValue={selectedItem.moreInfoUrl}
@@ -626,4 +639,17 @@ class AuthorAlbumPostManager extends Component {
     );
   }
 }
+
+AuthorAlbumPostManager.propTypes = {
+  allAlbumPosts: PropTypes.array.isRequired,
+  mode: PropTypes.string.isRequired,
+  s3: PropTypes.array,
+  selectedItem: PropTypes.object
+};
+AuthorAlbumPostManager.defaultProps = {
+  allAlbumPosts: [],
+  mode: "CREATE", // CREATE|UPDATE
+  s3: [],
+  selectedItem: {}
+};
 export default AuthorAlbumPostManager;

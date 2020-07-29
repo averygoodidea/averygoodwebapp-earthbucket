@@ -7,7 +7,8 @@ const Textarea = ({
   onChange,
   placeholder,
   isDisabled,
-  defaultValue
+  defaultValue,
+  name
 }) => (
   <label>
     <div className={styles.label}>{label}</div>
@@ -18,6 +19,7 @@ const Textarea = ({
       onChange={onChange}
       disabled={isDisabled ? "disabled" : false}
       defaultValue={defaultValue}
+      name={name}
     />
   </label>
 );
@@ -26,7 +28,8 @@ Textarea.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   isDisabled: PropTypes.bool,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+  name: PropTypes.string
 };
 Textarea.defaultProps = {
   label: "add label",

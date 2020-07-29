@@ -10,7 +10,14 @@ const options = [
   { value: "vanilla", label: "Vanilla" }
 ];
 
-const Select = ({ label, options, placeholder, defaultValue, onChange }) => {
+const Select = ({
+  label,
+  options,
+  placeholder,
+  defaultValue,
+  onChange,
+  name
+}) => {
   const handleChange = selectedOption => {
     let categories = [];
     if (!isEmpty(selectedOption)) {
@@ -28,6 +35,7 @@ const Select = ({ label, options, placeholder, defaultValue, onChange }) => {
         placeholder={placeholder}
         isMulti={true}
         defaultValue={defaultValue}
+        name={name}
       />
     </div>
   );
@@ -37,7 +45,8 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   options: PropTypes.array,
-  defaultValue: PropTypes.array
+  defaultValue: PropTypes.array,
+  name: PropTypes.string
 };
 Select.defaultProps = {
   label: "add label",
