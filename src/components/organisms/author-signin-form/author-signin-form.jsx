@@ -41,7 +41,7 @@ class AuthorSignInForm extends Component {
         sendMagicLink(email)
           .then(data => {
             this.setState({ LOADING_STATE: "loaded" }, () => {
-              closeNotification();
+              closeNotification && closeNotification();
               // if resource not found
               // display error
               // reset the email input, signin button
@@ -127,7 +127,7 @@ class AuthorSignInForm extends Component {
       isSubmitButtonDisabled
     } = this.state;
     return (
-      <div className={styles.window}>
+      <div data-testid="author-signin-form" className={styles.window}>
         <div className={styles.img} />
         <div className={styles.info}>
           <div className={styles.content}>
@@ -140,6 +140,7 @@ class AuthorSignInForm extends Component {
             <form className={styles.form}>
               <Textfield
                 label="Sign in to the Author Area"
+                name="email"
                 type="email"
                 placeholder={emailInputPlaceholder}
                 onChange={e => {
@@ -163,6 +164,7 @@ class AuthorSignInForm extends Component {
               />
               {!isEmpty(helpMessage) && (
                 <div
+                  data-testid="author-signin-form-help-message"
                   className={styles.helpMessage}
                   dangerouslySetInnerHTML={{
                     __html: helpMessage

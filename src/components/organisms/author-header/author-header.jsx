@@ -12,27 +12,33 @@ const AuthorHeader = ({
   siteTitle,
   siteDescription
 }) => (
-  <Header
-    rightColElement={
-      authenticationState === "signedIn" ? (
-        <Button
-          cn={styles.authorHeaderButton}
-          label="Sign Out"
-          theme="red"
-          onClick={e => {
-            e.preventDefault();
-            const isConfirmed = confirm("Are you sure you want to sign out?");
-            if (isConfirmed) {
-              AVeryGoodAuthenticator.signOut();
-            }
-          }}
-        />
-      ) : null
-    }
-    sectionTitle={sectionTitle}
-    siteTitle={siteTitle}
-    siteDescription={siteDescription}
-  />
+  <div data-testid="author-header">
+    <Header
+      rightColElement={
+        authenticationState === "signedIn" ? (
+          <div data-testid="author-header-signout-button">
+            <Button
+              cn={styles.authorHeaderButton}
+              label="Sign Out"
+              theme="red"
+              onClick={e => {
+                e.preventDefault();
+                const isConfirmed = confirm(
+                  "Are you sure you want to sign out?"
+                );
+                if (isConfirmed) {
+                  AVeryGoodAuthenticator.signOut();
+                }
+              }}
+            />
+          </div>
+        ) : null
+      }
+      sectionTitle={sectionTitle}
+      siteTitle={siteTitle}
+      siteDescription={siteDescription}
+    />
+  </div>
 );
 
 AuthorHeader.propTypes = {
@@ -42,7 +48,7 @@ AuthorHeader.propTypes = {
 };
 
 AuthorHeader.defaultProps = {
-  authenticationState: "",
+  authenticationState: "signedOut", // signedIn | signedOut
   siteTitle: ``,
   siteDescription: ``
 };

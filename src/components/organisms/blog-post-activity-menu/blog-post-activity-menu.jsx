@@ -21,13 +21,21 @@ class BlogPostActivityMenu extends Component {
     const { author, date, tags } = this.props;
     const { isShareMenuOpen } = this.state;
     return (
-      <div className={styles.activityMenu}>
+      <div
+        data-testid="blog-post-activity-menu"
+        className={styles.activityMenu}
+      >
         <div className={styles.moreInfo}>
           <p>
             <em>
-              by {author}
+              by{" "}
+              <span data-testid="blog-post-activity-menu-author">{author}</span>
               <br />
-              published on {moment(date).format("MMMM Do YYYY, h:mma")} in
+              published on{" "}
+              <span data-testid="blog-post-activity-menu-date">
+                {moment(date).format("MMMM Do YYYY, h:mma")}
+              </span>{" "}
+              in
             </em>
           </p>
           <div className={styles.tags}>
@@ -60,12 +68,12 @@ class BlogPostActivityMenu extends Component {
 }
 BlogPostActivityMenu.propTypes = {
   author: PropTypes.string,
-  categories: PropTypes.array,
+  tags: PropTypes.array,
   date: PropTypes.string
 };
 BlogPostActivityMenu.defaultProps = {
   author: "",
-  categories: [],
+  tags: [],
   date: ""
 };
 export default BlogPostActivityMenu;

@@ -1,6 +1,6 @@
 import { Excerpt, TaxonomyFilter } from "molecules";
 import PropTypes from "prop-types";
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 let amountIterator;
 class ExcerptCollection extends Component {
@@ -16,7 +16,7 @@ class ExcerptCollection extends Component {
     this.shouldUpdate = true;
     this.update();
     // reach router doesn't trigger a browser refresh, therefore the scrollTo Y position never resets
-    // therefore, manualy reset scroll position on blog index render
+    // therefore, manually reset scroll position on blog index render
     window.scrollTo(0, 0);
   }
   update() {
@@ -47,7 +47,7 @@ class ExcerptCollection extends Component {
     const excerpts = postExcerpts.slice(0, amountToShow);
 
     return (
-      <Fragment>
+      <div data-testid="excerpt-collection">
         {taxonomies.length > 0 && (
           <TaxonomyFilter location={location} taxonomies={taxonomies} />
         )}
@@ -72,16 +72,20 @@ class ExcerptCollection extends Component {
             />
           )
         )}
-      </Fragment>
+      </div>
     );
   }
 }
 ExcerptCollection.propTypes = {
+  location: PropTypes.object,
   postExcerpts: PropTypes.array,
+  s3: PropTypes.object,
   taxonomies: PropTypes.array
 };
 ExcerptCollection.defaultProps = {
+  location: { pathname: "" },
   postExcerpts: [],
+  s3: {},
   taxonomies: []
 };
 export default ExcerptCollection;

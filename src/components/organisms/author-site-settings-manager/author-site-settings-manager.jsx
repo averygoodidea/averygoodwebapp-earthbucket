@@ -46,7 +46,7 @@ class AuthorSiteSettingsManager extends Component {
         })
         .then(() => {
           this.setState({ LOADING_STATE: "loaded" }, () => {
-            closeNotification();
+            closeNotification && closeNotification();
             let message = "<p>Your site changes are being deployed 🚀.</p>";
             message += `<p>Give it a little time, then visit your updated pages at <a href="https://${process.env.GATSBY_EARTHBUCKET_HOSTNAME}" target="_blank">${process.env.GATSBY_EARTHBUCKET_HOSTNAME}</a>.</p>`;
             message +=
@@ -70,7 +70,7 @@ class AuthorSiteSettingsManager extends Component {
   render() {
     const { LOADING_STATE } = this.state;
     return (
-      <div className={styles.window}>
+      <div data-testid="author-site-settings-manager" className={styles.window}>
         <div className={styles.info}>
           <div className={styles.content}>
             <h2>Manage Site Settings</h2>

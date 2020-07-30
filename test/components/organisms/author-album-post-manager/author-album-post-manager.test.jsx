@@ -1,3 +1,4 @@
+import { AVeryGoodAuthenticator } from "assets-js";
 import { navigate } from "gatsby";
 import { AuthorAlbumPostManager } from "organisms";
 import React from "react";
@@ -149,6 +150,32 @@ describe("AuthorAlbumPostManager", () => {
             method: "PUT"
           }
         );
+      });
+    });
+    it("should sign author out", async () => {
+      global.requestAnimationFrame = jest.fn();
+      const mockedFetch = fetch.mockResponseOnce(() =>
+        Promise.resolve({
+          status: 401
+        })
+      );
+      jest
+        .spyOn(AVeryGoodAuthenticator, "signOut")
+        .mockImplementationOnce(() => {});
+      const { allAlbumPosts, s3, selectedItem } = data;
+      const { getByTestId } = render(
+        <AuthorAlbumPostManager
+          allAlbumPosts={allAlbumPosts}
+          mode={"UPDATE"}
+          s3={s3}
+          selectedItem={selectedItem}
+        />
+      );
+      const submitButton = getByTestId("submit-button");
+      fireEvent.click(submitButton);
+      await waitFor(() => {
+        expect(mockedFetch).toHaveBeenCalledTimes(1);
+        expect(AVeryGoodAuthenticator.signOut).toHaveBeenCalledTimes(1);
       });
     });
     describe("Navigate", () => {

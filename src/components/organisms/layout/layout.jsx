@@ -21,7 +21,7 @@ const Layout = ({ children, albumPostEvent, isModal, location, sectionTitle }) =
     }
   `)
   return (
-    <Fragment>
+    <div data-testid="layout">
       <div id="terrain"></div>
       <main>
       {isModal ? (
@@ -58,7 +58,7 @@ const Layout = ({ children, albumPostEvent, isModal, location, sectionTitle }) =
         </Fragment>
       )}
       </main>
-    </Fragment>
+    </div>
   )
 }
 

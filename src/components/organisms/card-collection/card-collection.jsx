@@ -1,6 +1,6 @@
 import { Card, TaxonomyFilter } from "molecules";
 import PropTypes from "prop-types";
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import styles from "./card-collection.module.scss";
 
 let amountIterator;
@@ -68,7 +68,7 @@ class CardCollection extends Component {
         location.state.defaultCategoryFilterScrollLeft;
     }
     return (
-      <Fragment>
+      <div data-testid="card-collection">
         {taxonomies.length > 0 && (
           <TaxonomyFilter
             baseRoute="/album/category/"
@@ -95,7 +95,7 @@ class CardCollection extends Component {
             )
           )}
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
@@ -106,7 +106,6 @@ CardCollection.propTypes = {
   taxonomies: PropTypes.array
 };
 CardCollection.defaultProps = {
-  enableTaxonomyFilter: true,
   albumPosts: [],
   location: { pathname: "" },
   s3: {},

@@ -7,7 +7,6 @@ import "../layout/layout.scss";
 
 const AuthorLayout = ({
   children,
-  isModal,
   isAuthenticated,
   location,
   sectionTitle
@@ -41,8 +40,8 @@ const AuthorLayout = ({
   const currentView = location.pathname;
 
   return (
-    <Fragment>
-      <div id="terrain"></div>
+    <div data-testid="author-layout">
+      <div id="terrain" />
       <main>
         <Fragment>
           <AuthorHeader
@@ -72,15 +71,18 @@ const AuthorLayout = ({
           </footer>
         </Fragment>
       </main>
-    </Fragment>
+    </div>
   );
 };
 
 AuthorLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.object
+  isAuthenticated: PropTypes.bool,
+  location: PropTypes.object,
+  sectionTitle: PropTypes.string
 };
 AuthorLayout.defaultProps = {
+  isAuthenticated: false,
   location: {}
 };
 

@@ -8,7 +8,6 @@ import styles from "./header.module.scss";
 import "./header.scss";
 
 const Header = ({
-  albumPostEvent,
   location,
   rightColElement,
   sectionTitle,
@@ -44,7 +43,7 @@ const Header = ({
         ).length
       : 0;
   return (
-    <header className={styles.header}>
+    <header data-testid="header" className={styles.header}>
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-2 col-md-3">
@@ -69,9 +68,13 @@ const Header = ({
         <div className="row">
           <div className="col-xs-9 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-8">
             {shouldShowListButton && (
-              <div className={styles.listButton}>
+              <div
+                data-testid="header-your-list-button"
+                className={styles.listButton}
+              >
                 {listLength > 0 && (
                   <div
+                    data-testid="header-your-list-length"
                     className={styles.amount}
                     onClick={e => {
                       e.preventDefault();
@@ -93,7 +96,10 @@ const Header = ({
               </div>
             )}
             {!shouldShowListButton && sectionTitle && (
-              <div className={styles.sectionTitle}>
+              <div
+                data-testid="header-section-title"
+                className={styles.sectionTitle}
+              >
                 <h1>{sectionTitle}</h1>
               </div>
             )}

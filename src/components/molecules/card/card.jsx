@@ -25,7 +25,9 @@ const Card = ({
     }}
   >
     <img src={image.childImageSharp.fluid.src} alt={title} />
-    <p className={styles.title}>{title}</p>
+    <p data-testid="card-title" className={styles.title}>
+      {title}
+    </p>
     <div className={styles.additionalInfo}>
       <div>
         {categories.map((category, i) => (
