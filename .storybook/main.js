@@ -121,7 +121,7 @@ module.exports = {
       include: path.resolve(__dirname, '../')
     });
 
-    // reference test folder
+    // reference source and test folders
     config.resolve.modules = [
       ...(config.resolve.modules || []),
       path.resolve('./src/'),

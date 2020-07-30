@@ -104,78 +104,80 @@ class AlbumPostModal extends Component {
     const { isOpen, children } = this.props;
     const { enableNav } = this.state;
     return (
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={() => this.closeModal()}
-        contentLabel="Modal"
-        style={{
-          zIndex: 10,
-          overlay: {
-            position: `fixed`,
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: `rgba(0, 0, 0, 0.75)`
-          },
-          content: {
-            position: `absolute`,
-            border: `none`,
-            background: `none`,
-            padding: 0,
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            overflow: `auto`,
-            WebkitOverflowScrolling: `touch`
-          }
-        }}
-      >
-        <div
-          className={styles.overlayCloseButton}
-          css={{ maxWidth: rhythm(40.25) }}
+      <div data-testid="modal">
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={() => this.closeModal()}
+          contentLabel="Modal"
+          style={{
+            zIndex: 10,
+            overlay: {
+              position: `fixed`,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: `rgba(0, 0, 0, 0.75)`
+            },
+            content: {
+              position: `absolute`,
+              border: `none`,
+              background: `none`,
+              padding: 0,
+              top: 0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              overflow: `auto`,
+              WebkitOverflowScrolling: `touch`
+            }
+          }}
         >
-          <div className={styles.content}>
-            {enableNav && (
+          <div
+            className={styles.overlayCloseButton}
+            css={{ maxWidth: rhythm(40.25) }}
+          >
+            <div className={styles.content}>
+              {enableNav && (
+                <div
+                  className={styles.previousButton}
+                  onClick={e => this.previous(e)}
+                  onKeyPress={e => false /* handled by moustrap */}
+                  role="button"
+                  tabIndex="0"
+                >
+                  <i className="font-icon-previous" />
+                </div>
+              )}
+              {children}
+              {enableNav && (
+                <div
+                  className={styles.nextButton}
+                  onClick={e => this.next(e)}
+                  onKeyPress={e => false /* handled by moustrap */}
+                  role="button"
+                  tabIndex="0"
+                >
+                  <i className="font-icon-next" />
+                </div>
+              )}
               <div
-                className={styles.previousButton}
-                onClick={e => this.previous(e)}
-                onKeyPress={e => false /* handled by moustrap */}
+                className={styles.closeButton}
+                onClick={() => this.closeModal()}
+                onKeyPress={e => {
+                  if (e.key === "Enter") {
+                    this.closeModal();
+                  }
+                }}
                 role="button"
                 tabIndex="0"
               >
-                <i className="font-icon-previous" />
+                <i className="font-icon-close" />
               </div>
-            )}
-            {children}
-            {enableNav && (
-              <div
-                className={styles.nextButton}
-                onClick={e => this.next(e)}
-                onKeyPress={e => false /* handled by moustrap */}
-                role="button"
-                tabIndex="0"
-              >
-                <i className="font-icon-next" />
-              </div>
-            )}
-            <div
-              className={styles.closeButton}
-              onClick={() => this.closeModal()}
-              onKeyPress={e => {
-                if (e.key === "Enter") {
-                  this.closeModal();
-                }
-              }}
-              role="button"
-              tabIndex="0"
-            >
-              <i className="font-icon-close" />
             </div>
           </div>
-        </div>
-      </Modal>
+        </Modal>
+      </div>
     );
   }
 }

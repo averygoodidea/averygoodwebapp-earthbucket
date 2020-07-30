@@ -11,7 +11,7 @@ export default {
   }
 };
 
-const { sectionTitle } = data;
+const { location, sectionTitle } = data;
 
 const html = (
   <div>
@@ -19,6 +19,9 @@ const html = (
   </div>
 );
 
-export const Default = () => (
-  <Layout sectionTitle={sectionTitle}>{html}</Layout>
+export const Home = () => <Layout>{html}</Layout>;
+export const Section = () => (
+  <Layout location={location} sectionTitle={sectionTitle}>
+    {html}
+  </Layout>
 );

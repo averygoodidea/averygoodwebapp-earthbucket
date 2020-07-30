@@ -9,7 +9,7 @@ import("./modal/modal").then( modal => {
   Modal = modal.default
 })
 
-const Layout = ({ children, albumPostEvent, isModal, location, sectionTitle }) => {
+const Layout = ({ children, isModal, location, sectionTitle }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -41,7 +41,6 @@ const Layout = ({ children, albumPostEvent, isModal, location, sectionTitle }) =
       ) : (
         <Fragment>
           <Header
-            albumPostEvent={albumPostEvent}
             location={location}
             sectionTitle={sectionTitle}
             siteTitle={data.site.siteMetadata.title}
@@ -64,7 +63,15 @@ const Layout = ({ children, albumPostEvent, isModal, location, sectionTitle }) =
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  isModal: PropTypes.bool,
   sectionTitle: PropTypes.string
+}
+Layout.defaultProps = {
+  isModal: false,
+  location: {
+    pathname: "/",
+    state: {}
+  }
 }
 
 export default Layout
