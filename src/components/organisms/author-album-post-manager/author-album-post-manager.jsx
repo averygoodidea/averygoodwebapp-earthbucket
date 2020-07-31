@@ -258,7 +258,7 @@ class AuthorAlbumPostManager extends Component {
                 message = "Item Created!";
               }
               this.setState({ LOADING_STATE: "loaded" }, () => {
-                closeNotification();
+                closeNotification && closeNotification();
                 toastedNotes.notify(
                   <Toast message={message} fontIcon="inventory-item" />,
                   { duration: TOAST_DURATION }
@@ -305,7 +305,7 @@ class AuthorAlbumPostManager extends Component {
                 }
               }
               this.setState({ ...state }, () => {
-                closeNotification();
+                closeNotification && closeNotification();
                 toastedNotes.notify(
                   <Toast message={message} fontIcon="inventory-item" />,
                   { duration: TOAST_DURATION }
@@ -354,7 +354,8 @@ class AuthorAlbumPostManager extends Component {
         }
       });
     } catch (error) {
-      toastedNotes.notify(<Toast message={error} fontIcon="inventory-item" />, {
+      console.error(error)
+      toastedNotes.notify(<Toast message={String(error)} fontIcon="inventory-item" />, {
         duration: 2000
       });
     }

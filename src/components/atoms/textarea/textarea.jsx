@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styles from "./textarea.module.scss";
+import { isEmpty } from "lodash";
 
 const Textarea = ({
   label,
@@ -9,20 +10,27 @@ const Textarea = ({
   isDisabled,
   defaultValue,
   name
-}) => (
-  <label>
-    <div className={styles.label}>{label}</div>
-    <textarea
-      data-testid="textarea"
-      className={styles.textarea}
-      placeholder={placeholder}
-      onChange={onChange}
-      disabled={isDisabled ? "disabled" : false}
-      defaultValue={defaultValue}
-      name={name}
-    />
-  </label>
-);
+}) => {
+  const props = {};
+  if (!isEmpty(name)) {
+    props.name = name;
+  }
+
+  return (
+      <label>
+        <div className={styles.label}>{label}</div>
+        <textarea
+          data-testid="textarea"
+          className={styles.textarea}
+          placeholder={placeholder}
+          onChange={onChange}
+          disabled={isDisabled ? "disabled" : false}
+          defaultValue={defaultValue}
+          {...props}
+        />
+      </label>
+    )
+}
 Textarea.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,

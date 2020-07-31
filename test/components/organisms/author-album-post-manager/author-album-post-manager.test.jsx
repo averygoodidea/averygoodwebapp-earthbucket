@@ -5,6 +5,8 @@ import React from "react";
 import toastedNotes from "toasted-notes";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import data from "./data";
+// import userEvent from '@testing-library/user-event'
+// import { act } from 'react-dom/test-utils';
 
 describe("AuthorAlbumPostManager", () => {
   it("should exist", () => {
@@ -34,6 +36,9 @@ describe("AuthorAlbumPostManager", () => {
     expect(authorAlbumPostManager).toContainElement(form);
   });
   describe('"CREATE" Mode', () => {
+    // beforeEach(() => {
+    //   fetch.resetMocks();
+    // });
     it("should contain appropriate form controls", () => {
       const { allAlbumPosts } = data;
       const { getByTestId } = render(
@@ -64,6 +69,54 @@ describe("AuthorAlbumPostManager", () => {
       expect(mockSaveItemData).toHaveBeenCalledTimes(1);
       AuthorAlbumPostManager.prototype.saveItemData.mockRestore();
     });
+    /*
+    it("should send \"POST\" request to server", async () => {
+      global.requestAnimationFrame = jest.fn();
+      jest.spyOn(toastedNotes, "notify").mockImplementation(() => {});
+      const mockedFetch = fetch.mockResponse(() => Promise.resolve({}));
+
+      const { allAlbumPosts, s3 } = data;
+      const { getByTestId } = render(
+        <AuthorAlbumPostManager allAlbumPosts={allAlbumPosts} mode={"CREATE"} />
+      );
+
+      //add data controls here
+
+      const titleInput = document.querySelector('[data-testid="author-album-post-manager-form"] input[name="title"]')
+      fireEvent.change(titleInput, { target: { value: "Chuck Norris" }})
+
+      const summaryInput = document.querySelector('[data-testid="author-album-post-manager-form"] textarea[name="summary"]')
+      userEvent.type(summaryInput, "Lorem ipsum dolor sit amet.")
+
+      const scriptureInput = document.querySelector('[data-testid="author-album-post-manager-form"] input[name="scripture"]')
+      fireEvent.change(scriptureInput, { target: { value: "James 1:1" }})
+
+      const priceInput = document.querySelector('[data-testid="author-album-post-manager-form"] input[name="price"]')
+      fireEvent.change(priceInput, { target: { value: 35.00 }})
+
+      const moreInfoUrlInput = document.querySelector('[data-testid="author-album-post-manager-form"] input[name="more-info-url"]')
+      fireEvent.change(moreInfoUrlInput, { target: { value: "https://domain.test/more-info.html" }})
+
+      // fireEvent.drop doesn't seem to properly add an image to the image uploader, so just skip this part of the test.
+      
+      act(() => {
+        const imageUploader = document.querySelector('[data-testid="image-uploader"] input[type="file"]')
+        fireEvent.drop(imageUploader, {
+          dataTransfer: {
+            files: [new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' })]
+          }
+        })
+      })
+
+      const submitButton = getByTestId("submit-button");
+      fireEvent.click(submitButton);
+      await waitFor( () => {
+        expect(mockedFetch).toHaveBeenCalledTimes(1);
+        expect(mockedFetch).toBeCalledWith("")
+        toastedNotes.notify.mockRestore()
+      })
+    });
+    */
   });
   describe('"UPDATE" Mode', () => {
     beforeEach(() => {
