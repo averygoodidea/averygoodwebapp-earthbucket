@@ -354,10 +354,13 @@ class AuthorAlbumPostManager extends Component {
         }
       });
     } catch (error) {
-      console.error(error)
-      toastedNotes.notify(<Toast message={String(error)} fontIcon="inventory-item" />, {
-        duration: 2000
-      });
+      console.error(error);
+      toastedNotes.notify(
+        <Toast message={String(error)} fontIcon="inventory-item" />,
+        {
+          duration: 2000
+        }
+      );
     }
   }
   async deleteSelectedItem() {
