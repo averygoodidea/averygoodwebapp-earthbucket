@@ -41,7 +41,7 @@ const AuthorLayout = ({
 
   return (
     <div data-testid="author-layout">
-      <div id="terrain" />
+      <div id="background-graphic" />
       <main>
         <Fragment>
           <AuthorHeader

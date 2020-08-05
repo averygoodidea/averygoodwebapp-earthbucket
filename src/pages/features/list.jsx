@@ -77,8 +77,8 @@ class ItemsListPage extends Component {
                   button on an album post.
                   <Button
                     cn={styles.button}
-                    fontIcon="inventory-items"
-                    label="Go to Album"
+                    fontIcon="index"
+                    label="Go to Features"
                     onClick={e => {
                       e.preventDefault();
                       navigate("/");

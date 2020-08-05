@@ -5,7 +5,7 @@ import styles from "./logo.module.scss";
 
 const Logo = () => (
   <Link data-testid="logo" to="/" className={styles.logo}>
-    <img src={iconLogoSvg} title="Logo for A Very Good Web App" />
+    <img src={iconLogoSvg} alt="Logo for A Very Good Web App" />
   </Link>
 );
 export default Logo;

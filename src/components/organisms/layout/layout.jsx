@@ -22,7 +22,7 @@ const Layout = ({ children, isModal, location, sectionTitle }) => {
   `)
   return (
     <div data-testid="layout">
-      <div id="background-graphic"></div>
+      <div id="background-graphic" />
       <main>
       {isModal ? (
         <Fragment>
@@ -56,7 +56,7 @@ const Layout = ({ children, isModal, location, sectionTitle }) => {
                 <div className="row">
                   <div className="col-sm-offset-2 col-sm-4">
                     <ul>
-                      <li><a href="https://github.com/averygoodidea/averygoodwebapp-infrastructure/" target="_blank">Infrastructure Docs</a></li>
+                      <li><a href="https://github.com/averygoodidea/averygoodwebapp-infrastructure/" target="_blank" rel="noreferrer">Infrastructure Docs</a></li>
                       <li><Link to="/ui/1/docs/">UI Docs</Link></li>
                       <li><Link to="/api/1/docs/">API Docs</Link></li>
                     </ul>
