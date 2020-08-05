@@ -8,7 +8,7 @@ const AlbumCategoryTemplate = ({
 }) => {
   return (
     <Layout location={location}>
-      <SEO title="Album Categories" keywords={taxonomies} />
+      <SEO title="Feature Categories" keywords={taxonomies} />
       <CardCollection
         albumPosts={albumPosts}
         location={location}

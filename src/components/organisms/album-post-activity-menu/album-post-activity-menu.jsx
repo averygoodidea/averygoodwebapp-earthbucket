@@ -41,7 +41,7 @@ class AlbumPostActivityMenu extends Component {
           <Toast
             htmlMessage={`<p><strong>Added</strong> <em>${title}</em> to Your List</p>`}
             fontIcon="like"
-            to={"/album/list/"}
+            to={"/features/list/"}
           />,
           { duration: TOAST_DURATION }
         );
@@ -67,7 +67,7 @@ class AlbumPostActivityMenu extends Component {
           <Toast
             htmlMessage={`<p><strong>Removed</strong> <em>${title}</em> from Your List</p>`}
             fontIcon="dislike"
-            to={"/album/list/"}
+            to={"/features/list/"}
           />,
           { duration: TOAST_DURATION }
         );
@@ -128,7 +128,7 @@ class AlbumPostActivityMenu extends Component {
           <Button
             label="Shop Item"
             fontIcon="price-tag"
-            theme="red"
+            theme="alt"
             onClick={e => {
               this.openMoreInfoUrl();
             }}

@@ -2,7 +2,7 @@
 	position: relative;
 	padding: 30px 0;
 	margin-bottom: 60px;
-	background: #efded2;
+
 	h1 {
 		margin: 10px 0 0;
 		font-weight: normal;
@@ -67,6 +67,8 @@
 	@media(max-width: $max-mobile-width) {
 		margin-bottom: -10px;
 		padding: 20px 0 30px;
+		background: $chrome-light-color;
+		
 		.heroText h1 {
 			margin-top: 8px;
 			font-size: 20px;

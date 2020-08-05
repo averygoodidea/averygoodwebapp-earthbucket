@@ -51,7 +51,7 @@ const AboutPage = ({ data, location }) => (
         resource to house many of the things I’ve learned and experienced during
         my journey as a spiritual son of the God of the Bible.
       </p>
-      <p>
+      <p id="firerecord">
         The Heavenly Father, as referred to by Jesus (YahuSha), has revealed to
         me certain lessons and perspectives that have helped me better
         understand my life, and my purpose. So many people have big, arresting

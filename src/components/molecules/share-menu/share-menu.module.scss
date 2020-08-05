@@ -7,9 +7,9 @@
     	@include box-shadow;
         list-style-type: none;
         margin: 0;
-        border: 2px dashed #c7a08c;
+        border: 2px dashed #fa7a57;
         padding: 0;
-        background: #f4e7dd;
+        background: $chrome-dark-color;
         width: 243px;
 
         li {
@@ -18,14 +18,15 @@
         	button {
 	            display: block;
 	            padding: 12px 20px;
-	            background: #faf3ee;
+	            background: $chrome-light-color;
 	            border-radius: 0;
 	            width: 81px;
-	            border: 2px solid #efded2;
+	            border: 2px solid $chrome-dark-color;
 	            text-transform: unset;
 
 	            i {
 	            	margin-right: 0;
+	            	color: $link-color;
 	            }
 
 	            &:hover,

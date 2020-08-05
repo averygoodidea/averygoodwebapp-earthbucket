@@ -17,7 +17,7 @@
 		display: block;
 		padding: 15px 0;
 		color: $link-color;
-		background: #efded2;
+		background: #ffece7;
 		text-align: center;
 		text-decoration: none;
 
@@ -52,7 +52,7 @@
 		&:hover,
 		&:focus,
 		&:active {
-			border: 2px dashed #805450;
+			border: 2px dashed $link-color;
 			border-top: none;
 			border-bottom: none;
 		}

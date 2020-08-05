@@ -8,6 +8,7 @@ import EmailForm from "./email-form/email-form";
 import Excerpt from "./excerpt/excerpt";
 import ImageUploader from "./image-uploader/image-uploader";
 import MainNav from "./main-nav/main-nav";
+import Panel from "./panel/panel";
 import ScriptureSection from "./scripture-section/scripture-section";
 import ShareMenu from "./share-menu/share-menu";
 import TaxonomyFilter from "./taxonomy-filter/taxonomy-filter";
@@ -23,6 +24,7 @@ export {
   Excerpt,
   ImageUploader,
   MainNav,
+  Panel,
   ScriptureSection,
   ShareMenu,
   TaxonomyFilter

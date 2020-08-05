@@ -5,16 +5,16 @@ $min-height: 400px;
     display: flex;
 	border-radius: 10px;
 	overflow: hidden;
-	background: $button-color;
+	background: $window-color;
 
 	h2 {
 		font-size: 20px;
 	}
 
 	.menu {
-    	background: #f4e7dd;
+    	background: $chrome-light-color;
     	width: 30%;
-    	border-right: 5px solid #efded2;
+    	border-right: 5px solid $chrome-dark-color;
     	overflow: scroll;
     	
     	h2 {

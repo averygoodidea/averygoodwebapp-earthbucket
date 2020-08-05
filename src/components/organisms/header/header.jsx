@@ -32,9 +32,9 @@ const Header = ({
   const currentView = location.pathname;
   const shouldShowListButton =
     currentView === "/" ||
-    currentView.includes("/album/") ||
+    currentView.includes("/features/") ||
     currentView.includes("/category/") ||
-    currentView === "/album/list/";
+    currentView === "/features/list/";
   // get ids from local storage and filter out any that don't exist in the database anymore.
   const listLength =
     typeof window !== `undefined`
@@ -78,19 +78,19 @@ const Header = ({
                     className={styles.amount}
                     onClick={e => {
                       e.preventDefault();
-                      navigate("/album/list/");
+                      navigate("/features/list/");
                     }}
                   >
                     {listLength}
                   </div>
                 )}
                 <Button
-                  cn={currentView === "/album/list/" ? styles.tabbed : ""}
-                  label="Your List"
+                  cn={currentView === "/features/list/" ? styles.tabbed : ""}
+                  label="Your Fave Features"
                   fontIcon="school-backpack"
                   onClick={e => {
                     e.preventDefault();
-                    navigate("/album/list/");
+                    navigate("/features/list/");
                   }}
                 />
               </div>

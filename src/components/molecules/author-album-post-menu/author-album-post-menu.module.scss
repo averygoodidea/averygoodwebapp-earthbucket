@@ -6,7 +6,7 @@
         top: -30px;
 
         i {
-            background: $button-color;
+            background: $chrome-dark-color;
             border-radius: 50px;
             font-size: 50px;
         }
@@ -33,15 +33,15 @@
 
             button {
                 display: block;
-                padding: 20px;
-                background: #faf3ee;
+                padding: 15px 20px;
+                background: #e3e6f3;
                 width: 100%;
                 text-align: left;
-                border-bottom: 3px solid #efded2;
+                border: 2px solid #cacfe8;
                 text-transform: unset;
+                color: $content-text-color;
 
                 &:hover,
-                &:active,
                 &:focus {
                     background: #fff;
                     color: $link-hover-color;
@@ -76,9 +76,10 @@
 
 .sortBy {
     padding-top: 10px;
-    background: #efded2;
-    border-top: 2px solid rgba(85,63,61,0.16);
-    border-bottom: 2px solid rgba(85,63,61,0.16);
+    padding-left: 5px;
+    background: $chrome-dark-color;
+    border-top: 2px solid rgba(250,122,87,.5);
+    border-bottom: 2px solid rgba(250,122,87,.5);
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -89,8 +90,9 @@
     button {
         margin: 20px 2px;
         font-size: 14px;
-        background: #fff;
+        background: $button-alt-color;
         padding-right: 10px;
+        line-height: 22px;
 
         &:hover,
         &:focus {
@@ -99,11 +101,7 @@
     }
 
     button.tabbed {
-        background: $button-hover-color;
-        color: $button-hover-text-color;
-        i {
-            color: $button-hover-text-color;
-        }
+        background: $button-hover-alt-color;
     }
 }
 

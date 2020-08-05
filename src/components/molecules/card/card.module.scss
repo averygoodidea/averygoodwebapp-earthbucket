@@ -1,10 +1,11 @@
 .card {
 	border-radius: $corner-radius;
-	background: $button-color;
+	background: $chrome-light-color;
+	border: 2px solid #ffece7;
 	padding-bottom: 20px;
 	position: relative;
 	margin-bottom: 30px;
-	width: 33%;
+	width: 32%;
 	margin-bottom: 3px;
 
 	.plusButton button {
@@ -65,6 +66,7 @@
 	&:focus {
 		background: #fff;
 		border-color: #fff;
+		border: 2px solid $button-hover-color;
 	}
 
 	.iconButton {

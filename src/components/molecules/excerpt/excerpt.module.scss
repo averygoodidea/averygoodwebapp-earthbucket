@@ -2,7 +2,8 @@
 	margin-bottom: 30px;
 	border-radius: 10px;
 	overflow: hidden;
-	background: #efded2;
+	background: $chrome-light-color;
+	border: 2px solid #ffece7;
 
 	p {
 		color: $content-text-color;
@@ -38,15 +39,11 @@
 	}
 
 	&:hover {
-		background: $button-color;
+		background: #fff;
+		border: 2px solid $button-hover-color;
 
 		button {
-			background: #fff;
-
-			&:hover,
-			&:focus {
-			 	background: $text-color;
-			}
+			background: $button-hover-color;
 	  	}
 	}
 

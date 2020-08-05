@@ -17,7 +17,7 @@ const TaxonomyFilter = ({
   const taxonomyFilterRef = useRef(null);
   const navItems = taxonomies.sort().map((taxonomy, i) => {
     const additionalProps = {};
-    if (baseRoute === "/album/category/") {
+    if (baseRoute === "/features/category/") {
       additionalProps.fontIcon = `category-${taxonomy}`;
     }
     return (

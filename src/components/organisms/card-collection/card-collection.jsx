@@ -71,10 +71,10 @@ class CardCollection extends Component {
       <div data-testid="card-collection">
         {taxonomies.length > 0 && (
           <TaxonomyFilter
-            baseRoute="/album/category/"
+            baseRoute="/features/category/"
             defaultScrollLeftPropName="defaultCategoryFilterScrollLeft"
             indexRoute="/"
-            fontIcon="inventory-items"
+            fontIcon="index"
             location={location}
             taxonomies={taxonomies}
           />

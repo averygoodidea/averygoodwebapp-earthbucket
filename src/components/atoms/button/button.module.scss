@@ -34,18 +34,20 @@
 /* themes */
 .default {
 	background: $button-color;
-	color: $link-color;
-	
-	i {
-		color: $text-color;
-	}
+	/*color: $link-color;*/
+	color: #fff;
 }
-.red {
-	background: #b43100;
+.alt {
+	background: $button-alt-color;
 	color: #fff;
 	
 	i {
 		color: #fff;
+	}
+
+	&:hover,
+	&:focus {
+		background: $button-hover-alt-color;
 	}
 }
 .rightAligned {

@@ -24,17 +24,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[class="font-icon-category-waterapi"]:before {
+  content: "\e900";
+}
+[class="font-icon-category-aircdn"]:before {
+  content: "\e902";
+}
+[class="font-icon-category-earthbucket"]:before {
+  content: "\e903";
+}
+[class="font-icon-category-firerecord"]:before {
+  content: "\e904";
+}
+[class="font-icon-logo"]:before {
+  content: "\e905";
+}
 [class="font-icon-avery-signature"]:before {
   content: "\e922";
-}
-[class="font-icon-category-recreation"]:before {
-  content: "\e906";
-}
-[class="font-icon-category-sanitary"]:before {
-  content: "\e926";
-}
-[class="font-icon-category-shelter"]:before {
-  content: "\e925";
 }
 [class="font-icon-scroll"]:before {
   content: "\e924";
@@ -54,7 +60,7 @@
 [class="font-icon-typewriter"]:before {
   content: "\e91f";
 }
-[class="font-icon-inventory-items"]:before {
+[class="font-icon-index"]:before {
   content: "\e91c";
 }
 [class="font-icon-side-nav"]:before {
@@ -90,12 +96,6 @@
 [class="font-icon-averygoodidea-logo"]:before {
   content: "\e901";
 }
-[class="font-icon-category-spiritual"]:before {
-  content: "\e91b";
-}
-[class="font-icon-category-healthcare"]:before {
-  content: "\e91a";
-}
 [class="font-icon-envelope"]:before {
   content: "\e918";
 }
@@ -119,27 +119,6 @@
 }
 [class="font-icon-left"]:before {
   content: "\e90e";
-}
-[class="font-icon-category-books"]:before {
-  content: "\e90f";
-}
-[class="font-icon-category-gadgets"]:before {
-  content: "\e90d";
-}
-[class="font-icon-category-water"]:before {
-  content: "\e905";
-}
-[class="font-icon-category-fire"]:before {
-  content: "\e902";
-}
-[class="font-icon-category-clothing"]:before {
-  content: "\e903";
-}
-[class="font-icon-category-food"]:before {
-  content: "\e904";
-}
-[class="font-icon-school-backpack"]:before {
-  content: "\e900";
 }
 [class="font-icon-facebook"]:before {
   content: "\ea91";

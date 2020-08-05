@@ -8,9 +8,9 @@ import styles from "./main-nav.module.scss";
 const MainNav = ({ currentView }) => {
   const items = [
     {
-      fontIcon: "inventory-items",
+      fontIcon: "index",
       target: "/",
-      title: "Album"
+      title: "Features"
     },
     {
       fontIcon: "typewriter",
@@ -31,9 +31,9 @@ const MainNav = ({ currentView }) => {
           shouldTabButton = true;
         } else if (
           target === "/" &&
-          (currentView.includes("/album/") ||
+          (currentView.includes("/features/") ||
             currentView.includes("/category/") ||
-            currentView.includes("/album/list/"))
+            currentView.includes("/features/list/"))
         ) {
           shouldTabButton = true;
         } else if (target === "/blog/" && currentView.includes("/blog/")) {

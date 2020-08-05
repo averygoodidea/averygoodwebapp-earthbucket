@@ -7,19 +7,24 @@
         right: 0;
         list-style-type: none;
         margin: 0;
-        border: 2px dashed #c7a08c;
+        border: 2px dashed #fa7a57;
         padding: 10px;
-        background: #f4e7dd;
+        background: $chrome-dark-color;
 
         li button {
             display: block;
             padding: 12px 20px;
-            background: #faf3ee;
+            background: $chrome-light-color;
             border-radius: 0;
             width: 170px;
             text-align: left;
             border-bottom: 3px solid #efded2;
             text-transform: unset;
+            color: $content-text-color;
+
+            i {
+                color: $link-color;
+            }
 
             &:hover,
             &:active,

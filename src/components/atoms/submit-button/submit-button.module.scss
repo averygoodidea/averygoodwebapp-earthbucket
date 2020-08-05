@@ -4,7 +4,7 @@
 	padding: 10px 20px;
 	text-transform: uppercase;
 	border: none;
-	background: #b43100;
+	background: $button-alt-color;
 	color: #fff;
 	line-height: 24px;
 	cursor: pointer;
@@ -19,7 +19,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background: $button-hover-color;
+		background: $button-hover-alt-color;
 		color: $button-hover-text-color;
 		i {
 			color: $button-hover-text-color;

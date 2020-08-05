@@ -15,7 +15,7 @@ const Card = ({
   <Link
     data-testid="card"
     className={styles.card}
-    to={`/album/${slugId}/`}
+    to={`/features/${slugId}/`}
     state={{
       albumPosts,
       previousPathname: history.pathname,

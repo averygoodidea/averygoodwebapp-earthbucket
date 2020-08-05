@@ -5,11 +5,11 @@ import { fireEvent, render } from "@testing-library/react";
 import data from "./data";
 
 describe("MainNav", () => {
-  it('should contain "Album" nav item', () => {
+  it('should contain "Features" nav item', () => {
     navigate.mockImplementationOnce(() => {});
     const { getByTestId, getByText } = render(<MainNav />);
     const mainNav = getByTestId("main-nav");
-    const link = getByText("Album");
+    const link = getByText("Features");
     expect(mainNav).toContainElement(link);
     fireEvent.click(link);
     expect(navigate).toBeCalledWith("/");
@@ -27,6 +27,6 @@ describe("MainNav", () => {
     const { currentView } = data;
     render(<MainNav currentView={currentView} />);
     const link = document.querySelector(".tabbed");
-    expect(link).toHaveTextContent("Album");
+    expect(link).toHaveTextContent("Features");
   });
 });

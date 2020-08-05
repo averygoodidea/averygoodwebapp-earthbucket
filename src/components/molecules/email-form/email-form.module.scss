@@ -1,4 +1,4 @@
-$background-color: #e6ccbe;
+$background-color: $chrome-dark-color;
 .emailForm {
 	display: -webkit-box;
     display: -moz-box;
@@ -6,7 +6,7 @@ $background-color: #e6ccbe;
     display: -webkit-flex;
     display: flex;
     background: $background-color;
-	border-top: 2px solid rgba(85, 63, 61, .12);
+	border-top: 2px solid rgba(250,122,87,.5);
     padding: 30px;
     margin-left: -50px;
     margin-right: -50px;

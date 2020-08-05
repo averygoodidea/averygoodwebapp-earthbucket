@@ -20,7 +20,7 @@ const AuthorHeader = ({
             <Button
               cn={styles.authorHeaderButton}
               label="Sign Out"
-              theme="red"
+              theme="alt"
               onClick={e => {
                 e.preventDefault();
                 const isConfirmed = confirm(

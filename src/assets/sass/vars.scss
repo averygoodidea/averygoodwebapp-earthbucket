@@ -2,15 +2,21 @@ $max-mobile-width: 767px;
 $min-tablet-width: 768px;
 $max-tablet-width: 991px;
 $min-desktop-width: 992px;
-$text-color: #553f3d;
+$body-background-color: #fff6e9;
+$text-color: #ed7c7d;
 $text-hover-color: #FCD42E;
-$content-text-color: #915535;
-$link-color: #b43100;
-$link-hover-color: #ff3d00;
-$button-color: #f7ede5;
-$button-hover-color: #553f3d;
-$button-hover-text-color: #f7ede5;
+$content-text-color: #39427d;
+$link-color: #39427d;
+$link-hover-color: #414ebf;
+$button-color: #ed7c81;
+$button-hover-color: #495c78;
+$button-hover-text-color: #fff;
+$button-alt-color: #8188c3;
+$button-hover-alt-color: #353a6a;
 $corner-radius: 10px;
+$chrome-dark-color: #fcd7cd;
+$chrome-light-color: #ffece7;
+$window-color: #fff8f6;
 
 @mixin box-shadow {
 	-webkit-box-shadow: 0px 0px 27px -1px rgba(0,0,0,0.2);

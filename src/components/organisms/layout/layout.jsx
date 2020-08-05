@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, PageRenderer, useStaticQuery } from 'gatsby'
+import { graphql, Link, PageRenderer, useStaticQuery } from 'gatsby'
 import { Header } from 'organisms'
 import './layout.scss'
 
@@ -22,7 +22,7 @@ const Layout = ({ children, isModal, location, sectionTitle }) => {
   `)
   return (
     <div data-testid="layout">
-      <div id="terrain"></div>
+      <div id="background-graphic"></div>
       <main>
       {isModal ? (
         <Fragment>
@@ -52,7 +52,24 @@ const Layout = ({ children, isModal, location, sectionTitle }) => {
               </div>
             </div>
           <footer>
-            <span>© {new Date().getFullYear()}</span> <a className="avgi" href="https://averygoodidea.com/" target="_blank" rel="noopener noreferrer"><i className="font-icon-averygoodidea-logo"></i></a>
+            <div className="wrapper">
+                <div className="row">
+                  <div className="col-sm-offset-2 col-sm-4">
+                    <ul>
+                      <li><a href="https://github.com/averygoodidea/averygoodwebapp-infrastructure/" target="_blank">Infrastructure Docs</a></li>
+                      <li><Link to="/ui/1/docs/">UI Docs</Link></li>
+                      <li><Link to="/api/1/docs/">API Docs</Link></li>
+                    </ul>
+                  </div>
+                  <div className="col-sm-4">
+                    <ul>
+                      <li><Link to="/blog/">Blog</Link></li>
+                      <li><Link to="/about/">About</Link></li>
+                      <li><Link to="/contact/">Contact</Link></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
           </footer>
         </Fragment>
       )}

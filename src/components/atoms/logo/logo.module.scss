@@ -2,11 +2,6 @@
 
 	text-decoration: none;
 
-	i {
-		color: $text-color;
-		font-size: 500%;
-	}
-
 	display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -19,6 +14,11 @@
 	position: relative;
 	height: 101px;
 	text-decoration: none;
+
+	img {
+		width: 20%;
+    	height: 90%;
+	}
 
     &:hover,
 	&:active,

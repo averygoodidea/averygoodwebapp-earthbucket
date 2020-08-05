@@ -1,6 +1,6 @@
 import { SEO } from "atoms";
 import { graphql } from "gatsby";
-import { CardCollection, Layout } from "organisms";
+import { CardCollection, Hero, Layout } from "organisms";
 import React, { Component } from "react";
 
 class IndexPage extends Component {
@@ -40,14 +40,16 @@ class IndexPage extends Component {
         <SEO
           title="Home"
           keywords={[
-            "jesus",
-            "black",
-            "negroland",
-            "survivalist",
-            "hebrew",
-            "christ"
+            "progressive web app",
+            "cloudformation",
+            "api gateway",
+            "gatsby"
           ]}
         />
+        <Hero />
+        <div className="wrapper">
+          <h3>Features</h3>
+        </div>
         <CardCollection
           albumPosts={albumPosts}
           location={location}

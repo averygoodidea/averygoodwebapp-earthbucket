@@ -153,7 +153,7 @@ class AlbumPostTemplate extends Component {
                       label={category}
                       onClick={e => {
                         e.preventDefault();
-                        navigate(`/album/category/${category}`);
+                        navigate(`/features/category/${category}`);
                       }}
                       className={styles.iconButton}
                       fontIcon={`category-${category}`}

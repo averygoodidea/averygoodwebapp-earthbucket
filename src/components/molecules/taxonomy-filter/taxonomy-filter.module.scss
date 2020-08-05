@@ -8,12 +8,25 @@
 		margin-right: 5px;
 		vertical-align: top;
 
-		button.tabbed {
-			background: $button-hover-color;
-			color: $button-hover-text-color;
+		button {
+
+			/*background: $button-clor;
+			color: $content-text-color;
+
 			i {
-				color: $button-hover-text-color;
-			}
+				color: $link-color;
+			}*/
+
+			&:hover,
+            &:focus,
+            &.tabbed {
+                background: $button-hover-color;
+                color: #fff;
+
+                i {
+                	color: #fff;
+                }
+            }
 		}
 	}
 
@@ -29,7 +42,7 @@
 		overflow-x: auto;
 		border-top: 2px solid rgba(85,63,61,0.16);
 		border-bottom: 2px solid rgba(85,63,61,0.16);
-		background: #efded2;
+		background: $chrome-dark-color;
 		padding: 10px 20px 15px;
 
 		li:last-child button {

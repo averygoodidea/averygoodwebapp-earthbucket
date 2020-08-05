@@ -2,20 +2,22 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    background: #e3cec1;
+    background: $chrome-dark-color;
     width: 20%;
     padding-top: 10px;
+
     button {
         display: block;
         background: none;
-        color: $text-color;
+        border-radius: 0;
+        color: $content-text-color;
         text-decoration: none;
         width: 100%;
         text-align: left;
         padding: 10px 0;
 
         i {
-            color: $content-text-color;
+            color: $link-color;
             margin-left: 20px;
             margin-right: 20px;
             vertical-align: middle;
@@ -23,18 +25,18 @@
 
         &:hover,
         &:focus {
-            color: $text-color;
-            background: #f0ded2;
+            color: $content-text-color;
+            background: $chrome-light-color;
             @include box-shadow;
 
             i {
-                color: $content-text-color;
+                color: $link-color;
             }
         }
     }
 
     .tabbed {
-        background: #f0ded2;
+        background: $chrome-light-color;
         @include box-shadow;
     }
 
@@ -57,7 +59,6 @@
         position: relative;
         width: auto;
         padding: 0;
-        border-radius: $corner-radius;
         left: -30px;
         button {
             i {

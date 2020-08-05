@@ -3,8 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `AVeryGoodWebApp`,
-    description: `An infinitely scalable, secure web development process for pennies on the dollar.`,
+    title: `A Very Good Web App`,
+    description: `A web app starter kit that utliizes infrastructure as a service`,
     author: `@averygoodidea`,
   },
   plugins: [
@@ -186,6 +186,7 @@ module.exports = {
           failOnError: false
         }
       }
-    }
+    },
+    `gatsby-plugin-anchor-links`
   ],
 }

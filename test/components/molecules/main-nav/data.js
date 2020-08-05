@@ -1,5 +1,5 @@
 const data = {
-	currentView: "/album/some-cool-post/"
+	currentView: "/features/some-cool-post/"
 }
 
 export default data

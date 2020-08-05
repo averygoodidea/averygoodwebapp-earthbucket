@@ -30,6 +30,6 @@ export const IconRightAlign = () => (
 export const IsDisabled = () => (
   <Button isDisabled={true} label={labelText} onClick={action("clicked")} />
 );
-export const RedTheme = () => (
-  <Button label={labelText} onClick={action("clicked")} theme="red" />
+export const AlternativeTheme = () => (
+  <Button label={labelText} onClick={action("clicked")} theme="alt" />
 );

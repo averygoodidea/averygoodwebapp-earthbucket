@@ -8,6 +8,7 @@ import BlogPostActivityMenu from "./blog-post-activity-menu/blog-post-activity-m
 import CardCollection from "./card-collection/card-collection";
 import ExcerptCollection from "./excerpt-collection/excerpt-collection";
 import Header from "./header/header";
+import Hero from "./hero/hero";
 import Layout from "./layout/layout";
 
 export {
@@ -21,5 +22,6 @@ export {
   BlogPostActivityMenu,
   ExcerptCollection,
   Header,
+  Hero,
   Layout
 };

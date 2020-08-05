@@ -1,7 +1,11 @@
 body {
-	background: #e6ccbe;
+	background: $body-background-color;
 	font-family: Helvetica, Arial, sans-serif;
-	color: #553f3d;
+	color: #71749a;
+
+	h3 {
+		font-size: 30px;
+	}
 
 	p {
 		font-size: 17px;
@@ -21,10 +25,10 @@ body {
 	}
 }
 
-#terrain {
+#background-graphic {
 	position: fixed;
-	background: url('../../../assets/img/terrain-E2536_13.png') no-repeat;
-	background-size: cover;
+	background: url('../../../assets/img/abstract-E5011_30.png') no-repeat;
+	background-position: center right;
 	z-index: -2;
 	width: 100%;
 	height: 100vh;
@@ -47,28 +51,7 @@ body {
 }
 
 footer {
-	text-align: center;
-	background: $button-color;
-	display: block;
-	border-radius: $corner-radius;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-	margin: 0 auto;
-	width: 180px;
-
-	span {
-		display: inline-block;
-		padding-left: 10px;
-	}
-
-	.avgi {
-		display: inline-block;
-		text-decoration: none;
-		font-size: 200%;
-		padding: 10px 10px 15px;
-
-		i {
-			vertical-align: sub;
-		}
+	ul {
+		list-style-type: none;
 	}
 }

@@ -7,6 +7,7 @@ module.exports = {
     ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": `<rootDir>/__mocks__/file-mock.js`,
     "components/(.*)": "<rootDir>/src/components/$1",
     'react-modal': '<rootDir>/src/__mocks__/react-modal.js',
+    'gatsby-plugin-anchor-links': '<rootDir>/src/__mocks__/gatsby-plugin-anchor-links.js',
   },
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`, `\\.git`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],

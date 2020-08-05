@@ -15,7 +15,7 @@ describe("Card", () => {
     const { image, slugId } = data;
     const { getByTestId } = render(<Card image={image} slugId={slugId} />);
     const result = getByTestId("card");
-    expect(result).toHaveAttribute("href", `/album/${slugId}/`);
+    expect(result).toHaveAttribute("href", `/features/${slugId}/`);
   });
   it("should display image", () => {
     const { image, title } = data;

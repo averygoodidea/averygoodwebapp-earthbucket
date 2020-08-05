@@ -76,7 +76,7 @@ class AuthorSiteSettingsManager extends Component {
             <h2>Manage Site Settings</h2>
             <Button
               label="Deploy Site Changes"
-              theme="red"
+              theme="alt"
               fontIcon="synchronize"
               onClick={e => {
                 const isConfirmed = confirm(

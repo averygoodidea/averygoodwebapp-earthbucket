@@ -1,12 +1,12 @@
 const data = {
 	album: {
-		baseRoute: "/album/category/",
-		fontIcon: "inventory-items",
+		baseRoute: "/features/category/",
+		fontIcon: "index",
 		indexRoute: "/",
 		location: {
-			pathname: "/album/category/food/"
+			pathname: "/features/category/food/"
 		},
-		taxonomies: ["books", "fire", "food", "healthcare", "recreation", "sanitary", "shelter", "water"]
+		taxonomies: ["firerecord", "aircdn", "earthbucket", "waterapi"]
 	},
 	blog: {
 		location: {

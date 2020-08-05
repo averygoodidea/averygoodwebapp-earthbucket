@@ -108,7 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		// construct public album item post
 		const s3ObjectList = images.map( key => s3AlbumPostImagesMap[key] )
 		createPage({
-			path: `/album/${slugId}/`,
+			path: `/features/${slugId}/`,
 			component: slash(albumPostTemplate),
 			context: {
 				id,
@@ -134,7 +134,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	allAlbumCategories.forEach( category => {
 		const albumPosts = allAlbumPosts.edges.filter( ({ node }) => node.categories.includes(category))
 		createPage({
-			path: `/album/category/${category}/`,
+			path: `/features/category/${category}/`,
 			component: slash(albumCategoryTemplate),
 			context: {
 				albumPosts,

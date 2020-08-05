@@ -6,11 +6,11 @@
     display: -webkit-flex;
     display: flex;
     align-items: center;
-	background: #fffefd;
+	background: #fff;
 	@include box-shadow;
 	border-radius: $corner-radius;
-	border-right: 5px solid $content-text-color;
-    border-left: 5px solid $content-text-color;
+	border-right: 5px solid $button-color;
+    border-left: 5px solid $button-color;
     color: $text-color;
     text-align: left;
     padding: 20px 20px 20px 0;
@@ -57,11 +57,11 @@
 .link {
 	text-decoration: none;
 	> div {
-		background: $button-color;
+		background: $chrome-light-color;
 	}
 	&:hover {
 		> div {
-			background: #fffefd;
+			background: #fff;
 		}
 		p {
 			color: $text-color;

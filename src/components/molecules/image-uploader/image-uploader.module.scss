@@ -5,7 +5,7 @@
 .dropzone {
     margin-bottom: 25px;
     border-radius: 10px;
-    border: 2px dashed rgba(85,63,61,0.3);
+    border: 2px dashed $content-text-color;
     text-align: center;
 
     p {
@@ -22,7 +22,7 @@
 
     padding: 8px;
     border-radius: 10px;
-    border: 2px solid rgba(85,63,61,0.16);
+    border: 2px dashed $content-text-color;
     background: #fff;
     display: inline-block;
     width: 90%;
@@ -33,7 +33,7 @@
         img {
             width: 96%;
             border-radius: 10px;
-            border: 2px dashed rgba(85,63,61,0.3);
+            border: 2px dashed $content-text-color;
             vertical-align: top;
         }
         .minusButton button {

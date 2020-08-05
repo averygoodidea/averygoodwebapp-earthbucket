@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Isolation_Mode" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 81.5 129.7" style="enable-background:new 0 0 81.5 129.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#ECECED;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#D2D2D4;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#B8B8BB;}
+	.st3{fill:none;stroke:#83838A;stroke-width:1.0022;stroke-miterlimit:14.9486;}
+	.st4{fill:none;stroke:#000000;stroke-width:1.977;stroke-miterlimit:14.9486;}
+	.st5{fill:#4286C5;}
+	.st6{fill:#FFFFFF;}
+	.st7{fill:none;stroke:#4286C5;stroke-width:1.9423;stroke-miterlimit:14.9486;}
+	.st8{fill:none;stroke:#4286C5;stroke-width:0.5209;stroke-miterlimit:1.0751;}
+</style>
+<g>
+	<g id="_x30_47de1dd-b8d5-40a0-8712-99b8c8babbd9_1_" transform="translate(0 0)">
+		<g transform="translate(-90.671 -137.288)">
+			<path class="st0" d="M95.1,152.4l48.3,27.9l24.2-14l-48.3-27.9L95.1,152.4z"/>
+			<path class="st1" d="M95.1,232.2l-3.5,6v-4L95.1,232.2z"/>
+			<path class="st1" d="M95.1,232.2l48.3,27.9l-3.5,6l-48-28.3L95.1,232.2z M143.5,260.1l-3.5,6h6.9L143.5,260.1z"/>
+			<path class="st1" d="M95.1,152.4v79.7l48.3,27.9v-79.7L95.1,152.4z"/>
+			<path class="st2" d="M143.5,260.1l3.5,6l24.2-14v-4l-3.5-2L143.5,260.1z"/>
+			<path class="st2" d="M143.5,180.3l24.2-14V246l-24.2,14V180.3z"/>
+			<g>
+				<path class="st3" d="M167.6,246.1l-24.2,14l-48.3-27.9l-3.5,6 M95.1,152.4l48.3,27.9l24.2-14 M143.5,180.3V260 M140,266l3.5-6
+					l3.5,6 M167.6,246.1l3.5,6"/>
+			</g>
+			<path class="st4" d="M91.7,238.1v-4l3.5-2v-79.7l24.2-14l48.3,27.9V246l3.5,2v4L147,266h-6.9L91.7,238.1z"/>
+			
+				<ellipse transform="matrix(0.8661 -0.4999 0.4999 0.8661 -87.1559 87.2252)" class="st5" cx="119.2" cy="206.3" rx="12.7" ry="21.9"/>
+			<ellipse transform="matrix(0.866 -0.5 0.5 0.866 -87.1371 87.2455)" class="st6" cx="119.2" cy="206.2" rx="10.5" ry="18.3"/>
+			<path class="st7" d="M118.4,190.1c-10.1,9.5-3.4,24.5,0.9,32.1"/>
+			<g transform="translate(374.17 163.896) scale(.26818)">
+				
+					<ellipse transform="matrix(0.8589 -0.5121 0.5121 0.8589 -198.4328 -479.5014)" class="st5" cx="-969.5" cy="120.4" rx="7.1" ry="12.2"/>
+				
+					<ellipse transform="matrix(0.8711 -0.491 0.491 0.8711 -211.426 -453.2578)" class="st5" cx="-969.3" cy="176.2" rx="7.6" ry="13.3"/>
+				
+					<ellipse transform="matrix(0.8687 -0.4954 0.4954 0.8687 -214.7677 -431.4907)" class="st5" cx="-921.2" cy="189.3" rx="7.3" ry="12.7"/>
+				<path class="st8" d="M-977.4,92.2c14.1,70.5,57.4,102.2,78,111.2 M-999.9,146.4c41.9,50,75.5,54.2,99.5,29.6"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

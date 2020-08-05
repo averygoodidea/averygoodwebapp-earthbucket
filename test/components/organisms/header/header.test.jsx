@@ -107,7 +107,7 @@ describe("Header", () => {
       expect(yourListLength).toBeInTheDocument();
       LocalStorageList.getPostIds.mockRestore();
     });
-    it('should navigate to "album/list" page', () => {
+    it('should navigate to "features/list" page', () => {
       navigate.mockImplementationOnce(() => {});
       const { location, siteDescription, sectionTitle } = data;
       const { getByTestId } = render(
@@ -121,7 +121,7 @@ describe("Header", () => {
         '[data-testid="header-your-list-button"] button'
       );
       fireEvent.click(yourListButton);
-      expect(navigate).toBeCalledWith("/album/list/");
+      expect(navigate).toBeCalledWith("/features/list/");
     });
   });
 });

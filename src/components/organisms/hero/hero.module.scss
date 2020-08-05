@@ -1,0 +1,20 @@
+.hero {
+
+	h2 {
+		font-size: 50px;
+		font-weight: normal;
+		text-align: center;
+	}
+
+	.panels {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+
+	.heroText {
+		p {
+			font-size: 30px;
+		}
+	}
+}

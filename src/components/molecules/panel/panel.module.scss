@@ -1,0 +1,42 @@
+.panel {
+	position: relative;
+	background: $chrome-dark-color;
+	width: 22%;
+	padding-bottom: 70px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	img[data-service="element"] {
+		position: absolute;
+		width: 80px;
+		top: 10px;
+		left: 10px;
+	}
+
+	img[data-service="aws"] {
+		margin: 25px auto 0;
+		width: 100px;
+	}
+
+	p {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		font-size: 24px;
+	}
+
+	&:hover,
+	&:focus {
+		background: $button-hover-color;
+		/*@include box-shadow;*/
+		color: $body-background-color;
+	}
+
+
+	@media (max-width: $max-mobile-width) {
+		width: 48%;
+		margin-bottom: 8px;
+	}
+}

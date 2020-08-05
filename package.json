@@ -6,6 +6,7 @@
   "author": "Avery Smith <avery@averygoodidea.com>",
   "dependencies": {
     "@robinmetral/gatsby-source-s3": "^1.1.1",
+    "assets-img": "file:src/assets/img",
     "assets-js": "file:src/assets/js",
     "atoms": "file:src/components/atoms",
     "b64-to-blob": "^1.2.19",
@@ -15,6 +16,7 @@
     "gatsby-cli": "^2.12.44",
     "gatsby-core-utils": "^1.1.1",
     "gatsby-image": "^2.3.1",
+    "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.1.2",
     "gatsby-plugin-react-helmet": "^3.2.1",

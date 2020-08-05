@@ -49,6 +49,7 @@ class ScriptureSection extends Component {
                 const url = `https://www.biblegateway.com/passage/?search=${address}&version=KJV`;
                 window.open(url, "_blank");
               }}
+              theme="alt"
             />
           </div>
           <div className="col-sm-9">
