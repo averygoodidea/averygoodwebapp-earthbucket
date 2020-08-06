@@ -55,10 +55,9 @@ class EmailForm extends Component {
           <p>
             Join{" "}
             <strong>
-              <em>Personal Inventory</em>
+              <em>A Very Good Newsletter</em>
             </strong>
-            , my email list to stay in touch as we walk out our life's journey
-            together.
+            , my email list where I let you know when different articles drop.
             <br />
             <span className={styles.signature}>
               <i className="font-icon-avery-signature" />

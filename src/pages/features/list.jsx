@@ -105,7 +105,6 @@ class ItemsListPage extends Component {
                       e.preventDefault();
                       this.onEmailButtonClick();
                     }}
-                    theme="red"
                   />
                 </p>
               </Fragment>

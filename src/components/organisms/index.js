@@ -7,6 +7,7 @@ import AuthorSiteSettingsManager from "./author-site-settings-manager/author-sit
 import BlogPostActivityMenu from "./blog-post-activity-menu/blog-post-activity-menu";
 import CardCollection from "./card-collection/card-collection";
 import ExcerptCollection from "./excerpt-collection/excerpt-collection";
+import Footer from "./footer/footer";
 import Header from "./header/header";
 import Hero from "./hero/hero";
 import Layout from "./layout/layout";
@@ -21,6 +22,7 @@ export {
   CardCollection,
   BlogPostActivityMenu,
   ExcerptCollection,
+  Footer,
   Header,
   Hero,
   Layout

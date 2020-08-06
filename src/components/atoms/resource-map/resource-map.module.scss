@@ -1,0 +1,26 @@
+.resourceMap {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+
+	@media (max-width: $max-mobile-width) {
+		margin-left: 10px;
+		margin-right: 10px;
+		img {
+			width: 300px;
+		}
+	}
+
+	@media (min-width: $min-tablet-width) {
+		img {
+			width: 650px;
+		}
+	}
+
+	@media (min-width: $min-desktop-width) {
+		img {
+			width: 890px;
+		}
+	}
+}

@@ -1,16 +1,26 @@
-.psalm_1_1 {
-	text-align: center;
+.insert {
 	height: auto;
-	p {
-		color: #fff;
-		padding: 95px 0 5px;
-		font-size: 26px;
-    	line-height: 180%;
-    	text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+	background: $chrome-dark-color;
+	border-radius: $corner-radius;
+	padding: 30px;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 20px;
 
-    	em {
-    		font-weight: bold;
-    	}
+	h2 {
+		margin-bottom: 30px;
+	}
+
+	img {
+		position: absolute;
+		top: 40px;
+		right: 20px;
+		width: 60px;
+	}
+
+	@media (max-width: $max-mobile-width) {
+		margin-left: 20px;
+		margin-right: 20px;
 	}
 }
 .psalm_1_2 {

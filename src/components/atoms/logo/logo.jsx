@@ -1,6 +1,6 @@
+import { iconLogoSvg } from "assets-img";
 import { Link } from "gatsby";
 import React from "react";
-import { iconLogoSvg } from "assets-img"
 import styles from "./logo.module.scss";
 
 const Logo = () => (

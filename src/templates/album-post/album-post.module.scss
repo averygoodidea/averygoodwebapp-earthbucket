@@ -124,6 +124,8 @@
             margin-right: 5px;
             font-size: 86%;
             padding: 6px 15px 6px;
+            margin-bottom: 10px;
+            
             i {
                font-size: 200%;
                margin-right: 10px;
@@ -181,18 +183,7 @@
 }
 
 .brighten {
-   
-   background: $button-color;
-
-   .info .content button {
-      background: #fff;
-
-      &:hover,
-      &:active,
-      &:focus {
-         background: $text-color;
-      }
-   }
+   background: $window-color;
 }
 
 .likeAnimation {

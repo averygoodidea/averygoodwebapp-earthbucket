@@ -44,7 +44,7 @@ const Card = ({
           </div>
         ))}
       </div>
-      <p>{`$${price}`}</p>
+      {price && <p>{`$${price}`}</p>}
     </div>
   </Link>
 );

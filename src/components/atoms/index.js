@@ -8,6 +8,7 @@ import Logo from "./logo/logo";
 import MinusButton from "./minus-button/minus-button";
 import MoreButton from "./more-button/more-button";
 import PlusButton from "./plus-button/plus-button";
+import ResourceMap from "./resource-map/resource-map";
 import Select from "./select/select";
 import SEO from "./seo/seo";
 import ShareButton from "./share-button/share-button";
@@ -27,6 +28,7 @@ export {
   MinusButton,
   MoreButton,
   PlusButton,
+  ResourceMap,
   Select,
   SEO,
   ShareButton,

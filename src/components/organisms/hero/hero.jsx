@@ -9,17 +9,17 @@ import {
   iconWaterSvg
 } from "assets-img";
 
+import classNames from "classnames";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { Panel } from "molecules";
 import React from "react";
-import classNames from "classnames";
 import styles from "./hero.module.scss";
 
 const Hero = () => {
   const className = classNames({
-    "wrapper": true,
+    wrapper: true,
     [styles.heroText]: true
-  })
+  });
   return (
     <div data-testid="hero" className={styles.hero}>
       <h2>the 4 elements of a very good web app</h2>
@@ -30,7 +30,11 @@ const Hero = () => {
         </Panel>
         <Panel label="AirCdn" url="/about/#aircdn">
           <img src={iconAirSvg} alt="" data-service="element" />
-          <img src={iconCloudFrontSvg} alt="AWS CloudFront" data-service="aws" />
+          <img
+            src={iconCloudFrontSvg}
+            alt="AWS CloudFront"
+            data-service="aws"
+          />
         </Panel>
         <Panel label="EarthBucket" url="/about/#earthbucket">
           <img src={iconEarthSvg} alt="" data-service="element" />
@@ -42,15 +46,22 @@ const Hero = () => {
         </Panel>
       </div>
       <div className={className}>
-        <p>What is the cloud? A collection of random computers that hold our websites?</p>
+        <p>
+          What is the cloud? A collection of random computers that hold our
+          websites?
+        </p>
         <p>Well...yes.</p>
         <p>But what exactly goes into the cloud to make this possible?</p>
-        <p>I, Avery, boil it down to 4 parts:
-        <br /><br />
-        <AnchorLink to="/about/#firerecord">fire</AnchorLink>, <AnchorLink to="/about/#aircdn">air</AnchorLink>, <AnchorLink to="/about/#earthbucket">earth</AnchorLink> and <AnchorLink to="/about/#waterapi">water</AnchorLink>.</p>
+        <p>
+          I boil it down to 4 parts:{" "}
+          <AnchorLink to="/about/#firerecord">fire</AnchorLink>,{" "}
+          <AnchorLink to="/about/#aircdn">air</AnchorLink>,{" "}
+          <AnchorLink to="/about/#earthbucket">earth</AnchorLink> and{" "}
+          <AnchorLink to="/about/#waterapi">water</AnchorLink>.
+        </p>
       </div>
     </div>
-  )
+  );
 };
 
 export default Hero;

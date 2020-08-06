@@ -30,7 +30,7 @@
             @include box-shadow;
 
             i {
-                color: $link-color;
+                color: $text-color;
             }
         }
     }
@@ -38,6 +38,10 @@
     .tabbed {
         background: $chrome-light-color;
         @include box-shadow;
+
+        i {
+            color: $text-color;
+        }
     }
 
     @media(max-width: $max-mobile-width) {

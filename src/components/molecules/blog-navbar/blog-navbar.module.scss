@@ -10,12 +10,8 @@
 
     button {
         background: $chrome-light-color;
-        color: $text-color;
+        color: $link-color;
         border: 2px solid #ffece7;
-
-        i {
-            color: $text-color;
-        }
 
         &:hover,
         &:focus {

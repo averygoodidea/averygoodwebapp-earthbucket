@@ -39,7 +39,7 @@ class AlbumPostActivityMenu extends Component {
       this.setState({ hasBeenCollected: true }, () => {
         toastedNotes.notify(
           <Toast
-            htmlMessage={`<p><strong>Added</strong> <em>${title}</em> to Your List</p>`}
+            htmlMessage={`<p><strong>Added</strong> <em>${title}</em> to Your Favorites List</p>`}
             fontIcon="like"
             to={"/features/list/"}
           />,
@@ -65,7 +65,7 @@ class AlbumPostActivityMenu extends Component {
       this.setState({ hasBeenCollected: false }, () => {
         toastedNotes.notify(
           <Toast
-            htmlMessage={`<p><strong>Removed</strong> <em>${title}</em> from Your List</p>`}
+            htmlMessage={`<p><strong>Removed</strong> <em>${title}</em> from Your Favorites List</p>`}
             fontIcon="dislike"
             to={"/features/list/"}
           />,
@@ -124,9 +124,9 @@ class AlbumPostActivityMenu extends Component {
             <ShareMenu url={document.location} cn={styles.shareMenu} />
           )}
         </div>
-        <div className={styles.shopButton}>
+        <div className={styles.moreInfo}>
           <Button
-            label="Shop Item"
+            label="More Info"
             fontIcon="price-tag"
             theme="alt"
             onClick={e => {

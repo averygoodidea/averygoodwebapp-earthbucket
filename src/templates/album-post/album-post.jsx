@@ -163,9 +163,11 @@ class AlbumPostTemplate extends Component {
                 <div className={styles.description}>
                   <div dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
-                <p>
-                  <em>{`appx $${price}`}</em>
-                </p>
+                {price && (
+                  <p>
+                    <em>{`appx $${price}`}</em>
+                  </p>
+                )}
               </div>
               <AlbumPostActivityMenu
                 item={data.albumPost}
