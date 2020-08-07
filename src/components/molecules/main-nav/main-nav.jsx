@@ -31,12 +31,12 @@ const MainNav = ({ currentView }) => {
           shouldTabButton = true;
         } else if (
           target === "/" &&
-          (currentView.includes("/features/") ||
+          (currentView.includes("/a/") ||
             currentView.includes("/category/") ||
             currentView.includes("/features/list/"))
         ) {
           shouldTabButton = true;
-        } else if (target === "/blog/" && currentView.includes("/blog/")) {
+        } else if (target === "/blog/" && currentView.includes("/b/")) {
           shouldTabButton = true;
         }
         const tabbedButtonClassName = classNames({

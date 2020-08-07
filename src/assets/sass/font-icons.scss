@@ -24,6 +24,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[class="font-icon-github"]:before {
+  content: "\e906";
+}
+[class="font-icon-facebook"]:before {
+  content: "\ea91";
+}
+[class="font-icon-whatsapp"]:before {
+  content: "\ea93";
+}
+[class="font-icon-twitter"]:before {
+  content: "\ea96";
+}
+[class="font-icon-pinterest"]:before {
+  content: "\ead1";
+}
 [class="font-icon-category-waterapi"]:before {
   content: "\e900";
 }
@@ -35,9 +50,6 @@
 }
 [class="font-icon-category-firerecord"]:before {
   content: "\e904";
-}
-[class="font-icon-logo"]:before {
-  content: "\e905";
 }
 [class="font-icon-avery-signature"]:before {
   content: "\e922";
@@ -119,16 +131,4 @@
 }
 [class="font-icon-left"]:before {
   content: "\e90e";
-}
-[class="font-icon-facebook"]:before {
-  content: "\ea91";
-}
-[class="font-icon-whatsapp"]:before {
-  content: "\ea93";
-}
-[class="font-icon-twitter"]:before {
-  content: "\ea96";
-}
-[class="font-icon-pinterest"]:before {
-  content: "\ead1";
 }

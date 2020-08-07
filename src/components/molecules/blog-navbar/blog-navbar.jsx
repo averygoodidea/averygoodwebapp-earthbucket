@@ -13,7 +13,7 @@ const BlogNavbar = ({ next, previous }) => {
           cn={styles.previous}
           fontIcon="previous"
           label={previous.title}
-          onClick={() => navigate(`/blog/${previous.slug}/`)}
+          onClick={() => navigate(`/b/${previous.slug}/`)}
         />
       ) : (
         <div className={styles.disabled} />
@@ -30,7 +30,7 @@ const BlogNavbar = ({ next, previous }) => {
           cn={styles.next}
           fontIcon="next"
           label={next.title}
-          onClick={() => navigate(`/blog/${next.slug}/`)}
+          onClick={() => navigate(`/b/${next.slug}/`)}
         />
       ) : (
         <div className={styles.disabled} />

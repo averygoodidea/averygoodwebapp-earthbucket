@@ -45,7 +45,7 @@ class BlogPostActivityMenu extends Component {
                 label={tag}
                 onClick={e => {
                   e.preventDefault();
-                  navigate(`/blog/tag/${tag}`);
+                  navigate(`/b/tag/${tag}`);
                 }}
                 className={styles.iconButton}
                 isIconDisabled={true}

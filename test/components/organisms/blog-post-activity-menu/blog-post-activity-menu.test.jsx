@@ -49,7 +49,7 @@ describe("BlogPostActivityMenu", () => {
       const buttons = getAllByTestId("button");
       buttons.forEach((button, i) => {
         fireEvent.click(button);
-        expect(navigate).toBeCalledWith(`/blog/tag/${tags[i]}`);
+        expect(navigate).toBeCalledWith(`/b/tag/${tags[i]}`);
       });
       navigate.mockRestore();
     });

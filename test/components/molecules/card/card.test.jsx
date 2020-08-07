@@ -15,7 +15,7 @@ describe("Card", () => {
     const { image, slugId } = data;
     const { getByTestId } = render(<Card image={image} slugId={slugId} />);
     const result = getByTestId("card");
-    expect(result).toHaveAttribute("href", `/features/${slugId}/`);
+    expect(result).toHaveAttribute("href", `/a/${slugId}/`);
   });
   it("should display image", () => {
     const { image, title } = data;
@@ -42,6 +42,6 @@ describe("Card", () => {
     );
     const link = getAllByTestId("category")[0];
     fireEvent.click(link);
-    expect(navigate).toBeCalledWith(`/album/category/${categories[0]}/`);
+    expect(navigate).toBeCalledWith(`/a/category/${categories[0]}/`);
   });
 });

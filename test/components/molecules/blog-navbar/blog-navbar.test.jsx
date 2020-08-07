@@ -20,10 +20,10 @@ describe("BlogNavbar", () => {
     );
     const nextButton = getByText(next.title);
     fireEvent.click(nextButton);
-    expect(navigate).toBeCalledWith(`/blog/${next.slug}/`);
+    expect(navigate).toBeCalledWith(`/b/${next.slug}/`);
     const previousButton = getByText(previous.title);
     fireEvent.click(previousButton);
-    expect(navigate).toBeCalledWith(`/blog/${previous.slug}/`);
+    expect(navigate).toBeCalledWith(`/b/${previous.slug}/`);
   });
   it("should not display next blog post link", () => {
     const { next, previous } = data;

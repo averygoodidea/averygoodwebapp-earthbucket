@@ -27,7 +27,7 @@ const Footer = () => (
         <div className="col-sm-4">
           <ul>
             <li>
-              <Link to="/blog/">Blog</Link>
+              <Link to="/b/">Blog</Link>
             </li>
             <li>
               <Link to="/about/">About</Link>

@@ -108,7 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		// construct public album item post
 		const s3ObjectList = images.map( key => s3AlbumPostImagesMap[key] )
 		createPage({
-			path: `/features/${slugId}/`,
+			path: `/a/${slugId}/`,
 			component: slash(albumPostTemplate),
 			context: {
 				id,
@@ -134,7 +134,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	allAlbumCategories.forEach( category => {
 		const albumPosts = allAlbumPosts.edges.filter( ({ node }) => node.categories.includes(category))
 		createPage({
-			path: `/features/category/${category}/`,
+			path: `/a/category/${category}/`,
 			component: slash(albumCategoryTemplate),
 			context: {
 				albumPosts,
@@ -159,7 +159,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		const next = i === allBlogPosts.edges.length - 1 ? null : allBlogPosts.edges[i + 1].node.frontmatter
 		const previous = i === 0 ? null : allBlogPosts.edges[i - 1].node.frontmatter
 		createPage({
-			path: `/blog/${frontmatter.slug}/`,
+			path: `/b/${frontmatter.slug}/`,
 			component: slash(blogPostTemplate),
 			context: {
 				excerpt,
@@ -181,7 +181,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	allBlogTags.forEach( tag => {
 		const allPostExcerpts = allBlogPosts.edges.filter( ({ node }) => node.frontmatter.tags.includes(tag))
 		createPage({
-			path: `/blog/tag/${tag}/`,
+			path: `/b/tag/${tag}/`,
 			component: slash(blogTagTemplate),
 			context: {
 				allPostExcerpts,

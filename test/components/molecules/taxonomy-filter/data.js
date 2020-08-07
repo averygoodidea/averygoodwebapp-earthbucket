@@ -1,10 +1,10 @@
 const data = {
 	album: {
-		baseRoute: "/features/category/",
+		baseRoute: "/a/category/",
 		fontIcon: "index",
 		indexRoute: "/",
 		location: {
-			pathname: "/features/category/food/"
+			pathname: "/a/category/food/"
 		},
 		taxonomies: ["firerecord", "aircdn", "earthbucket", "waterapi"]
 	},

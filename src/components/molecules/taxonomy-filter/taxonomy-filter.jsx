@@ -17,7 +17,7 @@ const TaxonomyFilter = ({
   const taxonomyFilterRef = useRef(null);
   const navItems = taxonomies.sort().map((taxonomy, i) => {
     const additionalProps = {};
-    if (baseRoute === "/features/category/") {
+    if (baseRoute === "/a/category/") {
       additionalProps.fontIcon = `category-${taxonomy}`;
     }
     return (
@@ -89,7 +89,7 @@ TaxonomyFilter.propTypes = {
   location: PropTypes.object
 };
 TaxonomyFilter.defaultProps = {
-  baseRoute: "/blog/tag/",
+  baseRoute: "/b/tag/",
   defaultScrollLeftPropName: "defaultTagFilterScrollLeft",
   fontIcon: "typewriter",
   taxonomies: [],

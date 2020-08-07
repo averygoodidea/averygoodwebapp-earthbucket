@@ -15,7 +15,7 @@ const Card = ({
   <Link
     data-testid="card"
     className={styles.card}
-    to={`/features/${slugId}/`}
+    to={`/a/${slugId}/`}
     state={{
       albumPosts,
       previousPathname: history.pathname,
@@ -36,7 +36,7 @@ const Card = ({
             key={i}
             onClick={e => {
               e.preventDefault();
-              navigate(`/album/category/${category}/`);
+              navigate(`/a/category/${category}/`);
             }}
             className={styles.iconButton}
           >

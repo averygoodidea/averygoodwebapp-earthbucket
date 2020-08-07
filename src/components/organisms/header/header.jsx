@@ -32,7 +32,7 @@ const Header = ({
   const currentView = location.pathname;
   const shouldShowListButton =
     currentView === "/" ||
-    currentView.includes("/features/") ||
+    currentView.includes("/a/") ||
     currentView.includes("/category/") ||
     currentView === "/features/list/";
   // get ids from local storage and filter out any that don't exist in the database anymore.

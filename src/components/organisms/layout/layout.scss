@@ -8,7 +8,8 @@ body {
 	}
 
 	p {
-		font-size: 17px;
+		font-size: 20px;
+		line-height: 140%;
 	}
 
 	a {
@@ -21,6 +22,17 @@ body {
 			i {
 				color: $link-hover-color;
 			}
+		}
+	}
+
+	ol {
+		font-size: 18px;
+		line-height: 150%;
+		padding-left: 20px;
+		margin: 0 0 30px;
+
+		li {
+			margin-bottom: 10px;
 		}
 	}
 }
@@ -54,5 +66,12 @@ body {
 footer {
 	ul {
 		list-style-type: none;
+	}
+}
+
+@media (max-width: $max-mobile-width) {
+	p {
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 }

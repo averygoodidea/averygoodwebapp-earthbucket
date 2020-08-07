@@ -68,7 +68,7 @@ class ExcerptCollection extends Component {
               img={s3[coverPhoto].childImageSharp.fluid}
               summary={excerpt}
               title={title}
-              url={`/blog/${slug}/`}
+              url={`/b/${slug}/`}
             />
           )
         )}
