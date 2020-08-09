@@ -13,7 +13,8 @@ import styles from "./about.module.scss";
 const AboutPage = ({ location }) => (
   <Layout location={location} sectionTitle="About">
     <SEO title="About" />
-    <p>The internet cloud is similar to an actual cloud in the sky. A natural cloud is composed of elements that allow it to form its shape and substance. In the same way, the internet cloud is composed of elements, as well. I like to think of these building blocks as the four elements of the cloud: Fire for the Domain Name Service Record, Air for the Content Delivery Network, Earth for the Bucket and Water for the API.</p>
+    <p>The internet cloud is similar to an <em>actual</em> cloud in the sky. Whereas, an actual cloud is composed of elements that allow it to form its shape and substance, the internet cloud is composed of elements, as well. Think of these building blocks as the four elements of the cloud: <strong>Fire</strong>, <strong>Air</strong>, <strong>Earth</strong> and <strong>Water</strong>.</p>
+    <ResourceMap />
     <div className="row">
       <div className="col-sm-6">
         <div id="firerecord" className={styles.insert}>
@@ -44,7 +45,6 @@ const AboutPage = ({ location }) => (
         </div>
       </div>
     </div>
-    <ResourceMap />
     <ContentWindow>
       <p>
         A Very Good Web App is a distributed application.
