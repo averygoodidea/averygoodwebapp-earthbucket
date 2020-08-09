@@ -28,22 +28,22 @@ EarthBucket is hosted in an AWS S3 Bucket, and cached behind AirCdn, AVeryGoodWe
 
 In order for local development to happen, Gatsby settings adjusted first. Please follow these steps:
 
-1. install the project node modules:
+1. Inside this repo, install the project node modules:
 `npm install`
 
 **Since this repo uses nvm v13 or higher. If there is any trouble running the repo, simply run the following command:**
 
 `nvm use` and then re-run `npm install`
 
-2. Update the Gatsby `.env.development` and `.env.production` files with the following credentials:
+2. Update the EarthBucket `.env.development` and `.env.production` files with the following credentials:
 
 | variable                     | value                                           | description                                                                                                                                                                                                   |
 |------------------------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AWS_ACCESS_KEY_ID            | `<awsAccessKeyId>`                              | this value can be found by running the following command `sudo nano ~/.aws/credentials`. You can find it under the aws profile you have been using for this installation guide.                               |
 | AWS_SECRET_ACCESS_KEY        | `<awsSecretAccessKey>`                          | this value can be found by running the following command `sudo nano ~/.aws/credentials`. You can find it under the aws profile you have been using for this installation guide.                               |
 | AWS_REGION                   | `<awsRegion>`                                   | This value can be found at https://console.aws.amazon.com/console/home in the upper-right hand corner, immediately to the right of your profile name. If in doubt, use us-east-1.                             |
-| AWS_EARTHBUCKET_APP_BUCKET   | `<namespace>`-`<environment>`-earthbucket-app   | you can copy and paste the EarthBucket app bucket value from: https://console.aws.amazon.com/cloudformation/home `<domainNamespace>`-prod-stack > Outputs. Get the value from Key awsEarthBucketAppBucket     |
-| AWS_EARTHBUCKET_MEDIA_BUCKET | `<namespace>`-`<environment>`-earthbucket-media | you can copy and paste the EarthBucket media bucket value from: https://console.aws.amazon.com/cloudformation/home `<domainNamespace>`-prod-stack > Outputs. Get the value from Key awsEarthBucketMediaBucket |
+| AWS_EARTHBUCKET_APP_BUCKET   | `<domainNamespace>`-`<environment>`-earthbucket-app   | you can copy and paste the EarthBucket app bucket value from: https://console.aws.amazon.com/cloudformation/home `<domainNamespace>`-prod-stack > Outputs. Get the value from Key awsEarthBucketAppBucket     |
+| AWS_EARTHBUCKET_MEDIA_BUCKET | `<domainNamespace>`-`<environment>`-earthbucket-media | you can copy and paste the EarthBucket media bucket value from: https://console.aws.amazon.com/cloudformation/home `<domainNamespace>`-prod-stack > Outputs. Get the value from Key awsEarthBucketMediaBucket |
 | GATSBY_EARTHBUCKET_HOSTNAME  | [`<environment>`.]`<domainName>`                | the fully qualified domain name. If this is the production environment, use the project domain name, ie: averygoodweb.app. IF a lower environment, include the sub-domain, ie: dev.averygoodweb.app.          |
 | GATSBY_TINYLETTER_USERNAME   | `<tinyLetterUsername>`                          | your username created at tinyletter.com. This enables your web app to collect user emails out of the box.                                                                                                     |
 | GATSBY_WATERAPI_KEY          | `<prodAwsWaterApiKey>`                          | the water api key which you can copy and paste from: https://console.aws.amazon.com/cloudformation/home `<domainNamespace>`-prod-stack > Outputs. Copy the "apikey" generated from the url located at awsWaterApiKey           |
@@ -58,7 +58,7 @@ Under `<domainNamespace>-<environment>-WaterApiKey`
 
 3. Initialize the EarthBucket codebase
 
-`sh ./scripts/init.sh <environment> <awsProfile>`
+`sh ./scripts/init.sh prod <awsProfile>`
 
 4. Run Gatsby in development mode.
 
