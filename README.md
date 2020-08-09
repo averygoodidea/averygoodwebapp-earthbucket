@@ -135,7 +135,9 @@ sh ./scripts/deploy.sh <awsProfile>
 ### Tests
 
 Jest Tests can be run by the following command:
-`npm run test`
+```
+npm run test
+```
 
 Storybook Visual Tests can be run by the following command:
 ```
