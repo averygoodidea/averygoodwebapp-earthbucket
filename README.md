@@ -138,7 +138,11 @@ Jest Tests can be run by the following command:
 `npm run test`
 
 Storybook Visual Tests can be run by the following command:
-`npm run storybook`
+```
+npm run storybook
+```
 
 Your Storybook Style Guide can be deployed with the following command:
-`sh ./publish.sh <awsProfile>`
+```
+sh ./publish.sh <awsProfile>
+```
