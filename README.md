@@ -1,3 +1,12 @@
+# A Very Good Web App - EarthBucket
+
+![EarthBucket Icon](./icon-earth.svg)
+
+Prerequisites
+- [An AWS Account with programmatic permission](https://aws.amazon.com/)
+- [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+- A [Gatsby](https://gatsbyjs.com/) Cloud Account
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
