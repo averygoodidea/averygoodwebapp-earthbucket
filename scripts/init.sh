@@ -13,3 +13,4 @@ NAMESPACE=$(sed -e "s,\.,-," <<< $DOMAIN_NAME)
 aws s3 cp ./scripts/earthbucket-blog-post-seed.png s3://"$AWS_EARTHBUCKET_MEDIA_BUCKET"/blog/posts/images/ --profile $AWS_PROFILE
 DISTRIBUTION_ID=$(aws cloudformation list-exports --query "Exports[?Name=='${NAMESPACE}-${ENVIRONMENT}-AirCdnDistributionId'].Value" --output text --profile $AWS_PROFILE)
 aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --profile $AWS_PROFILE
+sh ./scripts/publish.sh	$ENVIRONMENT $AWS_PROFILE

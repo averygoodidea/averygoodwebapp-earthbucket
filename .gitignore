@@ -71,5 +71,6 @@ yarn-error.log
 
 ngrok
 storybook-static
+!test/storybook-static
 # hide the forestry settings yml because unfortunately Forestry will store keys in the repo, otherwise
 .forestry/settings.yml

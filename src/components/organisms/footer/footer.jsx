@@ -17,10 +17,14 @@ const Footer = () => (
               </a>
             </li>
             <li>
-              <Link to="/ui/1/docs/">UI Docs</Link>
+              <a href="/ui/1/docs/" target="_blank" rel="noreferrer">
+                UI Docs
+              </a>
             </li>
             <li>
-              <Link to="/api/1/docs/">API Docs</Link>
+              <a href="/api/1/docs/" target="_blank" rel="noreferrer">
+                API Docs
+              </a>
             </li>
           </ul>
         </div>
