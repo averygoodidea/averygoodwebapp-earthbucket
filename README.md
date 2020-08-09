@@ -1,6 +1,6 @@
 # A Very Good Web App - EarthBucket
 
-![EarthBucket Icon](./icon-earth.svg)
+![EarthBucket Icon](./src/assets/img/icon-earth.svg)
 
 Prerequisites
 - [An AWS Account with programmatic permission](https://aws.amazon.com/)
