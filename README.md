@@ -97,7 +97,13 @@ Once the deployment is completed, AirCdn needs to be notified to clear its cache
 
 ## Managing a Blog Post
 
-To create, edit or delete a blog post, an author must access <siteUrl>/author/blog/.
+To create, edit or delete a blog post, an author must create a markdown file in: `./src/posts`.
+
+These can be managed by creating an account at https://forestry.io.
+
+Then create a github "content" branch and connect the content branch to Forestry.
+
+When you are done with the creation of your blog post, go to github and merge the content branch into the master branch.
 
 ...
 
