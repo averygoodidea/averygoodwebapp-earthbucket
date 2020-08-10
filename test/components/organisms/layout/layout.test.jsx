@@ -89,6 +89,19 @@ describe("Layout", () => {
       expect(layout).toContainElement(header);
     });
   });
+  describe("Footer", () => {
+    it("should have footer", () => {
+      const html = (
+        <div>
+          <p>Content Area</p>
+        </div>
+      );
+      const { getByTestId } = render(<Layout>{html}</Layout>);
+      const layout = getByTestId("layout");
+      const footer = getByTestId("footer");
+      expect(layout).toContainElement(footer);
+    });
+  });
   describe("Modal", () => {
     it("should appear in modal", () => {
       const { location, sectionTitle } = data;

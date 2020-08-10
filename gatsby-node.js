@@ -23,7 +23,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			        id
 			        images
 			        moreInfoUrl
-			        price
 			        summary
 			        slugId
 			        title

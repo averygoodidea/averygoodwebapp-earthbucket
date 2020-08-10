@@ -8,15 +8,33 @@
       "earthbucket",
       "waterapi"
     ],
-    "createdAt": 1596597521,
+    "createdAt": 1597086981,
     "images": [
-      "album/posts/images/023b5a95-3de0-47ea-a648-69381603d20c.jpg",
-      "album/posts/images/ca66cf2a-2550-48ef-ba45-5570d6ccdb3d.jpg"
+      "album/posts/images/5e7aef0e-777b-4562-86fc-035f486be7bf.jpg",
+      "album/posts/images/4eb4016b-9810-429d-bdf5-07983c5d92e8.jpg"
     ],
-    "slugId": "Spa2hTh7QEalMv4TWluMHg",
-    "price": 45,
+    "slugId": "F--ku6MKSIarpf7lgxN-Xg",
     "moreInfoUrl": "https://www.wildplanetfoods.com/product/wild-sockeye-salmon/",
-    "id": "e2046c57-e11b-47aa-b0c5-aae13113755f",
+    "id": "6013abd2-c84f-4252-acb3-00947e43c53b",
+    "title": "Canned Salmon"
+  },
+  {
+    "summary": "With it being extremely healthy, relatively inexpensive and easily accessible, canned salmon is the best deal in town.",
+    "partitionKey": "published",
+    "categories": [
+      "firerecord",
+      "aircdn",
+      "earthbucket",
+      "waterapi"
+    ],
+    "createdAt": 1597086990,
+    "images": [
+      "album/posts/images/6a3bc796-0263-41eb-b976-4f579762f4ba.jpg",
+      "album/posts/images/87eecbe4-1db4-4424-8356-9b7a72c7440e.jpg"
+    ],
+    "slugId": "Jm3jatEvQO2ukWz9hU3usQ",
+    "moreInfoUrl": "https://www.wildplanetfoods.com/product/wild-sockeye-salmon/",
+    "id": "7736c641-8cf9-493b-b0a4-d211165f6fe4",
     "title": "Canned Salmon"
   }
 ]

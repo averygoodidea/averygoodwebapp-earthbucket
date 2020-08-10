@@ -134,7 +134,7 @@ class AuthorAlbumPostManager extends Component {
       preparePropToBeUpdated("scriptureAddress", scriptureAddressValue);
     try {
       // validate parameters
-      const keys = ["title", "summary", "categories", "price", "moreInfoUrl"];
+      const keys = ["title", "summary", "categories", "moreInfoUrl"];
       for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
         const param = params[key];
@@ -483,7 +483,7 @@ class AuthorAlbumPostManager extends Component {
                             }}
                           />
                           <Textfield
-                            label="price (required)"
+                            label="price"
                             name="price"
                             type="number"
                             placeholder="5.00"
@@ -575,7 +575,7 @@ class AuthorAlbumPostManager extends Component {
                                 }}
                               />
                               <Textfield
-                                label="price (required)"
+                                label="price"
                                 name="price"
                                 type="number"
                                 placeholder="5.00"

@@ -55,8 +55,8 @@ describe("AuthorLayout", () => {
         <p>Content Area</p>
       </div>
     );
-    const { getByText } = render(<AuthorLayout>{html}</AuthorLayout>);
-    const result = document.querySelector("footer");
+    const { getByTestId } = render(<AuthorLayout>{html}</AuthorLayout>);
+    const result = getByTestId("footer");
     expect(result).toBeInTheDocument();
   });
   describe("Section Title", () => {

@@ -1,6 +1,6 @@
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import { AuthorNavbar } from "molecules";
-import { AuthorHeader } from "organisms";
+import { AuthorHeader, Footer } from "organisms";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import "../layout/layout.scss";
@@ -58,17 +58,7 @@ const AuthorLayout = ({
               {children}
             </div>
           </div>
-          <footer>
-            <span>© {new Date().getFullYear()}</span>{" "}
-            <a
-              className="avgi"
-              href="https://averygoodidea.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="font-icon-averygoodidea-logo"></i>
-            </a>
-          </footer>
+          <Footer />
         </Fragment>
       </main>
     </div>

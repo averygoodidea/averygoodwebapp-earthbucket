@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 
 const Footer = () => (
-  <footer>
+  <footer data-testid="footer">
     <div className="wrapper">
       <div className="row">
         <div className="col-sm-offset-3 col-sm-4">

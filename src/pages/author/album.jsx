@@ -62,7 +62,6 @@ export const pageQuery = graphql`
           createdAt
           images
           moreInfoUrl
-          price
           slugId
           summary
           title

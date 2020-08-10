@@ -59,7 +59,6 @@ export const pageQuery = graphql`
       id
       images
       moreInfoUrl
-      price
       summary
       title
     }

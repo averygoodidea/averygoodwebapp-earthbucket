@@ -86,7 +86,6 @@ export const pageQuery = graphql`
           images
           title
           categories
-          price
         }
       }
     }
