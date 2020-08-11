@@ -1,5 +1,21 @@
 [
   {
+    "summary": "Always%20deploy%20multiple%20versions%20of%20your%20web%20app.%20One%20for%20the%20world%20to%20see%2C%20and%20then%20the%20other%20for%20you%20to%20tinker%20with.%20With%20A%20Very%20Good%20Web%20App%2C%20you%20can%20secure%20every%20single%20non-public%20version%20of%20your%20app%20with%20Basic%20Authentication.%0A%0AJust%20create%20a%20username%20and%20password%20to%20whoeever%20you%20want%20to%20give%20access%2C%20and%20send%20them%20a%20link%20to%20the%20lower%20environment%20version%20of%20your%20site%20and%20bam%2C%20secured!%20Nobody%20without%20access%20will%20see%20your%20updates%20before%20they're%20ready.",
+    "partitionKey": "published",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597090735,
+    "images": [
+      "album/posts/images/6b4ec930-400d-4660-88f4-a3c09a767a56.jpg"
+    ],
+    "slugId": "JIW56UIiQUSMV_TBnkYOlw",
+    "price": -1,
+    "moreInfoUrl": "https://en.wikipedia.org/wiki/Basic_access_authentication",
+    "id": "0bbf54af-5a52-4d9c-86a4-e6cda73470b8",
+    "title": "Basic Authentication"
+  },
+  {
     "summary": "With it being extremely healthy, relatively inexpensive and easily accessible, canned salmon is the best deal in town.",
     "partitionKey": "published",
     "categories": [
@@ -17,6 +33,22 @@
     "moreInfoUrl": "https://www.wildplanetfoods.com/product/wild-sockeye-salmon/",
     "id": "6013abd2-c84f-4252-acb3-00947e43c53b",
     "title": "Canned Salmon"
+  },
+  {
+    "partitionKey": "published",
+    "summary": "Secured%20by%20default%2C%20A%20Very%20Good%20Web%20App%20provides%20an%20AWS%20issued%20TLS%20Certificate%20out%20of%20the%20box.%20This%20is%20the%20newer%20version%20of%20the%20now%20deprecated%2C%20SSL%20Certificate%20technology.%20This%20allows%20for%20all%20http%20requests%20that%20come%20to%20your%20app%20to%20default%20to%20https.",
+    "categories": [
+      "firerecord"
+    ],
+    "createdAt": 1597090075,
+    "images": [
+      "album/posts/images/27480a9e-c358-42f2-b100-1e52be5af1e2.jpg"
+    ],
+    "slugId": "HmHsJwb2R8-0dytauQ_oWg",
+    "moreInfoUrl": "https://en.wikipedia.org/wiki/Transport_Layer_Security",
+    "price": -1,
+    "id": "62f8bf81-8197-4758-ad4c-495a866f5ee3",
+    "title": "Transport Layer Security"
   },
   {
     "summary": "With it being extremely healthy, relatively inexpensive and easily accessible, canned salmon is the best deal in town.",

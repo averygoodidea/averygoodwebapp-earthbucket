@@ -61,7 +61,7 @@ class AlbumPostModal extends Component {
       } else {
         albumPost = albumPosts[currentIndex + 1];
       }
-      navigate(`/album/${albumPost.node.slugId}/`, {
+      navigate(`/a/${albumPost.node.slugId}/`, {
         state: { ...this.props.location.state }
       });
     }
@@ -80,7 +80,7 @@ class AlbumPostModal extends Component {
       } else {
         albumPost = albumPosts[currentIndex - 1];
       }
-      navigate(`/album/${albumPost.node.slugId}/`, {
+      navigate(`/a/${albumPost.node.slugId}/`, {
         state: { ...this.props.location.state }
       });
     }
