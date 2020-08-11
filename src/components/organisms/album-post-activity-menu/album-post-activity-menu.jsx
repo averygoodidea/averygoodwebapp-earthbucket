@@ -41,7 +41,7 @@ class AlbumPostActivityMenu extends Component {
           <Toast
             htmlMessage={`<p><strong>Added</strong> <em>${title}</em> to Your Favorites List</p>`}
             fontIcon="like"
-            to={"/a/list/"}
+            to={"/features/list/"}
           />,
           { duration: TOAST_DURATION }
         );
@@ -67,7 +67,7 @@ class AlbumPostActivityMenu extends Component {
           <Toast
             htmlMessage={`<p><strong>Removed</strong> <em>${title}</em> from Your Favorites List</p>`}
             fontIcon="dislike"
-            to={"/a/list/"}
+            to={"/features/list/"}
           />,
           { duration: TOAST_DURATION }
         );
