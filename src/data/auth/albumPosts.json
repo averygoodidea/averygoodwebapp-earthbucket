@@ -1,5 +1,21 @@
 [
   {
+    "summary": "From%20sending%20a%20text%2C%20to%20email%2C%20to%20WhatsApp%2C%20Twitter%2C%20Pinterest%20and%20Facebook%2C%20A%20Very%20Good%20Web%20App%20integrates%20social%20sharing%20out%20of%20the%20box%20so%20you%20don't%20have%20to.",
+    "partitionKey": "published",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597203560,
+    "images": [
+      "album/posts/images/888b910e-7405-465c-9fe5-325b081a8aef.jpg"
+    ],
+    "slugId": "brlqCCfrTg-C7jBEKu_UXg",
+    "price": -1,
+    "moreInfoUrl": "https://www.statista.com/topics/2539/social-sharing/",
+    "id": "08ccafa7-de1f-4eca-81b5-a20e85744b4b",
+    "title": "Social Sharing"
+  },
+  {
     "summary": "Always%20deploy%20multiple%20versions%20of%20your%20web%20app.%20One%20for%20the%20world%20to%20see%2C%20and%20then%20the%20other%20for%20you%20to%20tinker%20with.%20With%20A%20Very%20Good%20Web%20App%2C%20you%20can%20secure%20every%20single%20non-public%20version%20of%20your%20app%20with%20Basic%20Authentication.%0A%0AJust%20create%20a%20username%20and%20password%20to%20whoeever%20you%20want%20to%20give%20access%2C%20and%20send%20them%20a%20link%20to%20the%20lower%20environment%20version%20of%20your%20site%20and%20bam%2C%20secured!%20Nobody%20without%20access%20will%20see%20your%20updates%20before%20they're%20ready.",
     "partitionKey": "published",
     "categories": [
@@ -83,6 +99,22 @@
     "title": "Comments"
   },
   {
+    "summary": "A%20Very%20Good%20Web%20App%20organizes%20its%20React%20components%20in%20the%20Atomic%20Web%20Design%20Pattern%2C%20promoted%20by%20noted%20User%20Interface%20Design%20Strategist%2C%20Brad%20Frost.%0A%0AThis%20approach%20allows%20for%20React%20components%20to%20be%20both%20easible%20readable%2C%20as%20well%20as%20easily%20re-usable%2C%20speeding%20up%20code%20development%20time%20for%20existing%20coding%20teams%20as%20well%20as%20for%20new%20developer%20contributions%2C%20alike.",
+    "partitionKey": "published",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597201604,
+    "images": [
+      "album/posts/images/2710454d-7566-405c-a357-44952f800b6a.jpg"
+    ],
+    "slugId": "RxR4ZiNxQ-eZXsM4sUUvHg",
+    "price": -1,
+    "moreInfoUrl": "https://bradfrost.com/blog/post/atomic-web-design/",
+    "id": "935a6de6-118f-4c66-a5b3-0081f6ca6f9c",
+    "title": "Atomic Web Design Pattern"
+  },
+  {
     "partitionKey": "published",
     "summary": "A%20Very%20Good%20Web%20App's%20EarthBucket%20houses%20a%20a%20pretty%20cool%20Gatsby%20app.%20Gatsby%20is%20a%20React-based%20framework%20that%20allows%20you%20to%20move%20NodeJS%20server-side%20functionality%20to%20your%20application's%20build%20process.%20%0A%0ANow%20all%20the%20traditional%20server-side%20calculations%20that%20typically%20drive%20the%20cost%20up%20in%20an%20application%20are%20%20already%20done%20and%20pushed%20into%20your%20static%20site.%20This%20makes%20the%20web%20app%20experience%20extremely%20fast%2C%20and%20extremely%20inexpensive%20to%20host!",
     "categories": [
@@ -97,6 +129,24 @@
     "price": -1,
     "id": "9e689ec0-ccb6-41f6-a011-4b3ff2614fff",
     "title": "Gatsby JS"
+  },
+  {
+    "partitionKey": "published",
+    "summary": "Since%20A%20Very%20Good%20Web%20App%20is%20built%20on%20top%20of%20AWS%20CloudFormation%2C%20this%20app%20is%20100%20percent%20configurable%2C%20customizable%2C%20and%20extensible!%0A%0AThe%20concept%20of%20utilzing%20four%20elements%20is%20simply%20a%20minimum%20recommendation.%20Feel%20free%20to%20customize%20the%20existing%20elements%2C%20or%20new%20ones.%0A%0AFor%20example.%20you%20could%20create%20back-up%20functionality%20for%20WaterApi%20data%20and%2For%20EarthBucket%20files.%20Or%20you%20could%20connect%20AirCdn%20to%20an%20EC2%20Instance.%20Feel%20free%20to%20be%20as%20creative%20as%20you'd%20like!",
+    "categories": [
+      "firerecord",
+      "aircdn",
+      "earthbucket",
+      "waterapi"
+    ],
+    "createdAt": 1597205657,
+    "images": [
+      "album/posts/images/2ca04df4-fd65-4d57-b6d9-7503af0f5c60.jpg"
+    ],
+    "slugId": "RLukqz97RbOigLQkxHsEFg",
+    "moreInfoUrl": "https://aws.amazon.com/cloudformation/",
+    "id": "a903efea-f801-43f9-9dcf-78169a40c28b",
+    "title": "Configurable and Extensible"
   },
   {
     "partitionKey": "published",
@@ -115,6 +165,23 @@
     "title": "Album"
   },
   {
+    "summary": "A%20Very%20Good%20Web%20App%20utilizes%20over%20150%20Jest%20Tests%20throughout%20EarthBucket%20and%20WaterApi.%0A%0AAs%20Kent%20Dodds%20says%2C%20%22Write%20tests%2C%20not%20too%20much%2C%20mostly%20integration%20tests%22.",
+    "partitionKey": "published",
+    "categories": [
+      "earthbucket",
+      "waterapi"
+    ],
+    "createdAt": 1597199418,
+    "images": [
+      "album/posts/images/58f344d4-7b2d-4f98-bd4c-e0d1914b0af2.jpg"
+    ],
+    "slugId": "a0qibDkWR-OtuePodT6Fmw",
+    "price": -1,
+    "moreInfoUrl": "https://kentcdodds.com/blog/when-i-follow-tdd",
+    "id": "be8ec2f0-c047-4532-9827-f07fa0495ed7",
+    "title": "Test Driven Development"
+  },
+  {
     "partitionKey": "published",
     "summary": "A%20Very%20Good%20Web%20App%20has%20both%20protected%2C%20as%20well%20as%20public%2C%20endpoints.%20This%20means%20that%20you%20can%20quickly%20decide%20which%20api%20enpoints%20should%20require%20keys%20and%20which%20don't%2C%20enabling%20you%20to%20be%20able%20to%20lock%20down%20your%20more%20secure%20http%20requests%2C%20like%20POST%2C%20PUT%20and%20DELETE.",
     "categories": [
@@ -129,6 +196,23 @@
     "price": -1,
     "id": "c97bdf4d-7e18-48bb-a7be-0e3550a2d616",
     "title": "Api Keys"
+  },
+  {
+    "summary": "A%20Very%20Good%20Web%20App%20enstrengthens%20you%20to%20get%20your%20email%20list%20weight%20up%20by%20incorporating%20a%20very%20simple%20TinyLetter%20email%20capture%20form.%20Just%20sign%20up%20for%20the%20service%2C%20and%20then%20enter%20your%20username%20in%20the%20EarthBucket%20configuration%20file%20and%20you're%20good%20to%20go!%0A%0AFeel%20free%20to%20also%20port%20over%20email%20addresses%20collected%20from%20the%20comment%20system%20into%20your%20TinyLetter%20email%20list%2C%20too!",
+    "partitionKey": "published",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597204154,
+    "images": [
+      "album/posts/images/90300749-2885-423d-914f-abd31bac2a78.jpg",
+      "album/posts/images/350e78d7-e384-4e0e-8229-c9bfe13dae81.jpg"
+    ],
+    "slugId": "E8j09PLbTjaAX_MCTZY08g",
+    "price": -1,
+    "moreInfoUrl": "https://tinyletter.com/",
+    "id": "e6f6ff65-5298-4e2e-9cba-85ea63a2e167",
+    "title": "Email List"
   },
   {
     "summary": "A%20Very%20Good%20Web%20App%20is%20built%20with%20blogging%20in%20mind.%20%0A%0AUse%20Forestry.io%20to%20create%20to%20write%20beautiful%20posts%20that%20contain%20a%20banner%20image%2C%20text%20and%20other%20media%2C%20until%20you've%20scratched%20your%20creative%20itch.",
@@ -146,5 +230,37 @@
     "moreInfoUrl": "https://forestry.io/",
     "id": "f43df098-d079-4705-9a1d-e5d36119a0b9",
     "title": "Blog"
+  },
+  {
+    "partitionKey": "published",
+    "summary": "A%20Very%20Good%20Web%20App%20provides%20a%20robust%20Storybook%20that%20catalogs%20over%2040%20components%2C%20architected%20in%20the%20atomic%20design%20pattern%20promoted%20by%20noted%20User%20Interface%20Designer%2C%20Brad%20Frost.",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597200407,
+    "images": [
+      "album/posts/images/1a7246b6-2421-4f87-a0b1-ec92d2f03c15.jpg"
+    ],
+    "slugId": "HyGCD2i3RHSmJEZQbWA6lQ",
+    "moreInfoUrl": "https://averygoodweb.app/ui/1/docs",
+    "id": "fc607ec8-6604-4d49-a106-3e4e66de6938",
+    "title": "Storybook"
+  },
+  {
+    "partitionKey": "published",
+    "summary": "In%20keeping%20with%20the%20spirit%20of%20having%20concise%20domain%20names%20and%20urls%2C%20A%20Very%20Good%20Web%20App%20sets%20up%20a%20www%20redirect%2C%20so%20now%20every%20domain%20name%20you%20share%20can%20have%20the%20optional%20www%20prefix.%20AirCdn%20simply%20forces%20all%20requests%20to%20be%20non-www.%0A%0ANow%20you%20don't%20have%20to%20do%20any%20of%20that%20pesky%20server%20www%20redirect%20configuration%20anymore!",
+    "categories": [
+      "aircdn",
+      "firerecord"
+    ],
+    "createdAt": 1597202371,
+    "images": [
+      "album/posts/images/9b5130c6-6c3a-4755-b591-40dffee39673.jpg"
+    ],
+    "slugId": "XnQcp--pRKSfhUd7IgWLAg",
+    "moreInfoUrl": "https://www.sitepoint.com/domain-www-or-no-www/",
+    "price": -1,
+    "id": "fc7bc4c1-d308-479f-937f-7e86a0e4cb88",
+    "title": "WWW Redirect"
   }
 ]
