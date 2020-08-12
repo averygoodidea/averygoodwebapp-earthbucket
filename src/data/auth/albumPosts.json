@@ -33,6 +33,23 @@
     "title": "CDN Auto Cache Invalidation"
   },
   {
+    "summary": "A%20Very%20Good%20Web%20App's%20API%20is%20fully%20customizable%20and%20fully%20documented%20utilizing%20Swagger.%0A%0AThe%20Swagger%20documentation%20is%20also%20beautifully%20presented%20using%20a%20customizable%20ReDoc%20theme.",
+    "partitionKey": "published",
+    "categories": [
+      "waterapi"
+    ],
+    "createdAt": 1597197601,
+    "images": [
+      "album/posts/images/802f3cd2-7e74-40c4-b74e-2b691b1f880b.jpg",
+      "album/posts/images/3f9d4488-8344-4552-b63f-152ce6c6528f.jpg"
+    ],
+    "slugId": "aMydEOv_Rni8T-41WQE70A",
+    "price": -1,
+    "moreInfoUrl": "https://averygoodweb.app/api/1/docs",
+    "id": "4ce00662-26e2-4ea5-8699-fede11e25fc9",
+    "title": "Fully Customizable API"
+  },
+  {
     "partitionKey": "published",
     "summary": "Secured%20by%20default%2C%20A%20Very%20Good%20Web%20App%20provides%20an%20AWS%20issued%20TLS%20Certificate%20out%20of%20the%20box.%20This%20is%20the%20newer%20version%20of%20the%20now%20deprecated%2C%20SSL%20Certificate%20technology.%20This%20allows%20for%20all%20http%20requests%20that%20come%20to%20your%20app%20to%20default%20to%20https.",
     "categories": [
@@ -47,6 +64,23 @@
     "price": -1,
     "id": "62f8bf81-8197-4758-ad4c-495a866f5ee3",
     "title": "Transport Layer Security"
+  },
+  {
+    "partitionKey": "published",
+    "summary": "A%20Very%20Good%20Web%20App%20is%20built%20with%20the%20JAM%20Stack%20(JavaScript%2C%20APIs%2C%20and%20Markup)%20paradigm%20in%20mind.%20This%20enables%20incredible%20features%20like%20being%20able%20to%20leave%20comments%20on%20everything!%0A%0AAlbum%20posts%2C%20blog%20posts%2C%20and%20traditional%20pages.%20Doesn't%20matter.%20This%20app%20is%20built%20using%20Valine%20but%20you%20can%20always%20customize%20your%20app%20to%20utilize%20whatever%20comment%20system%20you%20desire.",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597193903,
+    "images": [
+      "album/posts/images/5f3f4aaf-3390-4e23-8408-ecce37c2787d.jpg",
+      "album/posts/images/396eed30-fb47-4545-96df-666f97a961c8.jpg"
+    ],
+    "slugId": "ZejjYceFRneJ_grT4ezI8g",
+    "moreInfoUrl": "https://valine.js.org/en/index.html",
+    "price": -1,
+    "id": "6f3fc07d-15e7-4190-9d34-8bf01cb2e90d",
+    "title": "Comments"
   },
   {
     "partitionKey": "published",
@@ -81,8 +115,8 @@
     "title": "Album"
   },
   {
-    "summary": "A%20Very%20Good%20Web%20App%20has%20both%20protected%2C%20as%20well%20as%20public%2C%20endpoints.%20This%20means%20that%20you%20can%20quickly%20decide%20which%20api%20enpoints%20should%20require%20keys%20and%20which%20don't%2C%20enabling%20you%20to%20be%20able%20to%20lock%20down%20your%20more%20secure%20http%20requests%2C%20like%20POST%2C%20PUT%20and%20DELETE.",
     "partitionKey": "published",
+    "summary": "A%20Very%20Good%20Web%20App%20has%20both%20protected%2C%20as%20well%20as%20public%2C%20endpoints.%20This%20means%20that%20you%20can%20quickly%20decide%20which%20api%20enpoints%20should%20require%20keys%20and%20which%20don't%2C%20enabling%20you%20to%20be%20able%20to%20lock%20down%20your%20more%20secure%20http%20requests%2C%20like%20POST%2C%20PUT%20and%20DELETE.",
     "categories": [
       "waterapi"
     ],
@@ -91,10 +125,10 @@
       "album/posts/images/94e1418e-7cfc-4b22-97d6-375411e6847a.jpg"
     ],
     "slugId": "Zj5mVHzDTbukXOvNNcH0EQ",
-    "price": -1,
     "moreInfoUrl": "https://en.wikipedia.org/wiki/Application_programming_interface_key",
+    "price": -1,
     "id": "c97bdf4d-7e18-48bb-a7be-0e3550a2d616",
-    "title": "API Key for Authenticated Endpoints"
+    "title": "Api Keys"
   },
   {
     "summary": "A%20Very%20Good%20Web%20App%20is%20built%20with%20blogging%20in%20mind.%20%0A%0AUse%20Forestry.io%20to%20create%20to%20write%20beautiful%20posts%20that%20contain%20a%20banner%20image%2C%20text%20and%20other%20media%2C%20until%20you've%20scratched%20your%20creative%20itch.",
