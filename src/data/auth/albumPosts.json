@@ -250,8 +250,8 @@
     "partitionKey": "published",
     "summary": "In%20keeping%20with%20the%20spirit%20of%20having%20concise%20domain%20names%20and%20urls%2C%20A%20Very%20Good%20Web%20App%20sets%20up%20a%20www%20redirect%2C%20so%20now%20every%20domain%20name%20you%20share%20can%20have%20the%20optional%20www%20prefix.%20AirCdn%20simply%20forces%20all%20requests%20to%20be%20non-www.%0A%0ANow%20you%20don't%20have%20to%20do%20any%20of%20that%20pesky%20server%20www%20redirect%20configuration%20anymore!",
     "categories": [
-      "aircdn",
-      "firerecord"
+      "firerecord",
+      "aircdn"
     ],
     "createdAt": 1597202371,
     "images": [

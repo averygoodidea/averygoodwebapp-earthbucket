@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	const result = await graphql(
 		`
 			{
-			  allAlbumPosts(sort: {order: DESC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
+			  allAlbumPosts(sort: {order: ASC, fields: createdAt}, filter: {id: {ne: "dummy"}}) {
 			    edges {
 			      node {
 			      	alternative_id

@@ -76,7 +76,7 @@ export const pageQuery = graphql`
   }
   query {
     allAlbumPosts(
-      sort: { order: DESC, fields: createdAt }
+      sort: { order: ASC, fields: createdAt }
       filter: { id: { ne: "dummy" } }
     ) {
       edges {
