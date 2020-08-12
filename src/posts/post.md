@@ -1,9 +1,9 @@
 ---
 tags:
 - test
-title: Forty Proverbs for Forty Years
-date: 2020-06-08T04:00:00Z
-slug: "forty-proverbs-forty-years"
+title: How to Create Basic Auth for a Serverless App
+date: 2020-08-13T04:00:00Z
+slug: basic-auth-serverless-app
 author: Avery Smith
 coverPhoto: blog/posts/images/earthbucket-blog-post-seed.png
 published: true
