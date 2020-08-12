@@ -16,23 +16,21 @@
     "title": "Basic Authentication"
   },
   {
-    "summary": "With it being extremely healthy, relatively inexpensive and easily accessible, canned salmon is the best deal in town.",
+    "summary": "AirCdn%20is%20smart%20enough%20to%20cache%20its%20GET%20responess%20for%20365%20days%3B%20however%2C%20whenever%20a%20new%20build%20of%20A%20Very%20Good%20Web%20App%20is%20deployed%20to%20EarthBucket%2C%20AirCdn%20is%20intelligent%20enough%20to%20clear%20its%20cache%20so%20all%20new%20builds%20are%20made%20public%2C%20immediately%20on%20deployment.%20No%20cache%20delays!",
     "partitionKey": "published",
     "categories": [
-      "firerecord",
       "aircdn",
-      "earthbucket",
-      "waterapi"
+      "earthbucket"
     ],
-    "createdAt": 1597086981,
+    "createdAt": 1597115800,
     "images": [
-      "album/posts/images/5e7aef0e-777b-4562-86fc-035f486be7bf.jpg",
-      "album/posts/images/4eb4016b-9810-429d-bdf5-07983c5d92e8.jpg"
+      "album/posts/images/2b037d57-138a-4be7-b89d-019ef751ca0e.jpg"
     ],
-    "slugId": "F--ku6MKSIarpf7lgxN-Xg",
-    "moreInfoUrl": "https://www.wildplanetfoods.com/product/wild-sockeye-salmon/",
-    "id": "6013abd2-c84f-4252-acb3-00947e43c53b",
-    "title": "Canned Salmon"
+    "slugId": "fq28fhKDRWSilhhCS8LqgQ",
+    "price": -1,
+    "moreInfoUrl": "https://en.wikipedia.org/wiki/Cache_invalidation",
+    "id": "46d1f569-7194-4d87-8b30-b8b142c4dd7b",
+    "title": "CDN Auto Cache Invalidation"
   },
   {
     "partitionKey": "published",
@@ -51,22 +49,68 @@
     "title": "Transport Layer Security"
   },
   {
-    "summary": "With it being extremely healthy, relatively inexpensive and easily accessible, canned salmon is the best deal in town.",
+    "partitionKey": "published",
+    "summary": "A%20Very%20Good%20Web%20App's%20EarthBucket%20houses%20a%20a%20pretty%20cool%20Gatsby%20app.%20Gatsby%20is%20a%20React-based%20framework%20that%20allows%20you%20to%20move%20NodeJS%20server-side%20functionality%20to%20your%20application's%20build%20process.%20%0A%0ANow%20all%20the%20traditional%20server-side%20calculations%20that%20typically%20drive%20the%20cost%20up%20in%20an%20application%20are%20%20already%20done%20and%20pushed%20into%20your%20static%20site.%20This%20makes%20the%20web%20app%20experience%20extremely%20fast%2C%20and%20extremely%20inexpensive%20to%20host!",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597113274,
+    "images": [
+      "album/posts/images/587a6c03-87b3-4f65-a44b-baadbe097da4.jpg"
+    ],
+    "slugId": "EE312zqGS9u348dpg2zGRQ",
+    "moreInfoUrl": "https://www.gatsbyjs.org/",
+    "price": -1,
+    "id": "9e689ec0-ccb6-41f6-a011-4b3ff2614fff",
+    "title": "Gatsby JS"
+  },
+  {
+    "partitionKey": "published",
+    "summary": "A%20Very%20Good%20Web%20App%20is%20built%20to%20display%20images%20in%20an%20Instagram-like%20photo%20album%20experience.%20Complete%20with%20a%20CMS%20where%20you%20can%20create%2C%20update%2C%20and%20delete%20posts.%20There's%20also%20a%20modal%20UI%2C%20and%20the%20ability%20to%20create%20post%20categories%20to%20sort%20through%2C%20like%20hashtags.%0A%0AYou%20can%20like%20images%2C%20and%20also%20comment%2C%20and%20even%20have%20other%20features%20like%20a%20%22more%20into%22%20button%2C%20and%20other%20pieces%20of%20content%20like%20price%20if%20your%20post%20is%20an%20item%20that%20has%20have%20cost%20to%20it.",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597116935,
+    "images": [
+      "album/posts/images/ed11671f-ec5f-46fe-9122-a62b00f01682.jpg"
+    ],
+    "slugId": "X7pBaQ4LSsCh89KTPLKAfQ",
+    "moreInfoUrl": "https://gatsbygram.gatsbyjs.org/",
+    "price": -1,
+    "id": "b06d561a-6f8f-4935-8de2-9c52b3508d94",
+    "title": "Album"
+  },
+  {
+    "summary": "A%20Very%20Good%20Web%20App%20has%20both%20protected%2C%20as%20well%20as%20public%2C%20endpoints.%20This%20means%20that%20you%20can%20quickly%20decide%20which%20api%20enpoints%20should%20require%20keys%20and%20which%20don't%2C%20enabling%20you%20to%20be%20able%20to%20lock%20down%20your%20more%20secure%20http%20requests%2C%20like%20POST%2C%20PUT%20and%20DELETE.",
     "partitionKey": "published",
     "categories": [
-      "firerecord",
-      "aircdn",
-      "earthbucket",
       "waterapi"
     ],
-    "createdAt": 1597086990,
+    "createdAt": 1597114543,
     "images": [
-      "album/posts/images/6a3bc796-0263-41eb-b976-4f579762f4ba.jpg",
-      "album/posts/images/87eecbe4-1db4-4424-8356-9b7a72c7440e.jpg"
+      "album/posts/images/94e1418e-7cfc-4b22-97d6-375411e6847a.jpg"
     ],
-    "slugId": "Jm3jatEvQO2ukWz9hU3usQ",
-    "moreInfoUrl": "https://www.wildplanetfoods.com/product/wild-sockeye-salmon/",
-    "id": "7736c641-8cf9-493b-b0a4-d211165f6fe4",
-    "title": "Canned Salmon"
+    "slugId": "Zj5mVHzDTbukXOvNNcH0EQ",
+    "price": -1,
+    "moreInfoUrl": "https://en.wikipedia.org/wiki/Application_programming_interface_key",
+    "id": "c97bdf4d-7e18-48bb-a7be-0e3550a2d616",
+    "title": "API Key for Authenticated Endpoints"
+  },
+  {
+    "summary": "A%20Very%20Good%20Web%20App%20is%20built%20with%20blogging%20in%20mind.%20%0A%0AUse%20Forestry.io%20to%20create%20to%20write%20beautiful%20posts%20that%20contain%20a%20banner%20image%2C%20text%20and%20other%20media%2C%20until%20you've%20scratched%20your%20creative%20itch.",
+    "partitionKey": "published",
+    "categories": [
+      "earthbucket"
+    ],
+    "createdAt": 1597165031,
+    "images": [
+      "album/posts/images/1040f296-00b7-4a5e-96e9-d788e231309d.jpg",
+      "album/posts/images/6517eb2b-aa57-4546-ba8e-6dff3a90fbe7.jpg"
+    ],
+    "slugId": "FBjWoT12RLudFhpwVNv20Q",
+    "price": -1,
+    "moreInfoUrl": "https://forestry.io/",
+    "id": "f43df098-d079-4705-9a1d-e5d36119a0b9",
+    "title": "Blog"
   }
 ]

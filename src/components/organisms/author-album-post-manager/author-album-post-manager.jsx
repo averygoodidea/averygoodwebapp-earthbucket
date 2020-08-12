@@ -528,7 +528,7 @@ class AuthorAlbumPostManager extends Component {
                                 defaultValue={selectedItem.title}
                                 onChange={e => {
                                   this.setState({
-                                    titleValue: e.target.value.toLowerCase()
+                                    titleValue: e.target.value
                                   });
                                 }}
                               />
