@@ -21,6 +21,118 @@ Within the AWS world, this is achieved by adding a Lambda@Edge function at the v
 
 ![Serverless Basic Auth Diagram](https://s3.amazonaws.com/averygoodweb-app-prod-earthbucket-media/blog/posts/images/serverless-basic-auth-2020-08-13..svg "Serverless Basic Auth Diagram")
 
-### Occupy Distillery Tote
+## Lambda@Edge
 
-I'm baby listicle excepteur austin, enim proident occaecat occupy. Raw denim tacos fam locavore, truffaut godard neutra banh mi irure direct trade food truck. Small batch banh mi crucifix aute, sartorial ennui tilde banjo pinterest heirloom 8-bit. Plaid woke est sriracha meditation. Mumblecore magna lorem pitchfork, occupy distillery tote bag plaid eiusmod letterpress. Tempor palo santo occupy live-edge flexitarian velit biodiesel, shabby chic do. Drinking vinegar four loko tattooed schlitz shabby chic normcore.
+Lambda@Edge is an AWS Lambda function that is associated with CloudFront and pushed out to "edge" locations throughout the world. The cool thing about Lambda@Edge is that it enables you to manipulate HTTP requests and responses as they're in transit.
+
+This Lambda can be sandwiched in between [four different points of transit](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html):
+
+* Viewer Request (Client to CloudFront)
+* Origin Request (CloudFront to Origin)
+* Origin Response (Origin to CloudFront)
+* Viewer Response (CloudFront to Client)
+
+Since we need to restrict requests on their way _into_ our system, we should place a Lambda@Edge at the _Viewer Request_ transition point.
+
+Example CloudFormation YAML Code:
+
+    LambdaFunctionAssociations:
+    	- EventType: viewer-request
+    	  LambdaFunctionARN: !Ref EarthBucketBasicAuthLambdaEdgeVersion
+
+[Full code example located here.](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/d81ef47fb6a7c02115caecfb3a81a1f8c2e5cc04/cloudformation/aircdn.yaml#L41)
+
+Now that we have identified where and how the Lambda gets positioned into the request path but we need to consider what goes in it to create a Basic Authentication.
+
+### Basic Authentication Logic
+
+The Basic Authentication Logic needs to follow these steps:
+
+1. observe the **request** object
+2. if the host value is the top level domain
+   1. return **request** object
+3. else if the host value is not the top level domain
+   1. add the basic authentication header to a **response** object
+   2. if request contains authorization header
+      1. if DynamoDB Table contains authorization header values
+         1. return **request** object
+      2. else if DynamoDB Table doesn't contain authorization header values
+         1. return **response** object
+   3. if request doesn't contain authorization header
+      1. return **response** object
+
+Full example pasted below:
+
+    exports.handler = (event, context, callback) => {
+      console.log('A', JSON.stringify(event.Records[0].cf))
+      // basic auth script, for more information, visit - https://medium.com/hackernoon/serverless-password-protecting-a-static-website-in-an-aws-s3-bucket-bfaaa01b8666
+      const { request } = event.Records[0].cf
+      const host = request.headers.host[0].value
+      const hostPieces = host.split('.')
+      const environment = (hostPieces.length === 2) ? 'prod' : hostPieces[0]
+      if (environment === 'prod') {
+        console.log('B')
+        callback(null, request)
+      } else {
+        console.log('C')
+        // Get request headers
+        const { headers } = request
+        // Configure authentication
+        // const authUser = '<authUser>'
+        // const authPass = '<authPass>'
+        // const authString = `Basic ${authUser}:${authPass}`
+        // const authStrings = [
+        //   `Basic ${authUser}:${authPass}` // share this authentication with others
+        // ]
+        const AWS = require('aws-sdk')
+        AWS.config.update({region: 'us-east-1'})
+        const getAuthUsers = () => new Promise( async (resolve, reject) => {
+          console.log('D')
+          var params = {
+              KeyConditionExpression: 'partitionKey = :partitionKey',
+              ExpressionAttributeValues: {
+                  ':partitionKey': 'published'
+              },
+              TableName: `averygoodweb-app-${environment}-EarthBucketBasicAuthTable`
+          }
+          console.log('E', params)
+          try {
+            const dynamo = new AWS.DynamoDB.DocumentClient()
+            const data = await dynamo.query(params).promise()
+            const authStrings = data.Items.map( ({ authUser, authPass }) => `Basic ${authUser}:${Buffer.from(authPass, 'base64').toString('ascii')}`)
+            resolve(authStrings)
+          } catch (err) {
+            reject(err)
+          }
+        })
+        let submitted
+        const body = 'Unauthorized access.'
+        const response = {
+            status: '401',
+            statusDescription: 'Unauthorized',
+            body: body,
+            headers: {
+                'www-authenticate': [{key: 'WWW-Authenticate', value:'Basic'}]
+            }
+        }
+        if (headers.authorization) {
+          console.log('H')
+          submitted = `Basic ${Buffer.from(headers.authorization[0].value.split('Basic ')[1], 'base64').toString('ascii')}`
+          getAuthUsers().then( authStrings => {
+            if (authStrings.includes(submitted)) {
+              console.log('I')
+              callback(null, request)
+            } else {
+              console.log('J')
+              callback(null, response)
+            }
+          }).catch( err => {
+            console.log('K', err)
+            callback(null, response)
+          })
+        } else {
+          console.log('L')
+          callback(null, response)
+        }
+      }
+    }
