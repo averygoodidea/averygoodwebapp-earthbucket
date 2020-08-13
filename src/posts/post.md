@@ -5,7 +5,7 @@ title: How to Create Basic Auth for a Serverless App
 date: 2020-08-13T04:00:00Z
 slug: basic-auth-serverless-app
 author: Avery Smith
-coverPhoto: blog/posts/images/earthbucket-blog-post-seed.png
+coverPhoto: https://s3.amazonaws.com/averygoodweb-app-prod-earthbucket-media/blog/posts/images/Notary-Public-Ink-Stamp-On-Sig-234574582-2020-08-13..jpg
 published: true
 
 ---
