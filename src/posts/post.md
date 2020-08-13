@@ -84,7 +84,6 @@ Full example pasted below:
               },
               TableName: `averygoodweb-app-${environment}-EarthBucketBasicAuthTable`
           }
-          console.log('E', params)
           try {
             const dynamo = new AWS.DynamoDB.DocumentClient()
             const data = await dynamo.query(params).promise()
