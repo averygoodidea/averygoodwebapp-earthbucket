@@ -44,7 +44,7 @@ Example CloudFormation YAML Code:
 
 Now that we have identified where and how the Lambda gets positioned into the request path but we need to consider what goes in it to create a Basic Authentication.
 
-### Basic Authentication Logic
+## Basic Auth Logic
 
 The Basic Authentication Logic needs to follow these steps:
 
@@ -123,12 +123,12 @@ Full example pasted below:
 
 [You can also view this file on Github](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
 
-### Basic Authentication Table
+## Basic Authentication Table
 
 In order to create a username and password combination, follow these steps:
 
 1. Navigate to (https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:)\[https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:\]
-2. Click '`<environmment>-EarthBucketBasicAuthTable`' > 'Items'
+2. Click '`<environment>-EarthBucketBasicAuthTable`' > 'Items'
 3. Click, 'Create Item', then add the following values, replacing `<authUser>` and `<authPass>` with their corresponding base64 values.
 
 | name | value | description |
@@ -146,3 +146,5 @@ In order to add the `<authPass>`, you should:
 9\. Now, navigate to `<environment>`.`<domainName>` and enter the `<authUser>` and `<authPass>`. You should now be able to sign into the lower environment.
 
 To add, update and/or delete auth users at a later date, just edit the '`<environment>-EarthBucketBasicAuthTable`', accordingly.
+
+To recap, the aim of this blog post has been to demonstrate how you can achieve Basic Authentication in an AWS Serverless environment. I hope that you have found this helpful.
