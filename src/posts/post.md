@@ -74,7 +74,7 @@ In order to create a username and password combination, follow these steps:
 | name | value | description |
 | --- | --- | --- |
 | partitionKey | published | a required string for each record in this table |
-| authUser | <authUser> | Generate an authUser string value from Random.org Then Base64 this string at https://www.base64encode.net/. Be sure to then store this string in a safe place, like lastpass.com. |
+| authUser | <authUser> | enter a username value. Be sure to then store this string in a safe place, like lastpass.com. |
 | authPass | <authPass> | Generate an authPass string value from Random.org Then Base64 this string at https://www.base64encode.net/. Be sure to then store this string in a safe place, like lastpass.com. |
 
 In order to add the `<authPass>`, you should:
