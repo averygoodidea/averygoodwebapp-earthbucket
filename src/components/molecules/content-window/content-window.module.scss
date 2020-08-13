@@ -20,9 +20,6 @@
 		}
 
 		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
 			li {
 				line-height: 30px;
 			}
@@ -36,6 +33,22 @@
 			margin-right: 10px;
 		}
 
+		pre {
+			padding: 30px;
+    		background: white;
+    		overflow: scroll;
+    		border: 2px solid rgba(85, 63, 61, 0.12);
+		}
+
+		table {
+			background: #fff;
+			border: 2px solid rgba(85, 63, 61, 0.12);
+			padding: 10px;
+
+			td {
+				padding: 10px;
+			}
+		}
 	}
 
 	@media(max-width: $max-mobile-width) {

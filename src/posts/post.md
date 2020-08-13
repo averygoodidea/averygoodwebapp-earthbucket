@@ -1,20 +1,90 @@
 ---
 tags:
 - test
-title: Forty Proverbs for Forty Years
-date: 2020-06-08T04:00:00Z
-slug: "forty-proverbs-forty-years"
+title: How to Create Basic Auth for a Serverless App
+date: 2020-08-13T04:00:00Z
+slug: basic-auth-serverless-app
 author: Avery Smith
-coverPhoto: blog/posts/images/earthbucket-blog-post-seed.png
+coverPhoto: blog/posts/images/33345241326_29b651fa21_b-2020-08-13..jpg
 published: true
 
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et netus et malesuada fames. Egestas tellus rutrum tellus pellentesque eu. Tempor orci dapibus ultrices in iaculis nunc sed augue.
+Many people are familiar with the .htaccess way of implementing Basic Authentication but how do you it with serverless?
 
 <!-- endexcerpt -->
 
-Orci a scelerisque purus semper eget. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Lacus suspendisse faucibus interdum posuere. Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Porttitor eget dolor morbi non. Id porta nibh venenatis cras. Sodales ut etiam sit amet nisl purus in mollis. Aliquam ultrices sagittis orci a scelerisque purus. Massa id neque aliquam vestibulum morbi blandit cursus risus. Vestibulum lectus mauris ultrices eros. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Id leo in vitae turpis massa. Accumsan tortor posuere ac ut consequat semper. Sodales ut eu sem integer vitae justo eget magna fermentum. Eros donec ac odio tempor orci dapibus ultrices in.
+Many people are familiar with the .htaccess way of implementing Basic Authentication but how do you it with serverless?
 
-### Occupy Distillery Tote
+Basic Authentication is a standard HTTP security procedure that enables a browser to prompt a user to submit a username and password in order to grant access to the browser’s response, typically a web page.
 
-I'm baby listicle excepteur austin, enim proident occaecat occupy. Raw denim tacos fam locavore, truffaut godard neutra banh mi irure direct trade food truck. Small batch banh mi crucifix aute, sartorial ennui tilde banjo pinterest heirloom 8-bit. Plaid woke est sriracha meditation. Mumblecore magna lorem pitchfork, occupy distillery tote bag plaid eiusmod letterpress. Tempor palo santo occupy live-edge flexitarian velit biodiesel, shabby chic do. Drinking vinegar four loko tattooed schlitz shabby chic normcore.
+Within the AWS world, this is achieved by adding a Lambda@Edge function at the viewer request layer of your CloudFront instance. Refer to the below diagram:
+
+![Serverless Basic Auth Diagram](https://s3.amazonaws.com/averygoodweb-app-prod-earthbucket-media/blog/posts/images/serverless-basic-auth-2020-08-13..svg "Serverless Basic Auth Diagram")
+
+## Lambda@Edge
+
+Lambda@Edge is an AWS Lambda function that is associated with CloudFront and pushed out to "edge" locations throughout the world. The cool thing about Lambda@Edge is that it enables you to manipulate HTTP requests and responses as they're in transit.
+
+This Lambda can be sandwiched in between [four different points of transit](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html):
+
+* Viewer Request (Client to CloudFront)
+* Origin Request (CloudFront to Origin)
+* Origin Response (Origin to CloudFront)
+* Viewer Response (CloudFront to Client)
+
+Since we need to restrict requests on their way _into_ our system, we should place a Lambda@Edge at the _Viewer Request_ transition point.
+
+Example CloudFormation YAML Code:
+
+    LambdaFunctionAssociations:
+    	- EventType: viewer-request
+    	  LambdaFunctionARN: !Ref EarthBucketBasicAuthLambdaEdgeVersion
+
+[Full code example located here.](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/d81ef47fb6a7c02115caecfb3a81a1f8c2e5cc04/cloudformation/aircdn.yaml#L41)
+
+Now that we have identified where and how the Lambda gets positioned into the request path but we need to consider what goes in it to create a Basic Authentication.
+
+## Basic Auth Logic
+
+The Basic Authentication Logic needs to follow these steps:
+
+1. observe the **request** object
+2. if the host value is the top level domain
+   1. return **request** object
+3. else if the host value is not the top level domain
+   1. add the basic authentication header to a **response** object
+   2. if request contains authorization header
+      1. if DynamoDB Table contains authorization header values
+         1. return **request** object
+      2. else if DynamoDB Table doesn't contain authorization header values
+         1. return **response** object
+   3. if request doesn't contain authorization header
+      1. return **response** object
+
+[You can view the full code example here](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
+
+## Basic Authentication Table
+
+In order to create a username and password combination, follow these steps:
+
+1. Navigate to (https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:)\[https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:\]
+2. Click '`<environment>-EarthBucketBasicAuthTable`' > 'Items'
+3. Click, 'Create Item', then add the following values, replacing `<authUser>` and `<authPass>` with their corresponding base64 values.
+
+| name | value | description |
+| --- | --- | --- |
+| partitionKey | published | a required string for each record in this table |
+| authUser | <authUser> | enter a username value. Be sure to then store this string in a safe place, like lastpass.com. |
+| authPass | <authPass> | Generate an authPass string value from Random.org Then Base64 this string at https://www.base64encode.net/. Be sure to then store this string in a safe place, like lastpass.com. |
+
+In order to add the `<authPass>`, you should:
+4\. Click the plus button to the left of "authUser".
+5\. In the drop-down box, Click 'Append' > 'String'
+6\. In the "field" input, "authPass"
+7\. In the "value" input, enter your random password string.
+8\. Click, 'Save'.
+9\. Now, navigate to `<environment>`.`<domainName>` and enter the `<authUser>` and `<authPass>`. You should now be able to sign into the lower environment.
+
+To add, update and/or delete auth users at a later date, just edit the '`<environment>-EarthBucketBasicAuthTable`', accordingly.
+
+To recap, the aim of this blog post has been to demonstrate how you can achieve Basic Authentication in an AWS Serverless environment. I hope that you have found this helpful.
