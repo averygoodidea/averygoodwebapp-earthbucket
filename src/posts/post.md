@@ -1,8 +1,10 @@
 ---
 tags:
-- test
+- security
+- aircdn
+- earthbucket
 title: How to Create Basic Auth for a Serverless App
-date: 2020-08-13T04:00:00Z
+date: 2020-08-13T04:00:00.000+00:00
 slug: basic-auth-serverless-app
 author: Avery Smith
 coverPhoto: blog/posts/images/33345241326_29b651fa21_b-2020-08-13..jpg
