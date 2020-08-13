@@ -9,11 +9,30 @@ coverPhoto: blog/posts/images/Notary-Public-Ink-Stamp-On-Sig-234574582-2020-08-1
 published: true
 
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et netus et malesuada fames. Egestas tellus rutrum tellus pellentesque eu. Tempor orci dapibus ultrices in iaculis nunc sed augue.
+Basic Authentication is a standard HTTP security procedure that enables a browser to prompt a user to submit a username and password in order to grant access to the browser’s response, typically a web page.
+
+This security strategy is a nice lightweight measure to restrict access to a webpage to only users who have the correct username and password credentials. These credentials are stored in a data source that the server request references in order to authenticate the user.
 
 <!-- endexcerpt -->
 
-Orci a scelerisque purus semper eget. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Lacus suspendisse faucibus interdum posuere. Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Porttitor eget dolor morbi non. Id porta nibh venenatis cras. Sodales ut etiam sit amet nisl purus in mollis. Aliquam ultrices sagittis orci a scelerisque purus. Massa id neque aliquam vestibulum morbi blandit cursus risus. Vestibulum lectus mauris ultrices eros. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Id leo in vitae turpis massa. Accumsan tortor posuere ac ut consequat semper. Sodales ut eu sem integer vitae justo eget magna fermentum. Eros donec ac odio tempor orci dapibus ultrices in.
+Basic Authentication is a standard HTTP security procedure that enables a browser to prompt a user to submit a username and password in order to grant access to the browser’s response, typically a web page.
+
+This security strategy is a nice lightweight measure to restrict access to a webpage to only users who have the correct username and password credentials. These credentials are stored in a data source that the server request references in order to authenticate the user.
+
+The concept of Basic Authentication has been traditionally implemented in the LAMP Stack and is commonly associated with a .htaccess file. That file would have rules in it, and read something like:
+
+    AuthType Basic
+    AuthName "Secure Content"
+    AuthUserFile /home/myuser/public_html/.htpasswd
+    Require valid-user
+
+This .htaccess file would then be stored in the directory that you want to protect.
+
+That’s great for an Apache Server but what if you have no server at all? Serverless web development is an efficient way to deploy a web app but along with benefits comes the paradigm shift of achieving basic authentication that doesn’t require a .htaccess file or, any server directory at all.
+
+This is accomplished by adding a Lambda@Edge function at the viewer request layer of your CloudFront instance. Refer to the below diagram:
+
+![Serverless Basic Auth Diagram](https://s3.amazonaws.com/averygoodweb-app-prod-earthbucket-media/blog/posts/images/serverless-basic-auth-2020-08-13..svg "Serverless Basic Auth Diagram")
 
 ### Occupy Distillery Tote
 
