@@ -5,7 +5,7 @@ title: How to Create Basic Auth for a Serverless App
 date: 2020-08-13T04:00:00Z
 slug: basic-auth-serverless-app
 author: Avery Smith
-coverPhoto: blog/posts/images/Notary-Public-Ink-Stamp-On-Sig-234574582-2020-08-13..jpg
+coverPhoto: blog/posts/images/21860953461_35de6932ce_c-2020-08-13..jpg
 published: true
 
 ---
