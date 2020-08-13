@@ -59,6 +59,7 @@ The Basic Authentication Logic needs to follow these steps:
    3. if request doesn't contain authorization header
       1. return **response** object
 
+```
     exports.handler = (event, context, callback) => {
       // basic auth script, for more information, visit - https://medium.com/hackernoon/serverless-password-protecting-a-static-website-in-an-aws-s3-bucket-bfaaa01b8666
       const { request } = event.Records[0].cf
@@ -122,6 +123,7 @@ The Basic Authentication Logic needs to follow these steps:
         }
       }
     }
+```
 
 [You can view the full code example here](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
 
