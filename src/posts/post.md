@@ -64,30 +64,19 @@ The Basic Authentication Logic needs to follow these steps:
 Full example pasted below:
 
     exports.handler = (event, context, callback) => {
-      console.log('A', JSON.stringify(event.Records[0].cf))
       // basic auth script, for more information, visit - https://medium.com/hackernoon/serverless-password-protecting-a-static-website-in-an-aws-s3-bucket-bfaaa01b8666
       const { request } = event.Records[0].cf
       const host = request.headers.host[0].value
       const hostPieces = host.split('.')
       const environment = (hostPieces.length === 2) ? 'prod' : hostPieces[0]
       if (environment === 'prod') {
-        console.log('B')
         callback(null, request)
       } else {
-        console.log('C')
         // Get request headers
         const { headers } = request
-        // Configure authentication
-        // const authUser = '<authUser>'
-        // const authPass = '<authPass>'
-        // const authString = `Basic ${authUser}:${authPass}`
-        // const authStrings = [
-        //   `Basic ${authUser}:${authPass}` // share this authentication with others
-        // ]
         const AWS = require('aws-sdk')
         AWS.config.update({region: 'us-east-1'})
         const getAuthUsers = () => new Promise( async (resolve, reject) => {
-          console.log('D')
           var params = {
               KeyConditionExpression: 'partitionKey = :partitionKey',
               ExpressionAttributeValues: {
@@ -116,23 +105,44 @@ Full example pasted below:
             }
         }
         if (headers.authorization) {
-          console.log('H')
           submitted = `Basic ${Buffer.from(headers.authorization[0].value.split('Basic ')[1], 'base64').toString('ascii')}`
           getAuthUsers().then( authStrings => {
             if (authStrings.includes(submitted)) {
-              console.log('I')
               callback(null, request)
             } else {
-              console.log('J')
               callback(null, response)
             }
           }).catch( err => {
-            console.log('K', err)
             callback(null, response)
           })
         } else {
-          console.log('L')
           callback(null, response)
         }
       }
     }
+
+[You can also view this file on Github](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
+
+### Basic Authentication Table
+
+In order to create a username and password combination, follow these steps:
+
+1. Navigate to (https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:)\[https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:\]
+2. Click '`<environmment>-EarthBucketBasicAuthTable`' > 'Items'
+3. Click, 'Create Item', then add the following values, replacing `<authUser>` and `<authPass>` with their corresponding base64 values.
+
+| name | value | description |
+| --- | --- | --- |
+| partitionKey | published | a required string for each record in this table |
+| authUser | <authUser> | Generate an authUser string value from Random.org Then Base64 this string at https://www.base64encode.net/. Be sure to then store this string in a safe place, like lastpass.com. |
+| authPass | <authPass> | Generate an authPass string value from Random.org Then Base64 this string at https://www.base64encode.net/. Be sure to then store this string in a safe place, like lastpass.com. |
+
+In order to add the `<authPass>`, you should:
+4\. Click the plus button to the left of "authUser".
+5\. In the drop-down box, Click 'Append' > 'String'
+6\. In the "field" input, "authPass"
+7\. In the "value" input, enter your random password string.
+8\. Click, 'Save'.
+9\. Now, navigate to `<environment>`.`<domainName>` and enter the `<authUser>` and `<authPass>`. You should now be able to sign into the lower environment.
+
+To add, update and/or delete auth users at a later date, just edit the '`<environment>-EarthBucketBasicAuthTable`', accordingly.
