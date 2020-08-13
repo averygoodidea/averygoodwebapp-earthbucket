@@ -60,17 +60,14 @@ The Basic Authentication Logic needs to follow these steps:
       1. return **response** object
 
     exports.handler = (event, context, callback) => {
-      console.log('A', JSON.stringify(event.Records[0].cf))
       // basic auth script, for more information, visit - https://medium.com/hackernoon/serverless-password-protecting-a-static-website-in-an-aws-s3-bucket-bfaaa01b8666
       const { request } = event.Records[0].cf
       const host = request.headers.host[0].value
       const hostPieces = host.split('.')
       const environment = (hostPieces.length === 2) ? 'prod' : hostPieces[0]
       if (environment === 'prod') {
-        console.log('B')
         callback(null, request)
       } else {
-        console.log('C')
         // Get request headers
         const { headers } = request
         // Configure authentication
@@ -83,7 +80,6 @@ The Basic Authentication Logic needs to follow these steps:
         const AWS = require('aws-sdk')
         AWS.config.update({region: 'us-east-1'})
         const getAuthUsers = () => new Promise( async (resolve, reject) => {
-          console.log('D')
           var params = {
               KeyConditionExpression: 'partitionKey = :partitionKey',
               ExpressionAttributeValues: {
@@ -91,7 +87,6 @@ The Basic Authentication Logic needs to follow these steps:
               },
               TableName: `averygoodweb-app-${environment}-EarthBucketBasicAuthTable`
           }
-          console.log('E', params)
           try {
             const dynamo = new AWS.DynamoDB.DocumentClient()
             const data = await dynamo.query(params).promise()
@@ -112,22 +107,17 @@ The Basic Authentication Logic needs to follow these steps:
             }
         }
         if (headers.authorization) {
-          console.log('H')
           submitted = `Basic ${Buffer.from(headers.authorization[0].value.split('Basic ')[1], 'base64').toString('ascii')}`
           getAuthUsers().then( authStrings => {
             if (authStrings.includes(submitted)) {
-              console.log('I')
               callback(null, request)
             } else {
-              console.log('J')
               callback(null, response)
             }
           }).catch( err => {
-            console.log('K', err)
             callback(null, response)
           })
         } else {
-          console.log('L')
           callback(null, response)
         }
       }
