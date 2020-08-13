@@ -13,8 +13,6 @@ Many people are familiar with the .htaccess way of implementing Basic Authentica
 
 <!-- endexcerpt -->
 
-Many people are familiar with the .htaccess way of implementing Basic Authentication but how do you it with serverless?
-
 Basic Authentication is a standard HTTP security procedure that enables a browser to prompt a user to submit a username and password in order to grant access to the browser’s response, typically a web page.
 
 Within the AWS world, this is achieved by adding a Lambda@Edge function at the viewer request layer of your CloudFront instance. Refer to the below diagram:
