@@ -9,8 +9,7 @@ aws s3 sync ./storybook-static s3://$AWS_EARTHBUCKET_DOCS_BUCKET/ui/1/docs --del
 CLOUDFRONT_DISTRIBUTION_ID=$(aws cloudformation list-exports --query "Exports[?Name=='${NAMESPACE}-${ENVIRONMENT}-AirCdnDistributionId'].Value" --output text --profile $AWS_PROFILE)
 aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*' --profile $AWS_PROFILE
 [[ $ENVIRONMENT != prod ]] && SUBDOMAIN="$ENVIRONMENT". || SUBDOMAIN=""
-FQDN=${SUBDOMAIN}$DOMAIN_NAME
 echo "------------------"
 echo "${DOMAIN_NAME} ui docs published! You can view them here:"
-echo "https://${FQDN}/ui/1/docs/"
+echo "https://${DOMAIN_NAME}/ui/1/docs/"
 echo "------------------"
