@@ -1,8 +1,8 @@
 ---
 tags:
-- test
+- security
 title: How to Create Basic Auth for a Serverless App
-date: 2020-08-13T04:00:00Z
+date: 2020-08-13T04:00:00.000+00:00
 slug: basic-auth-serverless-app
 author: Avery Smith
 coverPhoto: blog/posts/images/33345241326_29b651fa21_b-2020-08-13..jpg
@@ -12,8 +12,6 @@ published: true
 Many people are familiar with the .htaccess way of implementing Basic Authentication but how do you it with serverless?
 
 <!-- endexcerpt -->
-
-Many people are familiar with the .htaccess way of implementing Basic Authentication but how do you it with serverless?
 
 Basic Authentication is a standard HTTP security procedure that enables a browser to prompt a user to submit a username and password in order to grant access to the browser’s response, typically a web page.
 
@@ -60,6 +58,72 @@ The Basic Authentication Logic needs to follow these steps:
          1. return **response** object
    3. if request doesn't contain authorization header
       1. return **response** object
+
+```
+    exports.handler = (event, context, callback) => {
+      // basic auth script, for more information, visit - https://medium.com/hackernoon/serverless-password-protecting-a-static-website-in-an-aws-s3-bucket-bfaaa01b8666
+      const { request } = event.Records[0].cf
+      const host = request.headers.host[0].value
+      const hostPieces = host.split('.')
+      const environment = (hostPieces.length === 2) ? 'prod' : hostPieces[0]
+      if (environment === 'prod') {
+        callback(null, request)
+      } else {
+        // Get request headers
+        const { headers } = request
+        // Configure authentication
+        // const authUser = '<authUser>'
+        // const authPass = '<authPass>'
+        // const authString = `Basic ${authUser}:${authPass}`
+        // const authStrings = [
+        //   `Basic ${authUser}:${authPass}` // share this authentication with others
+        // ]
+        const AWS = require('aws-sdk')
+        AWS.config.update({region: 'us-east-1'})
+        const getAuthUsers = () => new Promise( async (resolve, reject) => {
+          var params = {
+              KeyConditionExpression: 'partitionKey = :partitionKey',
+              ExpressionAttributeValues: {
+                  ':partitionKey': 'published'
+              },
+              TableName: `averygoodweb-app-${environment}-EarthBucketBasicAuthTable`
+          }
+          try {
+            const dynamo = new AWS.DynamoDB.DocumentClient()
+            const data = await dynamo.query(params).promise()
+            const authStrings = data.Items.map( ({ authUser, authPass }) => `Basic ${authUser}:${Buffer.from(authPass, 'base64').toString('ascii')}`)
+            resolve(authStrings)
+          } catch (err) {
+            reject(err)
+          }
+        })
+        let submitted
+        const body = 'Unauthorized access.'
+        const response = {
+            status: '401',
+            statusDescription: 'Unauthorized',
+            body: body,
+            headers: {
+                'www-authenticate': [{key: 'WWW-Authenticate', value:'Basic'}]
+            }
+        }
+        if (headers.authorization) {
+          submitted = `Basic ${Buffer.from(headers.authorization[0].value.split('Basic ')[1], 'base64').toString('ascii')}`
+          getAuthUsers().then( authStrings => {
+            if (authStrings.includes(submitted)) {
+              callback(null, request)
+            } else {
+              callback(null, response)
+            }
+          }).catch( err => {
+            callback(null, response)
+          })
+        } else {
+          callback(null, response)
+        }
+      }
+    }
+```
 
 [You can view the full code example here](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
 
