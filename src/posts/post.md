@@ -61,66 +61,7 @@ The Basic Authentication Logic needs to follow these steps:
    3. if request doesn't contain authorization header
       1. return **response** object
 
-Full example pasted below:
-
-    exports.handler = (event, context, callback) => {
-      // basic auth script, for more information, visit - https://medium.com/hackernoon/serverless-password-protecting-a-static-website-in-an-aws-s3-bucket-bfaaa01b8666
-      const { request } = event.Records[0].cf
-      const host = request.headers.host[0].value
-      const hostPieces = host.split('.')
-      const environment = (hostPieces.length === 2) ? 'prod' : hostPieces[0]
-      if (environment === 'prod') {
-        callback(null, request)
-      } else {
-        // Get request headers
-        const { headers } = request
-        const AWS = require('aws-sdk')
-        AWS.config.update({region: 'us-east-1'})
-        const getAuthUsers = () => new Promise( async (resolve, reject) => {
-          var params = {
-              KeyConditionExpression: 'partitionKey = :partitionKey',
-              ExpressionAttributeValues: {
-                  ':partitionKey': 'published'
-              },
-              TableName: `averygoodweb-app-${environment}-EarthBucketBasicAuthTable`
-          }
-          try {
-            const dynamo = new AWS.DynamoDB.DocumentClient()
-            const data = await dynamo.query(params).promise()
-            const authStrings = data.Items.map( ({ authUser, authPass }) => `Basic ${authUser}:${Buffer.from(authPass, 'base64').toString('ascii')}`)
-            resolve(authStrings)
-          } catch (err) {
-            reject(err)
-          }
-        })
-        let submitted
-        const body = 'Unauthorized access.'
-        const response = {
-            status: '401',
-            statusDescription: 'Unauthorized',
-            body: body,
-            headers: {
-                'www-authenticate': [{key: 'WWW-Authenticate', value:'Basic'}]
-            }
-        }
-        if (headers.authorization) {
-          submitted = `Basic ${Buffer.from(headers.authorization[0].value.split('Basic ')[1], 'base64').toString('ascii')}`
-          getAuthUsers().then( authStrings => {
-            if (authStrings.includes(submitted)) {
-              callback(null, request)
-            } else {
-              callback(null, response)
-            }
-          }).catch( err => {
-            callback(null, response)
-          })
-        } else {
-          callback(null, response)
-        }
-      }
-    }
-
-[You can also view this file on Github](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
+[You can view the full code example here](https://github.com/averygoodidea/averygoodwebapp-infrastructure/blob/master/earthbucket-lambda-edge/index.js).
 
 ## Basic Authentication Table
 
