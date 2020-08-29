@@ -4,7 +4,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `A Very Good Web App`,
-    description: `A web app starter kit that utliizes infrastructure as a service`,
+    description: `A web app starter kit that utilizes infrastructure as a service`,
     author: `@averygoodidea`,
   },
   plugins: [
