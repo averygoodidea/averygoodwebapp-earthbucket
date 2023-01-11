@@ -29,7 +29,7 @@
     "gatsby-remark-relative-images": "^0.3.0",
     "gatsby-source-apiserver": "^2.1.4",
     "gatsby-source-filesystem": "^2.2.2",
-    "gatsby-transformer-remark": "^2.8.13",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.4.3",
     "molecules": "file:src/components/molecules",
     "moment": "^2.26.0",
